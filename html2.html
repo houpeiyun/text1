@@ -61,12 +61,14 @@
     <form action="">
         <input type="text" name="用户"/><br/>
         <input type="password" name="密码"/>
+        <fieldest>
         <div>
             <label for="use">用户名：</label><input id="use" type="text"/><br/>
         </div>
         <div>
             <label for="pas">密码：</label><<input id="pas" type="password"/><br/>
         </div>
+        </fieldest>
         性别：
         <input type="radio" name="sex">男
         <input type="radio" name="sex"checked>女<br/>
@@ -96,13 +98,17 @@
         <!--块级元素：垂直分布，自己占一行-->
         <div>div</div>
         <p>ppp</p>
+        <h>aaaaa</h>
         <ul>
             <li>11111</li>
         </ul>
-        <a href="#">aaa</a>
-        <!--行级元素：水平分布-->
+
+        <!--行级元素：水平分布,不能设置行，宽，其由内容撑起-->
         <span>span</span>
-        <img src="" alt=""><!--行级块元素-->
+        <a href="#">aaa</a>
+        <!--行级块元素,既可水平分布，又可以设置宽高-->
+        <img src="" alt="">
+        inline block
        <!-- html语义化
         1.方便其他开发人员
         2.seo有利于搜索引擎优化-->
