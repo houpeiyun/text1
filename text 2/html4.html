@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            height: 5000px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>百度网</title>
+</head>
+<!--<body bgcolor="#ffe4c4">-->
+<body style="background: bisque">
+    <h>标题</h>
+    <h1>标题</h1>
+    <h2>标题</h2>
+    <h3>标题</h3>
+    <h4>标题</h4>
+    <h5>标题</h5>
+    <h6>标题</h6>
+    <h1 align="center">标题</h1><!--该用法已被淘汰。-->
+    <h1 style="text-align:center">This is a heading</h1>
+    <h1 style="font-family:verdana">A heading</h1>
+    <p style="font-family:arial;color:red;font-size:20px;">A paragraph.</p>
+    <p>段落</p>
+    <a href="http://www.w3school.com.cn/html/html_basic.asp"><h2>html学习网址</h2></a>
+    <img src="../aa.jpg" alt="白敬亭" width="500" height="400">
+    <p>表格</p>
+    <table border="1">
+        <tr>
+            <th>heading</th><th>others</th><th>others</th><th>others</th><th>others</th>
+        </tr>
+        <tr>
+            <td>aa</td><td>bb</td><td>bb</td><td>bb</td><td>bb</td>
+        </tr>
+        <tr>
+            <td>cc</td><td>dd</td><td>dd</td><td>dd</td><td>dd</td>
+        </tr>
+    </table>
+    <p>有序列表</p>
+    <ol>
+        <li>吃饭</li>
+        <li>睡觉</li>
+        <li>打豆豆</li>
+    </ol>
+    <p>无序列表</p>
+    <ul>
+        <li>吃饭</li>
+        <li>睡觉</li>
+        <li>打豆豆</li>
+    </ul>
+    <!--<p>布局，划分区块</p>-->
+    <div>
+        夏至未至<br>
+        夏<span style="color: red">至未</span>至
+    </div>
+    <!--<p>行局元素</p>.-->
+    <span>aaa</span>
+    <span>bbb</span>
+    <!--上下加横线，水平线-->
+    <hr />
+    <p><span style="color:red;">刘可新</span></p><!--设置字体颜色-->
+    <hr />
+    <p>表单</p>
+    <form action="">
+        用户名：<input type="text" name="用户"><br>
+        密码：<input type="password" name="密码"><br>
+        <fieldest>
+            <div>
+                <label for="user">用户名👩：</label><input id="user" type="text">
+            </div>
+            <div>
+                <label for="pass">密码:</label><input id="pass" type="password">
+            </div>
+        </fieldest>
+        性别：
+        <input type="radio" name="sex">女 👩
+        <input type="radio" name="sex">男👨<br>
+        爱好：
+        <input type="checkbox" name="ai">白敬亭
+        <input type="checkbox" name="ai">蔡徐坤
+        <input type="checkbox" name="ai">尤长靖<br>
+        学校：
+        <select>
+            <option value="1">黑大</option>
+            <option value="2">林大</option>
+            <option value="3">哈理工</option>
+            <option value="4">哈工程</option>
+        </select><br>
+        <button>按钮</button><br>
+        <button type="button">click me!</button><br>
+        <button type="submit">提交</button><br>
+        <textarea name="aa" id="aa" cols="30" rows="2"></textarea>
+        html5:
+        <input type="number"/>
+        <input type="email"/>
+        <input type="date"/>
+        <input type="day"/>
+        <input type="text"/>
+        <input type="color"/>
+        <br/>
+        <!--实体字符 &nbsp空格   &lt小于   &gt大于-->
+    </form>
+    <abbr title="etcetera">etc.</abbr><!--缩写-->
+    <br />
+    <acronym title="like our virus end">love</acronym>
+    <br />
+    <acronym title="World Wide Web">WWW</acronym><!--首字母缩写-->
+    <p>在某些浏览器中，当您把鼠标移至缩略词语上时，title 可用于展示表达的完整版本。</p>
+    <p>仅对于 IE 5 中的 acronym 元素有效。</p>
+    <p>对于 Netscape 6.2 中的 abbr 和 acronym 元素都有效。</p>
+    <blockquote>
+        这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。
+    </blockquote>
+    <p>
+        使用 blockquote 元素的话，浏览器会插入换行和外边距，而 q 元素不会有任何特殊的呈现。
+    </p>
+    <p>一打有 <del>xihuan</del> <ins>buxihuan</ins> 件。<sub>aaaaa</sub><sup>bbbbbb</sup><b>ccccc</b><big>dddddd</big><em>eeeeee</em><strong>fffffff</strong><i>gggggg</i></p>
+    <!--块级元素：垂直分布，自己占一行-->
+    <div>div</div>
+    <p>ppp</p>
+    <h>aaaaa</h>
+    <ul>
+        <li>11111</li>
+    </ul>
+
+    <!--行级元素：水平分布,不能设置行，宽，其由内容撑起-->
+    <span>span</span>
+    <a href="#">aaa</a>
+    <!--行级块元素,既可水平分布，又可以设置宽高-->
+    <img src="" alt="">
+    inline block
+    <!-- html语义化
+     1.方便其他开发人员
+     2.seo有利于搜索引擎优化-->
+</body>
+</html>
