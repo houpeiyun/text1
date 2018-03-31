@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1,#div2,#div3{
+            width: 80px;
+            height: 200px;
+            background: #dddddd;
+            border:1px solid mediumvioletred;
+            float: left;
+        }
+        #div0{
+            background: yellow;
+            /*height: 80px;*/
+            /*overflow:hidden;*/
+        }
+        h3{
+            background: firebrick;
+        }
+        #div1{
+            position: relative;
+        }
+        .icon{
+            position: absolute;
+            right: -18px;
+            top: -10px;
+            background: salmon;
+        }
+        #div0::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        /*.clear{
+            clear: left;
+            !*clear: both;*!
+        }*/
+    </style>
+</head>
+<body>
+<!--float 脱离文档流 空间释放 后面元素上去 子元素浮动，父元素无高度，塌陷
+            1.给父元素一个高度
+            2.overflow:hidden
+            3.clear:both-->
+    <div id="div0" class="clearfix">
+        <div id="div1">
+            div1
+            <span class="icon">haha</span>
+        </div>
+        <div id="div2">
+            div2
+        </div>
+        <div id="div3">
+            div3
+        </div>
+        <div class="clear"></div>
+    </div>
+    <h3>hbcjdbckdjbd</h3>
+</body>
+</html>

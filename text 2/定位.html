@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height:8000px;
+        }
+        div{
+            width:50px;
+            height: 25px;
+            background: yellow;
+            display:inline-block;
+            border:1px solid mediumvioletred;
+        }
+        #div0{
+            width: 800px;
+            height: 800px;
+            background: #dddddd;
+            /*margin: 100px;*/
+            position: relative;
+            left:100px;
+            top:100px;
+        }
+        /*#div2{
+            position: relative;
+            left:20px;
+            top:30px;
+        }*/
+        #div2{
+            position:absolute;
+            left:20px;
+            top:30px;
+        }
+        #div5{
+            width: 80px;
+            height: 200px;
+            background: #dddddd;
+            position:fixed;
+            right: 50px;
+            top:50px;
+        }
+    </style>
+</head>
+<body>
+    <!--position-->
+    <!--static默认的-->
+    <!--relative相对定位,相对于自己原来的位置移动，空间不释放-->
+    <!--absolute相对于已定位的父元素绝对定位，（相对于最近已定位的祖宗元素，若没有则相对于body）脱离原来的文档流空间释放-->
+    <!--fixed固定定位-->
+    <div id="div0">
+        <div id="div1">
+            div1
+        </div>
+        <div id="div2">
+            div2
+        </div>
+        <div id="div3">
+            div3
+        </div>
+    </div>
+    <div id="div5">
+        div5
+    </div>
+</body>
+</html>

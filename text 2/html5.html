@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*标准盒模型*/
+        div{
+            width: 200px;
+            height: 200px;
+            background:red ;
+            /*padding: 50px;*/
+            /*padding: 20px 40px;*/
+            /*padding: 20px 40px 60px;*/
+            padding: 10px 30px 100px 50px;
+            /*border: 5px dotted green;*/
+            border: 5px solid green;
+            margin: 30px;
+        }
+
+        /*怪异盒模型，没写doctype，ie6以下,padding以后框架大小不变*/
+        /*div{
+            width: 200px;
+            height: 200px;
+            background:red ;
+            box-sizing: border-box;!*怪异盒模型*!
+            box-sizing: content-box;!*标准盒模型，默认*!
+            padding: 20px;
+            border:20px solid green;
+            !*padding: 10px 30px 100px 50px;
+            border: 5px solid green;
+            margin: 30px;*!
+        }*/
+        /*外边距合并问题*/
+        #div1{
+            width: 200px;
+            height: 200px;
+            background:yellow ;
+            margin-bottom: 30px;
+            border: 5px solid green;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background:paleturquoise ;
+            margin-bottom: 50px;
+            border: 5px solid green;
+            /*float: left;*/
+            display:inline-block;
+        }
+        /*解决父子元素的外边距合并*/
+        #div3{
+            width: 200px;
+            height: 200px;
+            background:yellow ;
+            margin-bottom: 50px;
+            border: 5px solid green;
+            /*border: 1px solid transparent;*/
+            overflow: hidden;/*溢出隐藏*/
+        }
+        #div4{
+            width: 100px;
+            height: 100px;
+            background:paleturquoise ;
+            margin-top: 5px;
+            /*父子中均可*/
+            /*position: absolute;*/
+            /*float: left;*/
+        }
+    </style>
+</head>
+<body>
+    <div>hdvbkajdvbkgbvkjdvbdfe</div>
+    <div id="div1">
+        hdvbkajdvbkgbvkjdvbdfe
+    </div>
+    <div id="div2">
+        jbskfgnkdiuflhgdfjnvgl
+    </div>
+    <div id="div3">
+        hdvbkajdvbkg bvkjdvbdfe
+        <div id="div4">jbskfgnkdiuf lhgdfjnvgl</div>
+    </div>
+
+</body>
+</html>
