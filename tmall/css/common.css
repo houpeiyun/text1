@@ -1,0 +1,91 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+ /*   .wrapper{
+        width: 1230px;
+        margin: 0 auto;
+    }
+    !*nav开始*!
+    .nav{
+        height: 33px;
+        background: #f2f2f2;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .nav-box{
+        height: 32px;
+        line-height: 32px;
+        font-size: 12px;
+    }
+    .nav-login a{
+        padding: 0px 10px 0px 10px;
+        color: #999;
+    }
+    .nav-login a:hover ,.nav-menu a:hover{
+        color: #ff0036;
+    }
+    .nav-login .login-btn{
+        padding-left: 20px;
+    }
+    .nav-login{
+        float: left;
+    }
+    .nav-login a .nav-login span{
+        float: left;
+    }
+    .nav-menu{
+        float: right;
+    }
+    .nav-menu>li{
+        float: left;
+    }
+    .nav-link{
+        padding: 10px;
+        color:#999999;
+    }
+*/    .wrapper{
+        width: 1230px;
+        margin: 0 auto;
+    }
+    .nav{
+        height: 33px;
+        background:#f2f2f2;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .nav-box{
+        height: 32px;
+        line-height: 32px;
+        font-size: 12px;
+    }
+    .nav-login a{
+        padding: 0px 10px 0px 10px;
+        color:#999
+    }
+    .nav-login .login-btn{
+        padding-left: 20px;
+    }
+    .nav-login a .nav-login span{
+        float: left;
+    }
+    .nav-login{
+        float: left;
+    }
+    .nav-menu{
+        float: right;
+    }
+    .nav-menu>li{
+        float: left;
+    }
+    .nav-link{
+        padding: 10px;
+        color: #999;
+    }
+    .nav-login a:hover,.nav-menu a:hover{
+        color: #ff0036;
+    }
