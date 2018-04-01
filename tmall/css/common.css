@@ -54,6 +54,8 @@ a{
     .nav-link{
         padding: 0px 16px 0px 10px;
         color:#999999;
+    }
+    .aa{
         display: block;
     }
     .sn-menu{
@@ -86,16 +88,17 @@ a{
         transform-origin: 3px 1.5px;
     }
     .bu{
-        width: 0;
+        width: 1px;
         height: 14px;
         position: relative;
-        top:4px;
+        top:6px;
         color: #999999;
-        border: 1px solid #ccc;
+        border-left: 1px solid #ccc;
         float: left;
     }
     .bui{
         top: 8px;
+        margin-left: 3px;
     }
     .sub-sn-menu{
         background: #fff;
@@ -106,7 +109,7 @@ a{
         position:absolute;
         left: -1px;
         top:34px;
-        display: none;
+        /*display: none;*/
     }
     .sub-sn-menu-yi{
         width: 74px;
@@ -129,17 +132,27 @@ a{
         width: 60px;
         height: 16px;
         float: left;
-    }
-    .sub-sn-menu-er .span{
-        width: 130px;
-        height: 8px;
-        float: left;
-    }
-    .sub-sn-menu-er .biaoti{
-        width: 130px;
-        height: 24px;
-        float: left;
-    }
+    }.d1,.d2,.d3,.d5{
+         float: left;
+     }
+.d1{
+    color:#333;
+    padding:0 7px;
+    line-height:18px;
+}
+.d4{
+    color:#333;
+    padding:0 7px;
+    line-height:29px;
+}
+.d3{
+    color:#999;
+    line-height:1px;
+}
+.d5{
+    color:#999;
+    line-height:0px;
+}
     .sn-menu:hover .sub-sn-menu{
         display: block;
     }
