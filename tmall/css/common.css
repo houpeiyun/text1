@@ -2,23 +2,26 @@
     padding: 0px;
     margin: 0px;
 }
+body{
+    font: 12px/1.5 tahoma,arial,"\5b8b\4f53";
+}
 ul{
     list-style: none;
 }
 a{
     text-decoration: none;
 }
- /*   .wrapper{
+    .wrapper{
         width: 1230px;
         margin: 0 auto;
     }
-    !*nav开始*!
+    /*nav开始*/
     .nav{
         height: 33px;
         background: #f2f2f2;
         border-bottom: 1px solid #e5e5e5;
     }
-    .nav-box{
+    .nav-box {
         height: 32px;
         line-height: 32px;
         font-size: 12px;
@@ -27,9 +30,12 @@ a{
         padding: 0px 10px 0px 10px;
         color: #999;
     }
-    .nav-login a:hover ,.nav-menu a:hover{
+    .nav-login a:hover {
         color: #ff0036;
     }
+    .nav-menu a:hover{
+         color: #ff0036;
+     }
     .nav-login .login-btn{
         padding-left: 20px;
     }
@@ -46,46 +52,105 @@ a{
         float: left;
     }
     .nav-link{
-        padding: 10px;
+        padding: 0px 16px 0px 10px;
         color:#999999;
+        display: block;
     }
-*/    .wrapper{
-        width: 1230px;
-        margin: 0 auto;
+    .sn-menu{
+        position: relative;
     }
-    .nav{
-        height: 33px;
-        background:#f2f2f2;
-        border-bottom: 1px solid #e5e5e5;
+    .sn-menu:hover{
+        background: #fff;
+        height: 34px;
     }
-    .nav-box{
-        height: 32px;
-        line-height: 32px;
-        font-size: 12px;
+    .sn-menu a:hover{
+        text-decoration: underline;
     }
-    .nav-login a{
-        padding: 0px 10px 0px 10px;
-        color:#999
+    .dh a:hover{
+        text-decoration: none;
     }
-    .nav-login .login-btn{
-        padding-left: 20px;
+    .sn-menu:hover::after{
+        transform: rotate(180deg);
     }
-    .nav-login a .nav-login span{
+    .sn-menu::after {
+        content:" ";
+        width: 0px;
+        height: 0px;
+        border-width: 3px;
+        border-style: solid;
+        border-color: #999 transparent transparent transparent;
+        position:  absolute;
+        right: 6px;
+        top: 16px;
+        transition: all 0.2s linear;
+        transform-origin: 3px 1.5px;
+    }
+    .bu{
+        width: 0;
+        height: 14px;
+        position: relative;
+        top:4px;
+        color: #999999;
+        border: 1px solid #ccc;
         float: left;
     }
-    .nav-login{
+    .bui{
+        top: 8px;
+    }
+    .sub-sn-menu{
+        background: #fff;
+        width: 85px;
+        border: 1px solid #e5e5e5;
+        border-top: none;
+        padding: 14px 10px;
+        position:absolute;
+        left: -1px;
+        top:34px;
+        display: none;
+    }
+    .sub-sn-menu-yi{
+        width: 74px;
+    }
+    .sub-sn-menu-er{
+        width: 130px;
+        position:absolute;
+        left: -77px;
+        top:34px;
+        padding: 5px 10px;
+    }
+    .sub-sn-menu-san{
+        width: 130px;
+        position:absolute;
+        left: -77px;
+        top:144px;
+        padding: 5px 10px;
+    }
+    .sub-sn-menu-er .sub-menu-item{
+        width: 60px;
+        height: 16px;
         float: left;
     }
-    .nav-menu{
-        float: right;
-    }
-    .nav-menu>li{
+    .sub-sn-menu-er .span{
+        width: 130px;
+        height: 8px;
         float: left;
     }
-    .nav-link{
-        padding: 10px;
+    .sub-sn-menu-er .biaoti{
+        width: 130px;
+        height: 24px;
+        float: left;
+    }
+    .sn-menu:hover .sub-sn-menu{
+        display: block;
+    }
+    .sub-menu-item{
+        height: 18px;
+        line-height: 18px;
+    }
+    .sub-menu-item a{
         color: #999;
     }
-    .nav-login a:hover,.nav-menu a:hover{
-        color: #ff0036;
+    .nav-icon{
+        color: red;
+        font-size: 14px;
     }
