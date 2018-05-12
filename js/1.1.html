@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <script>
+        var a=5;
+        a="abc";
+        const t=8;
+        //t="www";
+        console.log(a);
+        var e;//undefined，不是错误也是一种类型
+        function test() {
+            var b=c=6;//b为局部变量，c为全局变量
+            d=7;
+        }
+        alert();
+        function test1(b) {
+            b=6;
+        }
+        test1(a);//传递的是a的值
+        var o=new Object();
+        o.name='lisi';
+        function test3(o2) {
+            o2.name='wangwu';
+        }
+        test3(o);//引用传递，严格来说js中无引用传递，只是特殊的值传递
+        console.log(o.name);
+        typeof 123//测试类型
+        function aa() {
+
+        }
+        console.log(typeof aa);
+        //16进制0x开头，8进制0开头
+        parseFloat('12.55');
+        parseInt('12.55');
+        parseFloat('12px');
+        parseFloat('abc12');
+        parseFloat('12.23.34');
+        alert(parseInt('AB',16));//按16进制解析
+    </script>
+</body>
+</html>

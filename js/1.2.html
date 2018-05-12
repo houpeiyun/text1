@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //对象(object):  everything is object
+                  //属性
+                  //方法
+        //对象有三种
+        //1.内置对象
+        //2.DOM对象
+        //3.自定义对象
+        /*var o1=new Object();
+        o1.name='lisi';
+        o1.age=23;
+        o1.sayhi=function () {
+            alert(o1.name+'say hi......');
+        }
+        o1.sayhi();*/
+       /* var o1={
+            name:'lisi',
+            age:23,
+            sayhi: function () {
+                alert(o1.name+'say hi......');
+            }
+        }
+        o1.sayhi();*/
+        var o={
+            name:'zhangsan',
+            age:23,
+            friends:['zhaowu','wangqi'],
+            brother:{
+                name:'lihua',
+                age:25,
+                wife:{
+                    name:'haha'
+                }
+            }
+        }
+        o.brother.wife.name;
+    </script>
+</body>
+</html>

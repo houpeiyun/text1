@@ -1,0 +1,174 @@
+<!DOCTYPE html>  <!--//文档声明 html5-->
+<html lang="en">  <!--//根标签-->
+<head>  <!--//大部分对页面进行规范，link标签，script-->
+    <meta charset="UTF-8"> <!--//声明字符类型-->
+    <title>Yee</title>
+    <style>
+        body{
+            height: 5000px;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .div1{
+            width:1000px;
+            font-size: 30px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: #ff0036;
+            text-align: center;
+            height:300px;
+            /*height:auto;//自动*/
+            line-height:300px;
+            background-image: url('../tmall/images/aaaa.png');
+            /*position: static;//不写时自动有*/
+            /*position: relative;//相对定位，相对于自己的位置定位，空间不释放
+            z-index: 1;*/
+            /*position: absolute;//绝对定位，空间释放（相对于最近的已定位的祖先元素定位，若无最近的祖先元素定位则相对于html的根元素定位）*/
+            /*position: fixed;//固定定位，空间释放，Ie6不支持，相对于浏览器永远不动*/
+            /*float:none;//不写的话会默认有
+            float: right;//右浮动
+            float: left;//左浮动（元素塌陷问题，子元素浮动，空间释放，导致父元素高度为0）*/
+            /*overflow: hidden;//解决元素塌陷问题*/
+        }
+        .aa{
+            list-style: none;
+        }
+        .search-xial a{
+            float: left;
+            padding: 2px 12px;
+            color: #999999;
+        }
+        .bu{
+            width: 1px;
+            height: 14px;
+            position: relative;
+            top:6px;
+            color: #999999;
+            border-left: 1px solid #ccc;
+            float: left;
+        }
+        .div1:after{
+            content: 'haha';
+            display: block;
+            /*clear: both;//清除浮动*/
+        }
+    </style>
+</head>
+<body>
+    <a href="http://www.bootcss.com/">bootcss</a><!--//超链接-->
+    <table border="1">
+        <tr>
+            <th>姓名</th>
+            <th colspan="2">性别</th><!--//列单元格合并,行合并为rolspan-->
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td  colspan="2">里斯</td>
+        </tr>
+        <tr>
+            <td>男</td>
+            <td>女</td>
+            <td>女</td>
+        </tr>
+    </table>
+    <div class="div1">
+        呜呜
+    </div>
+    <form action="">
+        用户名：<input type="text" name="用户"/><br/>
+        密码：<input type="password" name="密码"/>
+        <fieldest>
+            <div>
+                <label for="use">用户名：</label><input id="use" type="text"/><br/>
+            </div>
+            <div>
+                <label for="pas">密码：</label><input id="pas" type="password"/><br/>
+            </div>
+        </fieldest>
+        性别：
+        <input type="radio" name="sex">男
+        <input type="radio" name="sex"checked>女<br/>
+        爱好：
+        <input type="checkbox" name="sex"/>&lt吃&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp饭&gt
+        <input type="checkbox" name="sex"checked/>睡觉<br/>
+        学校：
+        <select name="" id="">
+            <option value="1">黑大</option>
+            <option value="2">林大</option>
+            <option value="3">农大</option>
+        </select>
+        <button>按钮</button>
+        <input type="button" value="按钮">
+        <button type="button">click me!</button>
+        <input type="submit" value="提交按钮"/>
+        <textarea name="aa" id="aa" cols="5" rows="10"></textarea><br/>
+        html5:
+        <input type="number"/>
+        <input type="email"/>
+        <input type="date"/>
+        <input type="day"/>
+        <input type="text"/>
+        <input type="color"/>
+        <br/>
+        <!--实体字符 &nbsp空格   &lt小于   &gt大于-->
+        <!--块级元素：垂直分布，自己占一行-->
+        <div>div</div>
+        <p>ppp</p>
+        <h>aaaaa</h>
+        <ul class="aa">
+            <li>11111</li>
+            <li>22222</li>
+            <li>33333</li>
+        </ul>
+
+        <ul class="search-xial">
+            <li ><a href="#">针织衫</a></li>
+            <li class="bu"></li>
+            <li class="search-xialaq"><a href="#">连衣裙</a></li>
+            <li class="bu"></li>
+            <li ><a href="#">四件套</a></li>
+            <li class="bu"></li>
+            <li class=" search-xialaq"><a href="#">摄像头</a></li>
+            <li class="bu"></li>
+            <li ><a href="#">客厅灯</a></li>
+            <li class="bu"></li>
+            <li class="search-xialaq"><a href="#">口红</a></li>
+            <li class="bu"></li>
+            <li ><a href="#">手机</a></li>
+            <li class="bu"></li>
+            <li class=" search-xialaq"><a href="#">运动鞋</a></li>
+            <li class="bu"></li>
+            <li ><a href="#">牛奶</a></li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <!--行级元素：水平分布,不能设置行，宽，其由内容撑起,设置外边距上下不会显示出来，左右会显示，内边距不生效-->
+        <span>span</span>
+        <a href="#">aaa</a>
+        display-block;<!--行级元素转换成块级元素-->
+        <!--行级块元素,既可水平分布，又可以设置宽高-->
+        <img src="" alt="">
+        inline block
+
+        <!-- html语义化
+         1.方便其他开发人员
+         2.seo有利于搜索引擎优化-->
+    </form>
+    <!--选择器
+    权重值可以叠加
+        !important最高
+        内联style1000
+        id100
+        class后面的会覆盖前面的10
+        标签选择器1
+        派生选择器.div4 .div1   20
+        *通配符
+        伪类选择器.div1:after   .div1:hover
+        元素自带的 body=>margin:8px-->
+</body>
+</html>
