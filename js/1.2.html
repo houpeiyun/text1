@@ -17,10 +17,11 @@
         o1.name='lisi';
         o1.age=23;
         o1.sayhi=function () {
-            alert(o1.name+'say hi......');
+            alert(this.name+'say hi......');
+            //this代表对当前对象的引用,他只能在对象的方法中使用
         }
         o1.sayhi();*/
-       /* var o1={
+       /* var o1={//对象直接量
             name:'lisi',
             age:23,
             sayhi: function () {
@@ -28,7 +29,7 @@
             }
         }
         o1.sayhi();*/
-        var o={
+        /*var o={
             name:'zhangsan',
             age:23,
             friends:['zhaowu','wangqi'],
@@ -40,7 +41,26 @@
                 }
             }
         }
-        o.brother.wife.name;
+        o.brother.wife.name;*/
+        /*function test(){
+        //在普通的函数中this指向window,全局变量和全局函数都默认在window下
+            console.log(this);
+        }
+        test();
+        setInterval(function () {
+            console.log(Math.random())
+        },1000)//每隔一秒输出一个随机数*/
+        var o1=new Object();
+        o1.name='lisi';
+        o1.age=23;
+        o1.sayhi=function () {
+            console.log(this);
+            setInterval(function () {
+                console.log(this.name+","+this.age);
+                //this指向离自己最近的函数的对象
+            },1000)
+        }
+
     </script>
 </body>
 </html>

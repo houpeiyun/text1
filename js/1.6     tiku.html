@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //3.1
+    /*var x=Math.random();
+    var y=Math.random();
+    (x>y)?document.write(x):document.write(y);*/
+    //3.2
+    /*var today = new Date();   //获取当天日期
+    var year = today.getFullYear();   //获取当天年份
+    ((year%4==0&&year%100!=0)||year%400==0)?document.write(year+'年是闰年'):document.write(year+'年不是闰年')*/
+    //4.1
+    /*var age=prompt('请输入信息','');
+    if(age<14){
+        document.write(age+'岁是儿童');
+    }
+    else if((14<=age)&&(age<24)){
+        document.write(age+'岁是青少年');
+    }
+    else if((24<=age)&&(age<40)){
+        document.write(age+'岁是青年');
+    }
+    else if((40<=age)&&(age<60)){
+        document.write(age+'岁是中年');
+    }
+    else{
+        document.write(age+'岁是老年');
+    }*/
+    //4.2
+    //var number=prompt('请输入信息','');
+    /*var number=Math.floor(Math.random()*7);
+    switch (number){
+        case 0:
+            document.write(number+'是星期日');
+            break;
+        case 1:
+            document.write(number+'是星期一');
+            break;
+        case 2:
+            document.write(number+'是星期二');
+            break;
+        case 3:
+            document.write(number+'是星期三');
+            break;
+        case 4:
+            document.write(number+'是星期四');
+            break;
+        case 5:
+            document.write(number+'是星期五');
+            break;
+        case 6:
+            document.write(number+'是星期六');
+            break;
+    }*/
+    //4.3
+    /*var number=1;
+    for(var i=1;i<=10;i++){
+        number=number*i;
+    }
+    document.write(number);*/
+    //4.4
+    /*var sum=0;
+    for(var i=1;i<=10;i++){
+        function fi(i) {
+            if(i==1)
+            {
+                return 1;
+            }
+            else{
+                return (i*fi(i-1));
+            }
+        }
+        var number=fi(i);
+        document.write(i+'!='+number);
+        document.write('<br\>');
+        sum=sum+number;
+    }
+    document.write('1!+2!+3!+…..＋10！='+sum);*/
+    //4.5
+    /*for(var i=1;i<6;i++){
+        for(var j=1;j<=i;j++)
+        {
+            document.write(j+'  ');
+        }
+        document.write('<br\>')
+    }*/
+    //4.6
+    /*for(var i=1;i<=5;i++)
+    {
+        for(var j=4;j>=i;j--){
+            document.write('&nbsp');
+        }
+        for(var p=1;p<=i;p++){
+            document.write('* ');
+        }
+        document.write('<br\>');
+    }*/
+    //4.7
+    /*for(var num=100;num<1000;num++)
+    {
+        if((num%4==2)&&(num%7==3)&&(num%9==5)){
+            document.write(num+'<br\>');
+        }
+    }*/
+    //4.8
+    /*for(var num=1001;num<10000;num+=13){
+        if(Math.floor(num/1000)==((Math.floor(num/100))%10+(Math.floor(num/10)%100)%10)){
+            document.write(num+'<br\>');
+            document.write((Math.floor(num/100))%10+'<br\>')
+            document.write((Math.floor(num/10)%100)%10+'<br\>')
+        };
+    }*/
+    //5.1
+    //f(x) = 4x2+3x+2
+    /*var fx=prompt('请输入x的值','');
+    var num;
+    function test() {
+        num=4*fx*fx+3*fx+2;
+    }
+    test();
+    document.write(num+'<br\>');*/
+    //5.2
+    /*var x=prompt('请输入x的值','');
+    var y=prompt('请输入y的值','');
+    function Min(a,b) {
+        (a<b)?document.write(a):document.write(b);
+    }
+    Min(x,y);*/
+    //5.3
+    /*function pd() {
+        var num=0;
+        for(var a=1;a<=1000;a++)
+        {
+            if(((a%3==0)&&(a%5==0))&&(a%7==0)){
+                num++;
+                document.write(a+'&nbsp');
+            }
+            if(num==6){
+                num=0;
+                document.write('<br\>');
+            }
+        }
+    }
+    pd();*/
+    //5.4
+   /* function pd() {
+        var num=0;
+        var b=0;
+        for(var a=100;a<=1000;a++)
+        {
+            for(var i=2;i<(a/2)+1;i++){
+                if(a%i==0){
+                    b=1;
+                    break;
+                }
+            }
+            if(b==0){
+                num++;
+                document.write(a+'&nbsp');
+            }
+            if(num==6){
+                num=0;
+                document.write('<br\>');
+            }
+            b=0;
+        }
+    }
+    pd();*/
+   //5.5
+    /*var number=1;
+    var numbe=1;
+    var num;
+    function factorial(n) {
+        for(var i=1;i<=10;i++){
+            number=number*i;
+        }
+        document.write(number+'&nbsp');
+        for(var j=1;j<=n;j++){
+            numbe=numbe*j;
+        }
+        document.write(numbe+'&nbsp');
+        num=numbe-number;
+    }
+    factorial(12);
+    document.write(num+'&nbsp');*/
+</script>
+
+
+</body>
+</html>
