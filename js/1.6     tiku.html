@@ -9,7 +9,7 @@
     //3.1
     /*var x=Math.random();
     var y=Math.random();
-    (x>y)?document.write(x):document.write(y);*/
+    (x>y)?document.write('x大'+x):document.write('y大'+y);*/
     //3.2
     /*var today = new Date();   //获取当天日期
     var year = today.getFullYear();   //获取当天年份
@@ -36,25 +36,25 @@
     /*var number=Math.floor(Math.random()*7);
     switch (number){
         case 0:
-            document.write(number+'是星期日');
+            alert(number+'是星期日');
             break;
         case 1:
-            document.write(number+'是星期一');
+            alert(number+'是星期一');
             break;
         case 2:
-            document.write(number+'是星期二');
+            alert(number+'是星期二');
             break;
         case 3:
-            document.write(number+'是星期三');
+            alert(number+'是星期三');
             break;
         case 4:
-            document.write(number+'是星期四');
+            alert(number+'是星期四');
             break;
         case 5:
-            document.write(number+'是星期五');
+            alert(number+'是星期五');
             break;
         case 6:
-            document.write(number+'是星期六');
+            alert(number+'是星期六');
             break;
     }*/
     //4.3
@@ -92,7 +92,7 @@
     //4.6
     /*for(var i=1;i<=5;i++)
     {
-        for(var j=4;j>=i;j--){
+        for(var j=5-i;j>=i;j--){
             document.write('&nbsp');
         }
         for(var p=1;p<=i;p++){
@@ -148,7 +148,7 @@
     }
     pd();*/
     //5.4
-   /* function pd() {
+    /*function pd() {
         var num=0;
         var b=0;
         for(var a=100;a<=1000;a++)
@@ -235,7 +235,7 @@
     /*var cc;
     function si(n) {
         var cc=0;
-        for(var i=1;i<=n;i++){
+        for(var i=1;i<n;i++){
             cc=cc+Math.pow(-1,i-1)*(1/(2*i-1));
             //document.write(cc+'<br\>');
         }
@@ -248,9 +248,192 @@
     si(10000);
     si(10000000);*/
     //5.9
+    var isWin = false;
+    var sum=0;
+    var winNum=0
+    function foo() {
+        sum++;
+        for (var i=1;i<3;i++){
+            isWin = false;
+            var thisNum=Math.floor(Math.random()*9+1);
+            if(thisNum==8){
+                winNum++;
+                isWin=true;
+                console.log('win');
+                break;
+            }
+        }
+    }
+    while(true){
+        winStr='开始';
+        thisNum=0;
+        if(sum!=0){
+            winStr=isWin?'本轮胜利':'本轮失败';
+            var thisNum=(winNum/sum)*100;
+        }
+        if(confirm('继续'+winStr+'获胜率='+thisNum+'%')){
+            foo();
+        }else{
+            break;
+        }
+    }
+
 
 
 </script>
+    <!--/*6.1*/-->
+   <!-- 输入：
+    <input type="text" id="bt1">
+    <input type="button" id="bt2" value="获取输入数据" /><br>-->
+<script>
+    /*var bt = document.getElementById("bt2");
+    var btt = document.getElementById("bt1");
+    bt.onclick = function () {
+        document.write(Math.pow(btt.value,2)+'<br\>');
+        document.write(Math.sqrt(btt.value)+'<br\>');
+        document.write(Math.log(btt.value)+'<br\>');
+    }*/
+    //6.2
+    /*function test() {
+        var a=(Math.floor(Math.random()*101));
+        document.write(a);
+    }
+    test();*/
+    //6.3
+    /*var dat=new Date();
+    var number=dat.getDay();
+    var c;
+    switch (number){
+        case 0:
+            c='日';
+            break;
+        case 1:
+            c='一';
+            break;
+        case 2:
+            c='二';
+            break;
+        case 3:
+            c='三';
+            break;
+        case 4:
+            c='四';
+            break;
+        case 5:
+            c='五';
+            break;
+        case 6:
+            c='六';
+            break;
+    }
+    document.write('现在是'+dat.getFullYear()+'年'+dat.getMonth()+'月'+dat.getDate()+'日'+dat.getHours()+'点'+dat.getMinutes()+'分'+dat.getSeconds()+'秒\(星期'+c+'\)，欢迎您的到访！')*/
+    //6.4
+    /*var s='jdsi83ryhvf2ijrns5'
+    function test(ss) {
+        var str='';
+        //document.write(ss.length);
+        for(var i=0;i<ss.length;i++)
+        {
+            document.write(ss.charAt(i)+'<br\>');
+            if((ss.charAt(i)>='0')&&(ss.charAt(i)<='9'))
+            {
+                //document.write(ss.charAt(i)+'<br\>');
+                str=str+ss.charAt(i);
+            }
+        }
+        return str;
+    }
+    document.write(test(s));*/
+    //6.5
+    /*function test() {
+        var s='abcdgueiql'
+        var ss='123456'
+        var str='';
+        var n=0;
+        var a=0;
+        if(s.length>ss.length)
+        {
+            n=s.length;
+            a=1;
+        }
+        else{
+            n=ss.length
+        }
+        for(var i=0;i<n;i++){
+            str=str+s.charAt(i)+ss.charAt(i);
+        }
+        if(a==1){
+            str=str+s.substr(i+1);
+        }
+        else{
+            str=str+ss.substr(i+1);
+        }
+        return str;
+    }
+    document.write(test())*/
+    //6.6
+    /*var arr=new Array();
+    var sum=0;
+    for(var i=0;i<7;i++)
+    {
+        var n=prompt('成绩','');
+        arr[i]=n;
+        document.write(arr[i]+'<br\>');
+        sum=sum+(+arr[i]);
+        document.write('sum='+sum+'<br\>');
+    }
+    var pri=sum/7;
+    document.write(sum+'<br\>');
+    document.write(pri+'    ');
+    document.write('<br\>');
+    for(i=0;i<7;i++){
+        if(arr[i]<60){
+            document.write(arr[i]+'    ');
+        }
+    }*/
+    //6.7
+    /*var x=new Array();
+    function test(n) {
+        x[0]=1;
+        x[1]=1;
+        for(var i=2;i<=n;i++){
+            x[i]=x[i-1]+x[i-2];
+        }
+        return x;
+    }
+    test(40);
+    var lo=0;
+    for(var j=39;j>=0;j--){
+        document.write(x[j]+'&nbsp&nbsp&nbsp');
+        lo++;
+        if(lo>5){
+            lo=0;
+            document.write('<br\>');
+        }
+    }*/
+    //6.8
+    /*var months=new Array(31,28,31,30,31,30,31,31,30,31,30,31)
+    var num=0;
+    function test(year,month,day) {
+        function tes(year){
+            ((year%4==0&&year%100!=0)||year%400==0)?months[1]=29:months[1]=28;
+        }
+        tes(year);
+        for(var i=0;i<month-1;i++)
+        {
+            num=num+months[i];
+        }
+        num=num+day;
+        return num;
+    }
+    document.write(test(2000,2,8));*/
+   /* var key=2;
+    var fun=4*(key3);
+     document.write();*/
+
+
+</script>
+
 
 
 </body>

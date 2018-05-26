@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1{
+            height: 3000px;
+            width: 200px;
+            background-color: red;
+        }
+        .btn{
+            position: fixed;
+            bottom: 10px;
+            right: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+            123
+    </div>
+    <button class="btn" onclick="goTop()">返回顶部</button>
+    <script>
+        var thisTop;
+        window.onscroll = function () {
+            thisTop = document.documentElement.scrollTop;
+            console.log(thisTop);
+        };
+        function goTop(){
+            var sit = setInterval(function(){
+                thisTop= thisTop - 10;
+                window.scrollTo(0,thisTop);
+                if(thisTop <= 0){
+                    clearInterval(sit);
+                }
+            },5);
+        }
+    </script>
+</body>
+</html>

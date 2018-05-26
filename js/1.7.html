@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="div2">hello</div>
+    <div class="divarr">
+        <span>22</span>
+        <span>33</span>
+    </div>
+    <div class="divarr">b</div>
+    <div class="divarr">c</div>
+    <div class="divarr">d</div>
+    <div class="divarr">e</div>
+    <span class="divarr">f</span>
+    <script>
+       /* var oDiv1 = document.getElementById('div1');
+        oDiv1.innerHTML = 'hello world'
+        console.log(oDiv1.innerHTML)
+        var aDiv = document.getElementsByClassName('divarr')
+        console.log(aDiv)
+        for(var i=0;i<aDiv.length;i++)
+        {
+            console.log(aDiv[i].innerHTML)
+        }
+        var aDiv1 = document.getElementsByTagName('div');
+        console.log(aDiv1)
+        for(var i=0;i<aDiv1.length;i++)
+        {
+            console.log(aDiv1[i].innerHTML)
+        }*/
+        /*var aDiv2 = document.getElementsByTagName('*');
+        console.log(aDiv2);
+        for(var i=0;i<aDiv2.length;i++)
+        {
+            if(aDiv2[i].className=='divarr'){
+                console.log(aDiv2[i].innerHTML)
+            }
+            if(aDiv2[i].className=='div2'){
+                console.log(aDiv2[i].innerHTML)
+            }
+        };
+        console.log(aDiv2.length);*/
+        /*function getClass(cName) {
+            var aHtmlTag = document.getElementsByTagName('*');
+            var thisArr = [];
+            for(var i=0;i<aHtmlTag.length;i++)
+            {
+                if(aHtmlTag[i].className==cName){
+                    thisArr.push(aHtmlTag[i].innerHTML);
+                }
+            };
+            return thisArr;
+        }
+        console.log(getClass('divarr'));*/
+       function getClass(cName,sName) {
+           var aHtmlTag;
+           if(sName){
+               aHtmlTag = document.getElementsByTagName('*');
+               for(var i=0;i<aHtmlTag.length;i++)
+               {
+                   if(aHtmlTag[i].className==sName){
+                           var aspan = aHtmlTag[i].getElementsByTagName(cName);
+                           for(var j=0;j<aspan.length;j++){
+                               console.log(aspan[j].innerHTML);
+                           }
+                       }
+               };
+           }
+           else
+           {
+               aHtmlTag = document.getElementsByTagName(cName);
+               for(j=0;j<aHtmlTag.length;j++){
+                   console.log(aHtmlTag[j].innerHTML);
+               }
+           }
+
+           //return thisArr;
+       }
+       getClass('span','divarr');
+       getClass('span');
+
+
+
+
+
+        /*alert(a);
+        a();
+        var a=3;
+        function a() {
+            alert(10);
+        }
+        alert(a);
+        a=6;
+        //a();*/
+        //bom
+        //console.log(window.history);
+        //console.log(window.location);
+        //dom
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #lei{
+            border: 1px solid #f2f2f2;
+            padding: 0px;
+            list-style: none;
+            width: 80px;
+            display: none;
+            position: absolute;
+        }
+        #lei li{
+            border: 1px solid #f2f2f2;
+            text-align: center;
+        }
+        #lei li:hover{
+            color: #ff0036;
+        }
+    </style>
+</head>
+<body style="height: 3000px">
+    <div>
+        <ul id="lei">
+            <li>设置待办</li>
+            <li>设置未读</li>
+            <li>设置已读</li>
+            <li>删除右键</li>
+        </ul>
+    </div>
+    <script>
+        var oDiv = document.getElementById("lei");
+        document.oncontextmenu = function (e) {
+            oDiv.style.display="block";
+            //oDiv.style.display='none';
+            //e.preventDefault();
+            oDiv.style.top=e.clientY+'px';
+            oDiv.style.left=e.clientX+'px';
+            return false;//阻止浏览器默认行为
+        }
+        document.onclick = function (e) {
+            oDiv.style.display="none";
+        }
+        var oli=document.getElementsByTagName('li');
+        for(i=0;i<oli.length;i++){
+            oli[i].index=i;
+            oli[i].onclick = function () {
+                for(j=0;j<oli.length;j++)
+                {
+                    oli[j].className='';
+                }
+                console.log(this.innerHTML);
+                console.log(this.index);
+                this.className='aa';
+            }
+        }
+    </script>
+</body>
+</html>

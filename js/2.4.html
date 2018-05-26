@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            position: absolute;
+            top: 50px;
+            left: 400px;
+        }
+        #ul1{
+            list-style: none;
+            /*background: #000000 ;*/
+            /*border: 1px solid #f2f2f2;*/
+        }
+        #ul1 li{
+            float: left;
+            border: 1px solid #000;
+            width: 100px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+        #tel{
+            /*height: 100px;*/
+            width: 406px;
+            border:1px solid #000000 ;
+            position: absolute;
+            top: 52px;
+            left: 40px;
+            background-color: #f2f2f2;
+        }
+        #tel ul{
+            display: none;
+            color: peru;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <ul id="ul1">
+            <li>第一章</li>
+            <li>第二章</li>
+            <li>第三章</li>
+            <li>第四章</li>
+        </ul>
+        <div id="tel">
+            <ul>
+                <li>123</li>
+                <li>223</li>
+                <li>456</li>
+                <li>789</li>
+            </ul>
+            <ul>
+                <li>gt3</li>
+                <li>223</li>
+                <li>456</li>
+                <li>789</li>
+            </ul>
+            <ul>
+                <li>das3</li>
+                <li>223</li>
+                <li>456</li>
+                <li>789</li>
+            </ul>
+            <ul>
+                <li>1fbrtgr</li>
+                <li>223</li>
+                <li>456</li>
+                <li>789</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        //var di1=document.getElementById('div1');
+        var oul=document.getElementById('ul1');
+        var oli=oul.getElementsByTagName('li');
+        var oul1=document.getElementById('tel');
+        var oli1=oul1.getElementsByTagName('ul');
+        //console.log(oli);
+        for(i=0;i<oli.length;i++){
+            oli[i].index=i;
+            oli[i].onmouseover=function () {
+                for(j=0;j<oli.length;j++)
+                {
+                    oli[j].style.backgroundColor="";
+                    oli1[j].style.display="none";
+                }
+                //this.style.backgroundColor = "red";
+                this.style.backgroundColor = 'red';
+                oli1[this.index].style.display="block";
+            }
+        }
+    </script>
+</body>
+</html>
