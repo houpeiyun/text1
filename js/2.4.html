@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        *{
+            margin: 0px;
+        }
         #div1{
             position: absolute;
             top: 50px;
-            left: 400px;
+            left: 450px;
         }
         #ul1{
             list-style: none;
+            padding: 0px;
             /*background: #000000 ;*/
             /*border: 1px solid #f2f2f2;*/
         }
         #ul1 li{
             float: left;
+            /*display: inline-block;*/
             border: 1px solid #000;
             width: 100px;
             height: 35px;
@@ -29,30 +34,30 @@
             width: 406px;
             border:1px solid #000000 ;
             position: absolute;
-            top: 52px;
-            left: 40px;
+            top: 35px;
             background-color: #f2f2f2;
         }
         #tel ul{
             display: none;
             color: peru;
+            padding: 15px 0px 15px 30px;
         }
     </style>
 </head>
 <body>
     <div id="div1">
-        <ul id="ul1">
-            <li>第一章</li>
-            <li>第二章</li>
-            <li>第三章</li>
-            <li>第四章</li>
-        </ul>
+        <div id="div-1">
+            <ul id="ul1">
+                <li>第一课</li>
+                <li>第二课</li>
+                <li>第三课</li>
+                <li>第四课</li>
+            </ul>
+        </div>
         <div id="tel">
             <ul>
-                <li>123</li>
+                <li>好好学习，天天向上</li>
                 <li>223</li>
-                <li>456</li>
-                <li>789</li>
             </ul>
             <ul>
                 <li>gt3</li>
@@ -63,7 +68,6 @@
             <ul>
                 <li>das3</li>
                 <li>223</li>
-                <li>456</li>
                 <li>789</li>
             </ul>
             <ul>
@@ -75,12 +79,13 @@
         </div>
     </div>
     <script>
-        //var di1=document.getElementById('div1');
-        var oul=document.getElementById('ul1');
-        var oli=oul.getElementsByTagName('li');
+        var di1=document.getElementById('div-1');
+        console.log(di1);
+        //var oul=di1.getElementById('ul1');
+        var oli=di1.getElementsByTagName('li');
         var oul1=document.getElementById('tel');
         var oli1=oul1.getElementsByTagName('ul');
-        //console.log(oli);
+        console.log(oli);
         for(i=0;i<oli.length;i++){
             oli[i].index=i;
             oli[i].onmouseover=function () {
@@ -88,9 +93,11 @@
                 {
                     oli[j].style.backgroundColor="";
                     oli1[j].style.display="none";
+                    oli[j].style.color = 'white'
                 }
                 //this.style.backgroundColor = "red";
                 this.style.backgroundColor = 'red';
+                this.style.color = 'black'
                 oli1[this.index].style.display="block";
             }
         }

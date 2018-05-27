@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            background-color: black;
+        }
+        .img-one ul li img{
+            width: 450px;
+            height: 225px;
+            position: fixed;
+            top: 30px;
+            left: 400px;
+            display:none;
+            border: 3px solid white;
+        }
+        li{
+            list-style: none;
+        }
+        .img-three li,.img-two li{
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            margin: 3px;
+            background-color: olivedrab;
+            float: left;
+            /*-moz-border-radius: 100px / 30px;*/
+            /*-webkit-border-radius: 100px / 30px;*/
+            border-radius: 70%;
+            opacity: 0.7;
+        }
+        .img-three li:hover {
+            background: -moz-linear-gradient(top, deeppink 0%, #ffffff 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,deeppink), color-stop(100%,#ffffff));
+            background: -webkit-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: -o-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: -ms-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: linear-gradient(to bottom, deeppink 0%,#ffffff 100%);
+            color: #f2f2f2;
+        }
+        .img-two li:hover{
+            background: -moz-linear-gradient(top, deeppink 0%, #ffffff 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,deeppink), color-stop(100%,#ffffff));
+            background: -webkit-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: -o-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: -ms-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: linear-gradient(to bottom, deeppink 0%,#ffffff 100%);
+            color: #f2f2f2;
+        }
+        .img-two{
+            background-color: transparent;
+            position: fixed;
+            top: 225px;
+            left: 375px;
+        }
+        .img-three{
+            background-color: transparent;
+            position: fixed;
+            top: 225px;
+            left: 675px;
+        }
+    </style>
+</head>
+<body style="height: 5000px">
+    <div>
+        <div class="img-one">
+            <ul>
+                <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527414988150&di=bb917d676d6db162c3239c0438d4c78d&imgtype=0&src=http%3A%2F%2Fimage.tianjimedia.com%2FuploadImages%2F2016%2F331%2F54%2FBVFZ13H58IST.jpg" alt=""></li>
+                <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527414988150&di=3ea45285d92430dcf38e7ee0a62c5e6c&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1709%2F25%2Fc6%2F60581397_1506303639841_mthumb.jpg" alt=""></li>
+                <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527414988147&di=ffda478578c6fb6746858934e53a495d&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F83%2Fd%2F209.jpg" alt=""></li>
+                <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527414988145&di=c9889e5f030310a464ff5715a0f5356e&imgtype=0&src=http%3A%2F%2Fpic.yesky.com%2FuploadImages%2F2016%2F330%2F01%2F8QE13U00X5P6.jpg" alt=""></li>
+                <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527414988146&di=eab03e0f82ef7dd4e767142e9e114eec&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Ff%2F59c602bd45646.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="img-two">
+            <ul>
+                <li>&lt</li>
+                <li>&gt</li>
+            </ul>
+        </div>
+        <div class="img-three">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var div1 = document.getElementsByClassName('img-one')[0];
+        var ouli = div1.getElementsByTagName('ul');
+        var oul = div1.getElementsByTagName('img');
+        var div2 = document.getElementsByClassName('img-two')[0];
+        var oul1 = div2.getElementsByTagName('li');
+        var div3 = document.getElementsByClassName('img-three')[0];
+        var oul11 = div3.getElementsByTagName('li');
+        oul[0].style.display = "block";
+        var i=0;
+        var set;
+        function test() {
+            sit = setInterval(function(){
+                for(j=0;j<oul.length;j++)
+                {
+                    oul[j].style.display = "none";
+                }
+                oul[i].style.display = "block";
+                i++;
+                if(i>=oul.length){
+                    i=0;
+                }
+            },3000);
+        }
+        test();
+        div1.onmouseover=function () {
+            clearInterval(sit);
+        };
+        div1.onmouseout=function () {
+            test();
+        }
+            oul1[0].onclick=function () {
+                if(i<=0){
+                    i=oul.length;
+                }
+                i--;
+                for(j=0;j<oul.length;j++)
+                {
+                    oul[j].style.display = "none";
+                }
+                oul[i].style.display = "block";
+            };
+            oul1[1].onclick=function () {
+                i++;
+                if(i>=oul.length){
+                    i=0;
+                }
+                for(j=0;j<oul.length;j++)
+                {
+                    oul[j].style.display = "none";
+                }
+                oul[i].style.display = "block";
+            };
+            for(w=0;w<oul11.length;w++){
+                oul11[w].index = w;
+                oul11[w].onmouseover=function () {
+                    for(o=0;o<oul.length;o++)
+                    {
+                        oul[o].style.display = "none";
+                    }
+                    oul[this.index].style.display="block";
+                }
+            }
+    </script>
+</body>
+</html>
