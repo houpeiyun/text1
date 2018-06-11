@@ -38,7 +38,7 @@
             height: 45px;
             position: fixed;
             top: 40px;
-            left: 300px;
+            left: 350px;
             //border: 3px solid #999999;
         }
         #div3{
@@ -59,19 +59,23 @@
             width: 30px;
             height: 15px;
             color: #ff0036;
-            font-size:18px;
+            font-size:16px;
             font-weight: bolder;
             background-color: darkorange;
             position: relative;
-            left: 80px;
+            left: 70px;
         }
         .inpu1{
             color: #ff0036;
-            font-size:18px;
+            font-size:16px;
             font-weight: bolder;
             margin: 0px 15px;
             position: relative;
-            left: 100px;
+            left: 90px;
+        }
+        .hh1{
+            font-size: 30px;
+            margin: 5px 50px;
         }
     </style>
 </head>
@@ -92,7 +96,7 @@
         <div id="div4">
             <div class="login-right">
                 <div class="form-area fw">
-                    <h1>用户登录</h1>
+                    <h1 class="hh1">用户登录</h1>
                     <div class="form">
                         <form id="casLoginForm" class="fm-v clearfix amp-login-form" role="form" action="/authserver/login;jsessionid=8hzu-ZKydcdlP6_l7h5LQDJ88cYnOFfKpvSdrDl7GfkIAJZv3Awx!-661225465?service=http%3A%2F%2Fmy.hlju.edu.cn%2Findex.portal" method="post">
 
@@ -101,7 +105,7 @@
                                 <input id="username" name="username" placeholder="用户名" class="ipt" type="text" value="">
                             </p>
                             <p>
-                                <span>密<span style="width:12px;"></span>码：</span>
+                                <span>密<span style="width:12px;">&nbsp&nbsp&nbsp</span>码：</span>
                                 <input id="password" name="password" placeholder="密码" class="ipt" type="password" value="" autocomplete="off">
                             </p>
 
@@ -147,7 +151,7 @@
                 if(i>=oul.length){
                     i=0;
                 }
-            },1000);
+            },2000);
         }
         test();
         div1.onmouseover=function () {
