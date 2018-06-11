@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>医院管理系统</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        li{
+            list-style: none;
+        }
+        #div2 img{
+            width: 630px;
+            height: 400px;
+            position: fixed;
+            top: 130px;
+            left: 220px;
+            border: 3px solid #999999;
+            display: none;
+            /*float: left;*/
+        }
+        /*#div2 ul{
+            position: absolute;
+            width: 3150px;
+        }*/
+        #div2{
+            width: 630px;
+            height: 400px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            overflow: hidden;
+        }
+        #div1 img{
+            width: 400px;
+            height: 45px;
+            position: fixed;
+            top: 40px;
+            left: 300px;
+            //border: 3px solid #999999;
+        }
+        #div3{
+            width: 1000px;
+            height: 400px;
+            border: 2px solid #999999;
+            position: fixed;
+            top: 130px;
+            left: 220px;
+        }
+        #div4{
+            width: 300px;
+            height: 295px;
+            float: right;
+            color: #999999;
+        }
+        .inpu{
+            width: 30px;
+            height: 15px;
+            color: #ff0036;
+            font-size:18px;
+            font-weight: bolder;
+            background-color: darkorange;
+            position: relative;
+            left: 80px;
+        }
+        .inpu1{
+            color: #ff0036;
+            font-size:18px;
+            font-weight: bolder;
+            margin: 0px 15px;
+            position: relative;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div><img src="../tmall/images/qqq.png" alt=""></div>
+    </div>
+    <div id="div3">
+        <div id="div2">
+            <ul>
+                <li><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1016432060,2020695378&fm=200&gp=0.jpg" alt=""></li>
+                <li><img src="http://58pic.ooopic.com/58pic/21/56/59/80z58PICDQZ.jpg" alt=""></li>
+                <li><img src="http://img3.imgtn.bdimg.com/it/u=2070858256,1277315729&fm=27&gp=0.jpg" alt=""></li>
+                <li><img src="http://img3.imgtn.bdimg.com/it/u=2637345897,2267629486&fm=27&gp=0.jpg" alt=""></li>
+                <li><img src="http://img3.imgtn.bdimg.com/it/u=3802782957,3539743228&fm=27&gp=0.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div id="div4">
+            <div class="login-right">
+                <div class="form-area fw">
+                    <h1>用户登录</h1>
+                    <div class="form">
+                        <form id="casLoginForm" class="fm-v clearfix amp-login-form" role="form" action="/authserver/login;jsessionid=8hzu-ZKydcdlP6_l7h5LQDJ88cYnOFfKpvSdrDl7GfkIAJZv3Awx!-661225465?service=http%3A%2F%2Fmy.hlju.edu.cn%2Findex.portal" method="post">
+
+                            <p>
+                                <span>用户名：</span>
+                                <input id="username" name="username" placeholder="用户名" class="ipt" type="text" value="">
+                            </p>
+                            <p>
+                                <span>密<span style="width:12px;"></span>码：</span>
+                                <input id="password" name="password" placeholder="密码" class="ipt" type="password" value="" autocomplete="off">
+                            </p>
+
+                            <p id="cpatchaDiv"></p>
+
+                            <p class="mt10" style="margin-top:6px;"><span style="width:49px;"></span>&nbsp;
+                                <input class="inpu" type="submit" name="btn" value="登陆" tabindex="4" style="border-width:0;width:80px;height:29px;
+                        cursor:pointer;margin-left:-20px;">
+                                <input class="inpu1" tabindex="5" type="reset" value="重置" style="border-width:0;width:80px;height:29px;
+                        cursor:pointer; margin-left:4px;">
+                            </p>
+                            <input type="hidden" name="lt" value="LT-267681-dX6i0sICzqz7Ahte4q7gNzdtSqZRO01528722723505-MHis-cas">
+                            <input type="hidden" name="dllt" value="userNamePasswordLogin">
+                            <input type="hidden" name="execution" value="e1s1">
+                            <input type="hidden" name="_eventId" value="submit">
+                            <input type="hidden" name="rmShown" value="1">
+                        </form>
+                    </div>
+                    <div class="form-content" style="margin-top:7px;">
+                        <p>说明：  <a id="getBackPasswordMainPage" href="getBackPasswordMainPage.do?service=http%3A%2F%2Fmy.hlju.edu.cn%2Findex.portal" target="_blank"><font class="f-blue">【密码找回】</font></a>&nbsp;&nbsp;<a href="http://125.223.1.100/ihlju/news_info_2057.html" target="_blank"><font class="f-blue">【解决无法登陆问题】</font></a></p>
+                        <p>1.用户名:(1)医生用户名为其职工号，如工号有问题请咨询人事处。(2)药品管理员用户名为其办公室对应工号。</p>
+                        <p>2.密码：(1)首次登录：初始密码为本人身份证号后六位（字母大写）。(2)初次登陆后请修改密码。</p>
+                        <p>3.服务电话：医生4592435，教师6873591</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var div1 = document.getElementById('div2');
+        var oul = div1.getElementsByTagName('img');
+        oul[0].style.display = "block";
+        var i=0;
+        var sit;
+        function test() {
+            sit = setInterval(function(){
+                for(j=0;j<oul.length;j++)
+                {
+                    oul[j].style.display = "none";
+                }
+                oul[i].style.display = "block";
+                i++;
+                if(i>=oul.length){
+                    i=0;
+                }
+            },1000);
+        }
+        test();
+        div1.onmouseover=function () {
+            clearInterval(sit);
+        };
+        div1.onmouseout=function () {
+            test();
+        }
+        /*var set1;
+        function test2() {
+            set1 = setInterval(function () {
+                oul.style.left = oul.offsetLeft - 10 + "px";
+                console.log(oul.offsetLeft)
+                if(oul.offsetLeft == -2520){
+                    oul.style.left = 0+"px";
+                }
+            },30)
+        }
+        test2();*/
+    </script>
+</body>
+</html>

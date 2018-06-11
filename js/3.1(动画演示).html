@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            height: 60px;
+            width: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        var odiv=document.getElementById("div1");
+        odiv.onmouseover=function () {
+            //clearInterval(set1);
+            var that=this;
+            var set = setInterval(function () {
+                if (that.offsetWidth > 400) {
+                    clearInterval(set);
+                }else{
+                    that.style.width = that.offsetWidth + 10 + "px";
+                }
+            }, 50)
+        }
+        odiv.onmouseout=function () {
+            //clearInterval(set);
+            var thats=this;
+            var set1 = setInterval(function () {
+                if (thats.offsetWidth < 200) {
+                    clearInterval(set1);
+                }else{
+                    thats.style.width = thats.offsetWidth - 10 + "px";
+                }
+            }, 50)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            background-color: #999999;
+            height: 150px;
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            margin: -75px -100px;
+        }
+        #div1 p{
+            color: black;
+            text-align: center;
+            padding: 17px;
+        }
+        #div1 button{
+            height: 35px;
+            width: 76px;
+            text-align: center;
+            margin-left: 62px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="cl1 cl2">
+        <p>100</p>
+        <button>开始</button>
+    </div>
+    <script>
+        var div1=document.getElementById("div1");
+        var p1=div1.getElementsByTagName("p")[0];
+        var btn1=div1.getElementsByTagName("button")[0];
+        //var bd=document.getElementsByClassName();
+        var set;
+        //var time=0;
+        function test() {
+            set = setInterval(function(){
+                    p1.innerHTML=p1.innerHTML-1;
+                    if(p1.innerHTML<0){
+                        alert("倒计时结束");
+                        p1.innerHTML=100;
+                        clearInterval(set);
+                    }
+            },1000);
+        }
+        btn1.onclick=function () {
+            if(btn1.innerHTML=="开始"){
+                btn1.innerHTML="暂停"
+                test();
+            }
+            else if(btn1.innerHTML=="暂停"){
+                btn1.innerHTML="开始"
+                clearInterval(set);
+            }
+        }
+    </script>
+</body>
+</html>

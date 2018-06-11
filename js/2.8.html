@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div2 ul li{
+            list-style: none;
+            float: left;
+            padding: 25px;
+        }
+        #div2 img{
+            width: 406px;
+            height: 300px;
+            padding: 25px 100px;
+            position: absolute;
+            top: 10px;
+            border: 1px solid #999999;
+            left: 300px;
+        }
+        #div3 img{
+            width: 100px;
+            height: 100px;
+            padding: 25px;
+            border: 1px solid #999999;
+        }
+        #div3 ul li{
+            list-style: none;
+            float: left;
+            margin-top: 308px;
+        }
+        #div3{
+            margin-left: 252px;
+        }
+        #div4{
+            color: #999999;
+            font-size: 95px;
+            position: absolute;
+            top: 120px;
+            left: 300px;
+        }
+        #div5{
+            color: #999999;
+            font-size: 95px;
+            position: absolute;
+            top: 120px;
+            left: 825px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <ul>
+                <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527414988150&di=bb917d676d6db162c3239c0438d4c78d&imgtype=0&src=http%3A%2F%2Fimage.tianjimedia.com%2FuploadImages%2F2016%2F331%2F54%2FBVFZ13H58IST.jpg" alt=""></li>
+                <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527414988150&di=3ea45285d92430dcf38e7ee0a62c5e6c&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1709%2F25%2Fc6%2F60581397_1506303639841_mthumb.jpg" alt=""></li>
+                <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527414988147&di=ffda478578c6fb6746858934e53a495d&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F83%2Fd%2F209.jpg" alt=""></li>
+                <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527414988145&di=c9889e5f030310a464ff5715a0f5356e&imgtype=0&src=http%3A%2F%2Fpic.yesky.com%2FuploadImages%2F2016%2F330%2F01%2F8QE13U00X5P6.jpg" alt=""></li>
+            </ul>
+        </div><br>
+        <div id="div3">
+            <ul>
+                <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527414988150&di=bb917d676d6db162c3239c0438d4c78d&imgtype=0&src=http%3A%2F%2Fimage.tianjimedia.com%2FuploadImages%2F2016%2F331%2F54%2FBVFZ13H58IST.jpg" alt=""></li>
+                <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527414988150&di=3ea45285d92430dcf38e7ee0a62c5e6c&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1709%2F25%2Fc6%2F60581397_1506303639841_mthumb.jpg" alt=""></li>
+                <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527414988147&di=ffda478578c6fb6746858934e53a495d&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F83%2Fd%2F209.jpg" alt=""></li>
+                <li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527414988145&di=c9889e5f030310a464ff5715a0f5356e&imgtype=0&src=http%3A%2F%2Fpic.yesky.com%2FuploadImages%2F2016%2F330%2F01%2F8QE13U00X5P6.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div>
+            <div id="div4">&lt</div>
+            <div id="div5">&gt</div>
+        </div>
+    </div>
+    <script>
+        var div1=document.getElementById("div2");
+        var div2=div1.getElementsByTagName("img");
+        var div3=document.getElementById("div3");
+        var im=div3.getElementsByTagName("img");
+        var div4=document.getElementById("div4");
+        var div5=document.getElementById("div5");
+        var img,w=0;
+        function test() {
+            for(i=0;i<im.length;i++){
+                im[i].index = i;
+                im[i].onmouseover=function () {
+                    for(j=0;j<div2.length;j++){
+                        div2[j].style.display="none";
+                    }
+                    div2[this.index].style.display="block";
+                    w=this.index;
+                }
+                div4.onclick=function () {
+                    for(j=0;j<div2.length;j++){
+                        div2[j].style.display="none";
+                    }
+                    w--;
+                    if(w<=0){
+                        w=3;
+                    }
+                    div2[w].style.display="block";
+                }
+                div5.onclick=function () {
+                    for(j=0;j<div2.length;j++){
+                        div2[j].style.display="none";
+                    }
+                    w++;
+                    if(w>=3){
+                        w=0;
+                    }
+                    div2[w].style.display="block";
+                }
+            }
+        }
+        test();
+    </script>
+</body>
+</html>
