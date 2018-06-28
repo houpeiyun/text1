@@ -1,0 +1,67 @@
+
+var medicine = [
+    {
+        name:"通宣理肺片",
+        efficacy:"解表散寒，宣肺止咳",
+        usedate:3,
+        prodate:"2017-3-9",
+        profac:"北京有限公司",
+        unitprice:25,
+        num:20
+    },
+    {
+        name:"氯雷他定片",
+        efficacy:"用于缓解过敏性鼻炎有关的症状",
+        usedate:5,
+        prodate:"2018-4-10",
+        profac:"哈尔滨有限公司",
+        unitprice:30,
+        num:30
+    },
+    {
+        name:"新雪片",
+        efficacy:"清热解毒,用于各种热性病之发热",
+        usedate:1,
+        prodate:"2018-7-9",
+        profac:"广州有限公司",
+        unitprice:15,
+        num:10
+    },
+    {
+        name:"一清颗粒",
+        efficacy:"清热泻火解毒",
+        usedate:6,
+        prodate:"2017-10-9",
+        profac:"深圳有限公司",
+        unitprice:20,
+        num:40
+    },
+    {
+        name:"人工牛黄甲硝唑胶囊",
+        efficacy:"人工牛黄甲硝唑胶囊",
+        usedate:2,
+        prodate:"2018-3-30",
+        profac:"吉林有限公司",
+        unitprice:10,
+        num:60
+    }
+];
+var information =[
+    {
+        name:"20166668",
+        password:142322,
+        index:0
+    },
+    {
+        name:"20166557",
+        password:156489,
+        index:0
+
+    },
+    {
+        name:"20166042",
+        password:365219,
+        index:0
+    }
+];
+var infonum = 0;

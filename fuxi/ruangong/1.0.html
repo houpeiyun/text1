@@ -127,7 +127,7 @@
                             <p id="cpatchaDiv"></p>
 
                             <p class="mt10" style="margin-top:6px;"><span style="width:49px;"></span>&nbsp;
-                                <input class="inpu" type="button" name="btn"  value="登陆" tabindex="4" style="border-width:0;width:80px;height:29px;
+                                <input id="login" class="inpu" type="button" name="btn"  value="登陆" tabindex="4" style="border-width:0;width:80px;height:29px;
                         cursor:pointer;margin-left:-20px;" >
                                 <input class="inpu1" type="reset" value="重置" style="border-width:0;width:80px;height:29px;
                         cursor:pointer; margin-left:4px;">
@@ -140,7 +140,7 @@
                         </form>
                     </div>
                     <div class="form-content" style="margin-top:7px;">
-                        <p>说明：  <a id="getBackPasswordMainPage" href="getBackPasswordMainPage.do?service=http%3A%2F%2Fmy.hlju.edu.cn%2Findex.portal" target="_blank"><font class="f-blue">【密码找回】</font></a>&nbsp;&nbsp;<a href="http://localhost:63342/text1/js/2/1.0.0.html?_ijt=kbced9be26ij8eu85f635i4co6" target="_blank"><font class="f-blue">【解决无法登陆问题】</font></a></p>
+                        <p>说明：  <a id="getBackPasswordMainPage" href="getBackPasswordMainPage.do?service=http%3A%2F%2Fmy.hlju.edu.cn%2Findex.portal" target="_blank"><font class="f-blue">【密码找回】</font></a>&nbsp;&nbsp;<a href="http://localhost:63342/text1/fuxi/ruangong/1.0.0.html?_ijt=nhn7i79gk1s7kf7brckapv08k4" target="_blank"><font class="f-blue">【解决无法登陆问题】</font></a></p>
                         <p>1.用户名:(1)医生用户名为其职工号，如工号有问题请咨询人事处。(2)药品管理员用户名为其办公室对应工号。</p>
                         <p>2.密码：(1)首次登录：初始密码为本人身份证号后六位（字母大写）。(2)初次登陆后请修改密码。</p>
                         <p>3.服务电话：医生4592435，教师6873591</p>
@@ -149,47 +149,8 @@
             </div>
         </div>
     </div>
-    <script>
-        var div1 = document.getElementById('div2');
-        var oul = div1.getElementsByTagName('img');
-        var text1 = document.getElementById("username").value;
-        var text2 = document.getElementById("password").value;
-        var btn1 = document.getElementsByClassName("inpu")[0];
-        console.log(text1.innerHTML);
-        console.log(text2.innerHTML);
-        oul[0].style.display = "block";
-        var i=0;
-        var sit;
-        function test() {
-            sit = setInterval(function(){
-                for(j=0;j<oul.length;j++)
-                {
-                    oul[j].style.display = "none";
-                }
-                oul[i].style.display = "block";
-                i++;
-                if(i>=oul.length){
-                    i=0;
-                }
-            },1000);
-        }
-        test();
-        div1.onmouseover=function () {
-            clearInterval(sit);
-        };
-        div1.onmouseout=function () {
-            test();
-        }
-        btn1.onclick=function () {
-        if(text1=="20166668"&&text2=="123456")
-        {
-                window.open("http://localhost:63342/text1/js/1.0.0.html?_ijt=v42cmsc4n73ligqm0e3r7c7jsc")
-
-        }
-        else{
-            alert("账号或密码错误");
-        }
-        }
-    </script>
+    <script src="count.js"></script>
+    <script src="lunbotu.js"></script>
+    <script src="denglu.js"></script>
 </body>
 </html>
