@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>医药系统</title>
+    <link rel="stylesheet" href="css/iconfont.css">
     <style>
         li{
             list-style: none;
         }
         #mokuai1{
             width: 1000px;
+            height: 89px;
             border: 1px solid #999999;
             position: absolute;
             top: 50px;
@@ -34,6 +36,7 @@
             padding-bottom: 14px;
         }
         #mokuai3 {
+            width:996px;
             border: 1px solid #999999;
             position: absolute;
             top: 198px;
@@ -42,18 +45,18 @@
         .non{
             display: none;
         }
-        #mokuai3 img{
+        .mokuai3-0 img{
             width: 1000px;
             height: 500px;
         }
-        .search-text{
+        #search-text{
             width: 391px;
             height: 34px;
             border: none;
             outline: none;
             float: left;
         }
-        .search-btn{
+        #search-btn{
             width: 134px;
             height: 36px;
             border: none;
@@ -68,7 +71,7 @@
             border: 2px solid #ff0036;
             position: absolute;
             top: 20px;
-            left: 30px;
+            left: 0px;
         }
         #mokuai3-2{
             position: absolute;
@@ -79,7 +82,7 @@
             width: 996px;
             position: absolute;
             /*display: none;*/
-            left:-1px;
+            left:-10px;
             border: 1px solid #888;
             background: #f2f2f2;
         }
@@ -123,6 +126,37 @@
             display: block;
             margin:8px 12px 5px 12px;
         }
+        .join{
+            position: absolute;
+            right:-400px;
+            top:-9px;
+        }
+        .join span{
+            font-size: 10px;
+        }
+        .look1{
+            width: 996px;
+            margin-top: 50px;
+            border: 1px solid #999;
+        }
+        .look2{
+            width: 996px;
+        }
+        .img22{
+            width: 150px;
+            height: 130px;
+        }
+        .tuichu{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #ff0036;
+            font-weight: bolder;
+        }
+        #xinxi-0 {
+           position: absolute;
+            left: 180px;
+        }
     </style>
 </head>
 <body>
@@ -131,9 +165,13 @@
             <div>
                 <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3322164036,3665294450&fm=200&gp=0.jpg" alt="">
             </div>
-            <div>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp用户姓名</p>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp用户账号</p>
+            <div id="xinxi-0">
+                <p id="usern">用户姓名</p>
+                <p id="userid">用户账号</p>
+            </div>
+            <div class="tuichu">
+                <i class="iconfont icon-zhuxiaologout11"></i>
+                <span>退出</span>
             </div>
         </div>
         <div id="mokuai2">
@@ -141,20 +179,22 @@
                 <li>首页</li>
                 <li>查询药品</li>
                 <li>查看药品</li>
+                <li>缺药信息</li>
             </ul>
         </div>
         <div id="mokuai3">
-            <div class="search"><img src="http://58pic.ooopic.com/58pic/21/56/59/80z58PICDQZ.jpg" alt=""></div>
+            <div class="mokuai3-0 search"><img src="http://58pic.ooopic.com/58pic/21/56/59/80z58PICDQZ.jpg" alt=""></div>
             <div id="mokuai3-1" class="non search">
-                <div>
-                    <form action="">
-                        <input type="text" class="search-text">
-                        <input type="submit" class="search-btn" value="搜索">
-                    </form>
+                <div mokuai3-1-0>
+                        <input type="text" id="search-text">
+                        <button id="search-btn">搜索</button>
+                    <div class="join">
+                        <i class="iconfont icon-htmal5icon29"></i>
+                        <span>提醒缺药</span>
+                    </div>
                 </div>
-                <div class="join">
-                    <i class="iconfont icon-htmal5icon29"></i>
-                    <span>提醒缺药</span>
+                <div class="look1">
+                    <img class="img22" src="http://img01.taopic.com/161004/240408-1610040J22656.jpg" alt="">
                 </div>
             </div>
             <div id="mokuai3-2" class="non search">
@@ -176,7 +216,7 @@
                             生产日期：<span>lilie</span>
                         </div>
                         <div class="userdate">
-                            使用期限：<span>hahahaha</span>年
+                            库存量：<span>hahahaha</span>年
                         </div>
                         <div class="action">
                             <i class="iconfont icon-htmal5icon29"></i>
@@ -185,23 +225,14 @@
                     </div>
                 </div>
             </div>
+            <div id="mokuai3-3" class="non search">
+                <div class="look2">
+
+                </div>
+            </div>
         </div>
     </div>
-    <script>
-        var div1=document.getElementById("mokuai2");
-        var oli=div1.getElementsByTagName('li');
-        var oul1=document.getElementById('mokuai3');
-        var oli1=oul1.getElementsByClassName('search');
-        for(i=0;i<oli.length;i++){
-            oli[i].index=i;
-            oli[i].onclick=function () {
-                for(j=0;j<oli.length;j++)
-                {
-                    oli1[j].style.display="none";
-                }
-                oli1[this.index].style.display="block";
-            }
-        }
-    </script>
+    <script src="count.js"></script>
+    <script src="1.0.js"></script>
 </body>
 </html>

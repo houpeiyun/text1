@@ -29,13 +29,3 @@ div1.onmouseover=function () {
 div1.onmouseout=function () {
     test();
 }
-/*btn1.onclick=function () {
-        if(text1=="20166668"&&text2=="123456")
-        {
-            window.open("http://localhost:63342/text1/js/1.0.0.html?_ijt=v42cmsc4n73ligqm0e3r7c7jsc")
-
-        }
-        else{
-            alert("账号或密码错误");
-        }
-    }*/

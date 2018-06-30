@@ -1,0 +1,203 @@
+
+var look1 = document.getElementsByClassName("look1")[0];
+var look2 = document.getElementsByClassName("look2")[0];
+var look3 = document.getElementsByClassName("look3")[0];
+var look4 = document.getElementsByClassName("look4")[0];
+var look5 = document.getElementsByClassName("look5")[0];
+var look200 = look2.getElementsByClassName("look2-0")[0];
+var look211 = look2.getElementsByClassName("look2-1")[0];
+var look20 = look200.getElementsByTagName("div");
+var look21 = look211.getElementsByTagName("div");
+function setDiv(item) {
+    var tutu = "<div class=\"bianxian\" >\n" +
+        "                    <div class=\"Dname\">\n" +
+        "                        药品名：<span>" + item.name +"</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"Deff\">\n" +
+        "                        药品功效：<span>" + item.efficacy + "</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"price\">\n" +
+        "                        单价：<span>" + item.unitprice + "</span>元\n" +
+        "                    </div>\n" +
+        "                    <div class=\"factor\">\n" +
+        "                        生产厂家：<span>" + item.profac + "</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"prodate\">\n" +
+        "                        生产日期：<span>" + item.prodate + "</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"userdate\">\n" +
+        "                         库存量：<span>" + item.num + "</span>盒\n" +
+        "                    </div>\n" +
+
+        "                </div>";
+
+    return tutu;
+}
+
+function setDiv(item) {
+    var tutu = "<div class=\"bianxian\" >\n" +
+        "                    <div class=\"Dname\">\n" +
+        "                        药品名：<span>" + item.name +"</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"Deff\">\n" +
+        "                        药品功效：<span>" + item.efficacy + "</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"price\">\n" +
+        "                        单价：<span>" + item.unitprice + "</span>元\n" +
+        "                    </div>\n" +
+        "                    <div class=\"factor\">\n" +
+        "                        生产厂家：<span>" + item.profac + "</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"prodate\">\n" +
+        "                        生产日期：<span>" + item.prodate + "</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"userdate\">\n" +
+        "                         库存量：<span>" + item.num + "</span>盒\n" +
+        "                    </div>\n" +
+        "                            <div class=\"action\">\n" +
+        "                                <i class=\"iconfont icon-htmal5icon29\"></i>\n" +
+        "                                <span>加入购物车</span>\n" +
+        "                            </div>\n" +
+        "                </div>";
+
+    return tutu;
+}
+
+var tui = document.getElementsByClassName("tuichu")[0];
+tui.onclick = function () {
+    window.location.href="http://localhost:63342/text1/fuxi/ruangong/1.0.html?_ijt=9lke1q973sgghbob3ll3s2m8b9";
+}
+function get() {
+    var html = '';
+    for(i = 0;i<medicine.length;i++){
+        html += setDiv(medicine[i])
+    }
+    look1.innerHTML = html;
+}
+get();
+function get11() {
+    var html = '';
+    for(i = 0;i<medicine.length;i++){
+        html += setDiv(medicine[i])
+    }
+    look21[0].innerHTML = html;
+}
+
+function get2() {
+    var m = localStorage.getItem("queyao");
+    look4.innerHTML = JSON.parse(m);
+}
+function get3() {
+    var c = localStorage.getItem("dingdan");
+    look3.innerHTML = JSON.parse(c);
+}
+var today = new Date();
+var year = today.getFullYear();
+var month = today.getMonth();
+var day = today.getDay();
+var gai = [];
+function get4() {
+    var html5 = ""
+    var z = localStorage.getItem("xiugai");
+    gai = JSON.parse(z);
+    console.log(gai[0]);
+    console.log(gai[1]);
+    for(i = 0;i<gai.length;i++){
+        for(j = 0;j<information.length;j++){
+            if(gai[i] == medicine[j].count){
+                medicine[j].num = medicine[j].num-(-200);
+                medicine[j].prodate = year+"-"+month+"-"+day;
+                console.log(j)
+            }
+        }
+    }
+
+    console.log(medicine)
+    for(i = 0;i<medicine.length;i++){
+        html5 += setDiv(medicine[i])
+        console.log(medicine[i].num)
+    }
+    look5.innerHTML = html5;
+}
+
+function get5() {
+    for(j=0;j<look21.length;j++)
+    {
+        look21[j].style.display="none";
+    }
+    console.log(look21)
+    look20[0].onclick = function () {
+        for(j=0;j<look21.length;j++)
+        {
+            look21[j].style.display="none";
+        }
+        look21[0].style.display="block";
+        get11();
+    }
+    look20[1].onclick = function () {
+        for(j=0;j<look21.length;j++)
+        {
+            look21[j].style.display="none";
+        }
+        look21[1].style.display="block";
+    }
+    look20[2].onclick = function () {
+        for(j=0;j<look21.length;j++)
+        {
+            look21[j].style.display="none";
+        }
+        look21[2].style.display="block";
+    }
+}
+
+
+var box0 = document.getElementsByClassName("box");
+var chos = document.getElementsByClassName("choose")[0];
+var ol = chos.getElementsByTagName("li");
+ol[0].onclick = function () {
+    for(j=0;j<ol.length;j++)
+    {
+        box0[j].style.display="none";
+    }
+    box0[0].style.display="block";
+};
+ol[1].onclick = function () {
+    for(j=0;j<ol.length;j++)
+    {
+        box0[j].style.display="none";
+    }
+    box0[1].style.display="block";
+};
+ol[2].onclick = function () {
+    for(j=0;j<ol.length;j++)
+    {
+        box0[j].style.display="none";
+    }
+    box0[2].style.display="block";
+    get5();
+};
+ol[3].onclick = function () {
+    for(j=0;j<ol.length;j++)
+    {
+        box0[j].style.display="none";
+    }
+    box0[3].style.display="block";
+    get3();
+};
+ol[4].onclick = function () {
+    for(j=0;j<ol.length;j++)
+    {
+        box0[j].style.display="none";
+    }
+    box0[4].style.display="block";
+    get2();
+};
+ol[5].onclick = function () {
+    for(j=0;j<ol.length;j++)
+    {
+        box0[j].style.display="none";
+    }
+    box0[5].style.display="block";
+    get4();
+    /*wre.style.height=look5.offsetHeight+'px';*/
+};

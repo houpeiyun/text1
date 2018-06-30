@@ -20,12 +20,12 @@ loginBtn.onclick = function () {
     }
     else{
         for (i = 0; i < information.length; i++) {
-            console.log(username.value);
-            console.log(password.value);
             if (username.value == information[i].name && password.value == information[i].password) {
                 state = true;
                 information[i].index = 1;
-                console.log(state);
+                var d = JSON.stringify(information);
+                localStorage.setItem("information",d);
+                console.log(information);
             }
         }
 

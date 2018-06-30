@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="css/iconfont.css">
     <style>
         body{
             color: #555;
@@ -13,7 +14,7 @@
             list-style: none;
         }
         .warpper{
-            height: 800px;
+            height: 1500px;
             width: 996px;
             margin: 0 auto;
             background:lightskyblue;
@@ -38,7 +39,7 @@
         }
         .choose ul{
             width: 100px;
-            height: 650px;
+            height: 1320px;
             padding-right:10px;
             border-right: 1px solid #888;
         }
@@ -47,9 +48,11 @@
             margin-left:10px;
             font-size:20px;
             width: 100px;
+            font-style: oblique;
         }
-        .look,.look1,.look2,.look3,.tupian{
+        .look1,.look2,.look3,.look4,.look5,.tupian{
             width: 885px;
+            height: 0px;
             position: absolute;
             left:110px;
             top: -5px;
@@ -79,8 +82,11 @@
             width: 886px;
             font-size: 14px;
             position:relative;
+            top: 0;
+            left: 0px;
             padding-top:10px;
             border-bottom: 1px solid #888;
+            border-top: 1px solid #888;
         }
         .bianxian div {
             line-height:20px;
@@ -114,6 +120,34 @@
         .tupian img{
             width: 880px;
         }
+        .tuichu{
+            position: absolute;
+            top: 10px;
+            right: 190px;
+            color: #ff0036;
+            font-weight: bolder;
+        }
+        .look2-0{
+            /*border-right: 1px solid black;*/
+            height: 50px;
+            width: 886px;
+        }
+        .look2-0 div{
+            float: left;
+            margin: 8px 8px;
+        }
+        .action{
+            position: absolute;
+            right:20px;
+            bottom:5px;
+        }
+        .icon-htmal5icon29{
+            font-size:30px;
+            color:red;
+            height:20px;
+            display: block;
+            margin:8px 12px 5px 12px;
+        }
     </style>
 </head>
 <body>
@@ -121,19 +155,24 @@
     <div class="adm">
         <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3322164036,3665294450&fm=200&gp=0.jpg" alt="">
         <p>管理员</p>
+        <div class="tuichu">
+            <i class="iconfont icon-zhuxiaologout11"></i>
+            <span>退出</span>
+        </div>
     </div>
     <div class="choose">
         <ul>
             <li class="shouye">首页</li>
             <li class="see">药品信息</li>
+            <li class="see">支付查询</li>
             <li class="seeinfo">查看订单</li>
             <li class="que">缺货信息</li>
             <li class="fan">修改信息</li>
         </ul>
-        <div class="tupian">
+        <div class="tupian box">
             <img src="http://58pic.ooopic.com/58pic/21/56/59/80z58PICDQZ.jpg" alt="">
         </div>
-        <div class="look">
+        <div class="look1 box">
             <div class="bianxian" >
                 <div class="Dname">
                     药品名：<span>哈哈哈123</span>
@@ -158,12 +197,76 @@
                 </div>
             </div>
         </div>
-        <div class="look1"></div>
-        <div class="look2"></div>
-        <div class="look3"></div>
+        <div class="look2 box">
+            <div class="look2-0">
+                <div>查看药品</div>
+                <div>购物车</div>
+                <div>支付查询</div>
+            </div>
+            <div class="look2-1">
+                <div>
+                    <div class="look">
+                        <div class="bianxian" >
+                            <div class="Dname">
+                                药品名：<span>哈哈哈123</span>
+                            </div>
+                            <div class="Deff">
+                                药品功效：<span>ixixixi</span>
+                            </div>
+                            <div class="price">
+                                单价：<span>lililil</span>元
+                            </div>
+                            <div class="factor">
+                                生产厂家：<span>lalalla</span>
+                            </div>
+                            <div class="prodate">
+                                生产日期：<span>lilie</span>
+                            </div>
+                            <div class="userdate">
+                                库存量：<span>hahahaha</span>年
+                            </div>
+                            <div class="action">
+                                <i class="iconfont icon-htmal5icon29"></i>
+                                <span>加入购物车</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>222</div>
+                <div>333</div>
+            </div>
+        </div>
+        <div class="look3 box">2222</div>
+        <div class="look4 box">
+            <div class="bianxian" >
+                <div class="Dname">
+                    药品名：<span>哈哈哈123</span>
+                </div>
+                <div class="Deff">
+                    药品功效：<span>ixixixi</span>
+                </div>
+                <div class="price">
+                    单价：<span>lililil</span>元
+                </div>
+                <div class="factor">
+                    生产厂家：<span>lalalla</span>
+                </div>
+                <div class="prodate">
+                    生产日期：<span>lilie</span>
+                </div>
+                <div class="userdate">
+                    使用期限：<span>hahahaha</span>年
+                </div>
+                <div class="sheng">
+                    数量：<span>LALAL</span>盒
+                </div>
+            </div>
+        </div>
+        <div class="look5 box">5454</div>
     </div>
 </div>
-<!--<script src="count.js"></script>
-<script src="guanliyuan.js"></script>-->
+<script src="count.js"></script>
+<script src="guanliyuan.js"></script>
+<script src="guanliyuan.js"></script>
 </body>
 </html>

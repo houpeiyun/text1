@@ -1,6 +1,7 @@
 
 var medicine = [
     {
+        count:0,
         name:"通宣理肺片",
         efficacy:"解表散寒，宣肺止咳",
         usedate:3,
@@ -10,6 +11,7 @@ var medicine = [
         num:20
     },
     {
+        count:1,
         name:"氯雷他定片",
         efficacy:"用于缓解过敏性鼻炎有关的症状",
         usedate:5,
@@ -19,15 +21,17 @@ var medicine = [
         num:30
     },
     {
+        count:2,
         name:"新雪片",
         efficacy:"清热解毒,用于各种热性病之发热",
-        usedate:1,
+        usedate:0,
         prodate:"2018-7-9",
         profac:"广州有限公司",
         unitprice:15,
         num:10
     },
     {
+        count:3,
         name:"一清颗粒",
         efficacy:"清热泻火解毒",
         usedate:6,
@@ -37,6 +41,7 @@ var medicine = [
         num:40
     },
     {
+        count:4,
         name:"人工牛黄甲硝唑胶囊",
         efficacy:"人工牛黄甲硝唑胶囊",
         usedate:2,
@@ -45,22 +50,151 @@ var medicine = [
         unitprice:10,
         num:60
     }
+    ,
+    {
+        count:5,
+        name:"补益资生丸",
+        efficacy:"用于脾胃虚弱引起的胸闷作呕，食欲不振",
+        usedate:2,
+        prodate:"2016-3-30",
+        profac:"北京同仁堂",
+        unitprice:23,
+        num:10
+    }
+    ,
+    {
+        count:6,
+        name:"正露丸",
+        efficacy:"用于饮食不洁或水土不服",
+        usedate:2,
+        prodate:"2018-3-30",
+        profac:"大幸药品株式会社",
+        unitprice:35,
+        num:0
+    }
+    ,
+    {
+        count:7,
+        name:"人工牛黄甲硝唑胶囊",
+        efficacy:"人工牛黄甲硝唑胶囊",
+        usedate:2,
+        prodate:"2018-3-30",
+        profac:"吉林有限公司",
+        unitprice:10,
+        num:60
+    },
+    {
+        count:8,
+        name:"人工牛黄甲硝唑胶囊",
+        efficacy:"人工牛黄甲硝唑胶囊",
+        usedate:2,
+        prodate:"2018-3-30",
+        profac:"吉林有限公司",
+        unitprice:10,
+        num:60
+    },
+    {
+        count:9,
+        name:"人工牛黄甲硝唑胶囊",
+        efficacy:"人工牛黄甲硝唑胶囊",
+        usedate:2,
+        prodate:"2018-3-30",
+        profac:"吉林有限公司",
+        unitprice:10,
+        num:60
+    },
+    {
+        count:10,
+        name:"人工牛黄甲硝唑胶囊",
+        efficacy:"人工牛黄甲硝唑胶囊",
+        usedate:2,
+        prodate:"2018-3-30",
+        profac:"吉林有限公司",
+        unitprice:10,
+        num:60
+    },
+    {
+        count:11,
+        name:"人工牛黄甲硝唑胶囊",
+        efficacy:"人工牛黄甲硝唑胶囊",
+        usedate:2,
+        prodate:"2018-3-30",
+        profac:"吉林有限公司",
+        unitprice:10,
+        num:60
+    },
+    {
+        count:12,
+        name:"心脉通片",
+        efficacy:"活血化瘀，通脉养心",
+        usedate:2,
+        prodate:"2016-8-30",
+        profac:"广东邦民制药厂有限公司",
+        unitprice:22,
+        num:45
+    },
+    {
+        count:13,
+        name:"琥珀酸美托洛尔缓释片",
+        efficacy:"治疗高血压",
+        usedate:2,
+        prodate:"2016-9-22",
+        profac:"阿斯利康制药有限公司",
+        unitprice:18.5,
+        num:14
+    },
+    {
+        count:14,
+        name:"托拉塞米片",
+        efficacy:"控制血压的轻度-中度原发性高血压",
+        usedate:2,
+        prodate:"2017-1-30",
+        profac:"湖北百科亨迪药业有限公司",
+        unitprice:22,
+        num:25
+    },
+    {
+        count:15,
+        name:"厄贝沙坦片",
+        efficacy:"治疗高血压，心血管",
+        usedate:2,
+        prodate:"2017-3-30",
+        profac:"江苏恒瑞医药股份有限公司",
+        unitprice:13.9,
+        num:39
+    }
 ];
+
 var information =[
     {
+        gonghao:"侯沛赟",
         name:"20166668",
         password:142322,
         index:0
     },
     {
+        gonghao:"刘可新",
         name:"20166557",
         password:156489,
         index:0
 
     },
     {
+        gonghao:"王习文",
         name:"20166042",
         password:365219,
+        index:0
+    },
+    {
+        gonghao:"杨统蕊",
+        name:"20166788",
+        password:365919,
+        index:0
+    },
+    {
+        gonghao:"马艳芳",
+        name:"20166555",
+        password:586219,
         index:0
     }
 ];
