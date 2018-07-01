@@ -67,61 +67,61 @@ var medicine = [
         name:"正露丸",
         efficacy:"用于饮食不洁或水土不服",
         usedate:2,
-        prodate:"2018-3-30",
+        prodate:"2017-5-21",
         profac:"大幸药品株式会社",
         unitprice:35,
-        num:0
+        num:5
     }
     ,
     {
         count:7,
-        name:"人工牛黄甲硝唑胶囊",
-        efficacy:"人工牛黄甲硝唑胶囊",
+        name:"恩替卡韦分散片",
+        efficacy:"乙肝抗病毒一线用药",
         usedate:2,
-        prodate:"2018-3-30",
-        profac:"吉林有限公司",
-        unitprice:10,
-        num:60
+        prodate:"2018-1-30",
+        profac:"江苏正大天晴药业股份有限公司",
+        unitprice:156,
+        num:0
     },
     {
         count:8,
-        name:"人工牛黄甲硝唑胶囊",
-        efficacy:"人工牛黄甲硝唑胶囊",
+        name:" 恩替卡韦胶囊",
+        efficacy:"乙肝抗病毒一线用药",
         usedate:2,
         prodate:"2018-3-30",
-        profac:"吉林有限公司",
+        profac:"福建广生堂药业股份有限公司",
         unitprice:10,
         num:60
     },
     {
         count:9,
-        name:"人工牛黄甲硝唑胶囊",
-        efficacy:"人工牛黄甲硝唑胶囊",
+        name:"羚羊清肺颗粒",
+        efficacy:"用于肺胃热盛，身热头晕，四肢酸懒",
         usedate:2,
-        prodate:"2018-3-30",
-        profac:"吉林有限公司",
-        unitprice:10,
-        num:60
+        prodate:"2017-8-2",
+        profac:"江西保利制药有限公司",
+        unitprice:10.5,
+        num:24
     },
     {
         count:10,
-        name:"人工牛黄甲硝唑胶囊",
-        efficacy:"人工牛黄甲硝唑胶囊",
+        name:"奥利司他胶囊",
+        efficacy:"减肥药",
         usedate:2,
-        prodate:"2018-3-30",
-        profac:"吉林有限公司",
-        unitprice:10,
-        num:60
+        prodate:"2016-11-30",
+        profac:"重庆华森制药股份有限公司",
+        unitprice:99,
+        num:25
     },
     {
         count:11,
-        name:"人工牛黄甲硝唑胶囊",
-        efficacy:"人工牛黄甲硝唑胶囊",
+        name:"消痛贴膏",
+        efficacy:"用于神经痛、风湿痛、肩痛，扭伤、",
         usedate:2,
-        prodate:"2018-3-30",
-        profac:"吉林有限公司",
-        unitprice:10,
-        num:60
+        prodate:"2017-1-30",
+        profac:"西藏奇正藏药股份有限公司受托甘肃奇正藏药有限公司",
+        unitprice:66,
+        num:47
     },
     {
         count:12,

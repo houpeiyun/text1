@@ -6,8 +6,13 @@ var look4 = document.getElementsByClassName("look4")[0];
 var look5 = document.getElementsByClassName("look5")[0];
 var look200 = look2.getElementsByClassName("look2-0")[0];
 var look211 = look2.getElementsByClassName("look2-1")[0];
+/*var look212 = look2.getElementsByClassName("look5-0")[0];*/
 var look20 = look200.getElementsByTagName("div");
 var look21 = look211.getElementsByTagName("div");
+var zhifu = document.getElementsByClassName("allprice")[0];
+var zhifu1 = zhifu.getElementsByTagName("span")[0];
+var dd;
+zhifu.style.display = "none";
 function setDiv(item) {
     var tutu = "<div class=\"bianxian\" >\n" +
         "                    <div class=\"Dname\">\n" +
@@ -34,7 +39,31 @@ function setDiv(item) {
     return tutu;
 }
 
-function setDiv(item) {
+function setDiv2(item,ff) {
+    var tutu = "<div class=\"bianxian\" >\n" +
+        "                    <div class=\"Dname\">\n" +
+        "                        药品名：<span>" + item.name +"</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"Deff\">\n" +
+        "                        药品功效：<span>" + item.efficacy + "</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"price\">\n" +
+        "                        单价：<span>" + item.unitprice + "</span>元\n" +
+        "                    </div>\n" +
+        "                    <div class=\"factor\">\n" +
+        "                        生产厂家：<span>" + item.profac + "</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"prodate\">\n" +
+        "                        生产日期：<span>" + item.prodate + "</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"userdate\">\n" +
+        "                         购买数：<span>" + ee[ff] + "</span>盒\n" +
+        "                    </div>\n" +
+        "                </div>";
+    return tutu;
+}
+
+function setDiv1(item) {
     var tutu = "<div class=\"bianxian\" >\n" +
         "                    <div class=\"Dname\">\n" +
         "                        药品名：<span>" + item.name +"</span>\n" +
@@ -78,7 +107,7 @@ get();
 function get11() {
     var html = '';
     for(i = 0;i<medicine.length;i++){
-        html += setDiv(medicine[i])
+        html += setDiv1(medicine[i])
     }
     look21[0].innerHTML = html;
 }
@@ -86,6 +115,20 @@ function get11() {
 function get2() {
     var m = localStorage.getItem("queyao");
     look4.innerHTML = JSON.parse(m);
+}
+var kk = 0;
+function get22() {
+    var html = '';
+    var tt = 12;
+    for(i = 0;i<medicine.length;i++){
+        //console.log(medicine[i].sym);
+        if(medicine[i].sym == 1){
+            html += setDiv2(medicine[i],tt);
+            tt++;
+        }
+    }
+    look211.innerHTML = html;
+    zhifu1.innerHTML = kk;
 }
 function get3() {
     var c = localStorage.getItem("dingdan");
@@ -103,7 +146,7 @@ function get4() {
     console.log(gai[0]);
     console.log(gai[1]);
     for(i = 0;i<gai.length;i++){
-        for(j = 0;j<information.length;j++){
+        for(j = 0;j<medicine.length;j++){
             if(gai[i] == medicine[j].count){
                 medicine[j].num = medicine[j].num-(-200);
                 medicine[j].prodate = year+"-"+month+"-"+day;
@@ -118,38 +161,73 @@ function get4() {
         console.log(medicine[i].num)
     }
     look5.innerHTML = html5;
+    look1.innerHTML = html5;
 }
 
+var gai = [];
+var gw = [];
+
+
+var ee = [];
 function get5() {
+    var pp = [],gg = [];
+    var bb = 0,jj = 0;
     for(j=0;j<look21.length;j++)
     {
         look21[j].style.display="none";
     }
-    console.log(look21)
+    console.log(look21);
+
     look20[0].onclick = function () {
+        zhifu.style.display = "none";
         for(j=0;j<look21.length;j++)
         {
             look21[j].style.display="none";
         }
         look21[0].style.display="block";
         get11();
+        var action = document.getElementsByClassName("action");
+        for(i = 0 ; i < action.length ; i++){
+            action[i].index = i;
+            pp[i] = medicine[i].num;
+            gg[i] = medicine[i].unitprice;
+            action[i].onclick = function () {
+                bb = this.index;
+                if(pp[bb]>0){
+                    dd = prompt("请问您想购买几盒？");
+                    console.log(dd);
+                    ee[j] = dd;
+                    j++;
+                    kk+=gg[bb]*dd;
+                    alert("加入成功!");
+                    var div = this.parentNode;
+                    console.log(div);
+                    var name = div.getElementsByClassName("Dname")[0].getElementsByTagName("span")[0].innerHTML;
+                    console.log(name);
+                    for(i = 0 ; i < medicine.length ; i++){
+                        if(name == medicine[i].name){
+                            medicine[i].sym = 1;
+                        }
+                    }
+                }
+                else {
+                    alert("加入失败");
+                }
+                console.log("ee:"+ee)
+            };
+        }
     }
+    /*console.log(medicine[0].sym);*/
     look20[1].onclick = function () {
+        zhifu.style.display = "block";
         for(j=0;j<look21.length;j++)
         {
             look21[j].style.display="none";
         }
         look21[1].style.display="block";
-    }
-    look20[2].onclick = function () {
-        for(j=0;j<look21.length;j++)
-        {
-            look21[j].style.display="none";
-        }
-        look21[2].style.display="block";
+        get22();
     }
 }
-
 
 var box0 = document.getElementsByClassName("box");
 var chos = document.getElementsByClassName("choose")[0];
