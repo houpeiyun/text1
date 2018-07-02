@@ -1,4 +1,5 @@
-
+var cccc = JSON.stringify(medicine);
+localStorage.setItem("shuju",cccc);
 var look1 = document.getElementsByClassName("look1")[0];
 var look2 = document.getElementsByClassName("look2")[0];
 var look3 = document.getElementsByClassName("look3")[0];
@@ -130,12 +131,14 @@ tui.onclick = function () {
 var ilu = 0;
 function get() {
     var html = '';
+    cccc = localStorage.getItem("shuju");
+    medicine = JSON.parse(cccc);
     for(i = 0;i<medicine.length;i++){
         html += setDiv(medicine[i])
     }
     look1.innerHTML = html;
     if(ilu == 2){
-        var poii = localStorage.getItem("zhifuchenggong");
+        var poii = localStorage.getItem("aay");
         console.log("xinxi"+JSON.parse(poii))
         look1.innerHTML = JSON.parse(poii);
     }
@@ -186,6 +189,8 @@ function get4() {
     gai = JSON.parse(z);
     console.log(gai[0]);
     console.log(gai[1]);
+    cccc = localStorage.getItem("shuju");
+    medicine = JSON.parse(cccc);
     for(i = 0;i<gai.length;i++){
         for(j = 0;j<medicine.length;j++){
             if(gai[i] == medicine[j].count){
@@ -195,7 +200,8 @@ function get4() {
             }
         }
     }
-
+    cccc = JSON.stringify(medicine);
+    localStorage.setItem("shuju",cccc);
     console.log(medicine)
     for(i = 0;i<medicine.length;i++){
         html5 += setDiv(medicine[i]);
@@ -277,16 +283,20 @@ function get5() {
     buyt.onclick = function () {
         var hul = "";
         alert("支付成功");
+        cccc = localStorage.getItem("shuju");
+        medicine = JSON.parse(cccc);
         for(i = 0;i<vvv.length;i++){
             medicine[vvv[i]].num = medicine[vvv[i]].num - ee[i+12];
             console.log("med"+ee[i+12]);
         }
+        cccc = JSON.stringify(medicine);
+        localStorage.setItem("shuju",cccc);
         console.log("med"+medicine);
         for(i = 0;i<medicine.length;i++){
             hul += setDiv1(medicine[i])
         }
         var bfe = JSON.stringify(hul);
-        localStorage.setItem("zhifuchenggong",bfe);
+        localStorage.setItem("aay",bfe);
         ilu = 2;
         localStorage.setItem("ilu","2")
     }

@@ -4,6 +4,7 @@ var username = document.getElementById("usern");
 var userID = document.getElementById("userid");
 for(i = 0 ; i < information.length; i++){
     if(information[i].index == 1){
+        document.getElementById("imageId").src = information[i].logo;
         username.innerHTML = information[i].gonghao;
         userID.innerHTML = information[i].name;
     }
@@ -131,7 +132,7 @@ function setDiv3(item) {
 }
 /*localStorage.setItem("wdc","0");*/
 var iii = localStorage.getItem("aay");
-var poi = localStorage.getItem("zhifuchenggong");
+var poi = localStorage.getItem("aay");
 /*console.log("111"+JSON.parse(iii))*/
 function get() {
     var html = '';

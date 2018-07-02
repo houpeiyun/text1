@@ -25,7 +25,7 @@ var medicine = [
         name:"新雪片",
         efficacy:"清热解毒,用于各种热性病之发热",
         usedate:0,
-        prodate:"2018-7-9",
+        prodate:"2018-2-9",
         profac:"广州有限公司",
         unitprice:15,
         num:10
@@ -170,32 +170,36 @@ var information =[
         gonghao:"侯沛赟",
         name:"20166668",
         password:142322,
-        index:0
+        index:0,
+        logo:"img/a1.jpg"
     },
     {
         gonghao:"刘可新",
         name:"20166557",
         password:156489,
-        index:0
-
+        index:0,
+        logo:"img/a2.jpg"
     },
     {
         gonghao:"王习文",
         name:"20166042",
         password:365219,
-        index:0
+        index:0,
+        logo:"img/a3.jpg"
     },
     {
         gonghao:"杨统蕊",
         name:"20166788",
         password:365919,
-        index:0
+        index:0,
+        logo:"img/a4.jpg"
     },
     {
         gonghao:"马艳芳",
         name:"20166555",
         password:586219,
-        index:0
+        index:0,
+        logo:"img/a5.jpg"
     }
 ];
 var infonum = 0;
