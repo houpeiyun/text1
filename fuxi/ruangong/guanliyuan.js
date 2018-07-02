@@ -11,6 +11,7 @@ var look20 = look200.getElementsByTagName("div");
 var look21 = look211.getElementsByTagName("div");
 var zhifu = document.getElementsByClassName("allprice")[0];
 var zhifu1 = zhifu.getElementsByTagName("span")[0];
+var buyt = document.getElementsByClassName("buew")[0];
 var dd;
 zhifu.style.display = "none";
 function setDiv(item) {
@@ -92,18 +93,57 @@ function setDiv1(item) {
     return tutu;
 }
 
+function setDiv8(item) {
+    var tutu = "<div class=\"bianxian\" >\n" +
+        "                    <div class=\"Dname\">\n" +
+        "                        药品名：<span>" + item.name +"</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"Deff\">\n" +
+        "                        药品功效：<span>" + item.efficacy + "</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"price\">\n" +
+        "                        单价：<span>" + item.unitprice + "</span>元\n" +
+        "                    </div>\n" +
+        "                    <div class=\"factor\">\n" +
+        "                        生产厂家：<span>" + item.profac + "</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"prodate\">\n" +
+        "                        生产日期：<span>" + item.prodate + "</span>\n" +
+        "                    </div>\n" +
+        "                    <div class=\"userdate\">\n" +
+        "                         库存量：<span>" + item.num + "</span>盒\n" +
+        "                    </div>\n" +
+        "                            <div class=\"action\">\n" +
+        "                                <i class=\"iconfont icon-htmal5icon29\"></i>\n" +
+        "                                <span>提醒缺药</span>\n" +
+        "                            </div>\n" +
+        "                </div>";
+
+    return tutu;
+}
+
+
 var tui = document.getElementsByClassName("tuichu")[0];
 tui.onclick = function () {
     window.location.href="http://localhost:63342/text1/fuxi/ruangong/1.0.html?_ijt=9lke1q973sgghbob3ll3s2m8b9";
 }
+var ilu = 0;
 function get() {
     var html = '';
     for(i = 0;i<medicine.length;i++){
         html += setDiv(medicine[i])
     }
     look1.innerHTML = html;
+    if(ilu == 2){
+        var poii = localStorage.getItem("zhifuchenggong");
+        console.log("xinxi"+JSON.parse(poii))
+        look1.innerHTML = JSON.parse(poii);
+    }
+        else{
+        ilu = 0;
+    }
 }
-get();
+
 function get11() {
     var html = '';
     for(i = 0;i<medicine.length;i++){
@@ -140,7 +180,8 @@ var month = today.getMonth();
 var day = today.getDay();
 var gai = [];
 function get4() {
-    var html5 = ""
+    var html5 = "";
+    var html66 = "";
     var z = localStorage.getItem("xiugai");
     gai = JSON.parse(z);
     console.log(gai[0]);
@@ -157,9 +198,13 @@ function get4() {
 
     console.log(medicine)
     for(i = 0;i<medicine.length;i++){
-        html5 += setDiv(medicine[i])
+        html5 += setDiv(medicine[i]);
+        html66 += setDiv8(medicine[i])
         console.log(medicine[i].num)
     }
+    var ttt = JSON.stringify(html66);
+    localStorage.setItem("aay",ttt);
+    localStorage.setItem("wdc","1");
     look5.innerHTML = html5;
     look1.innerHTML = html5;
 }
@@ -167,8 +212,8 @@ function get4() {
 var gai = [];
 var gw = [];
 
-
 var ee = [];
+var vvv = [],uu = 0;
 function get5() {
     var pp = [],gg = [];
     var bb = 0,jj = 0;
@@ -196,6 +241,8 @@ function get5() {
                 if(pp[bb]>0){
                     dd = prompt("请问您想购买几盒？");
                     console.log(dd);
+                    vvv[uu] = this.index;
+                    uu++;
                     ee[j] = dd;
                     j++;
                     kk+=gg[bb]*dd;
@@ -227,6 +274,22 @@ function get5() {
         look21[1].style.display="block";
         get22();
     }
+    buyt.onclick = function () {
+        var hul = "";
+        alert("支付成功");
+        for(i = 0;i<vvv.length;i++){
+            medicine[vvv[i]].num = medicine[vvv[i]].num - ee[i+12];
+            console.log("med"+ee[i+12]);
+        }
+        console.log("med"+medicine);
+        for(i = 0;i<medicine.length;i++){
+            hul += setDiv1(medicine[i])
+        }
+        var bfe = JSON.stringify(hul);
+        localStorage.setItem("zhifuchenggong",bfe);
+        ilu = 2;
+        localStorage.setItem("ilu","2")
+    }
 }
 
 var box0 = document.getElementsByClassName("box");
@@ -245,6 +308,7 @@ ol[1].onclick = function () {
         box0[j].style.display="none";
     }
     box0[1].style.display="block";
+    get();
 };
 ol[2].onclick = function () {
     for(j=0;j<ol.length;j++)

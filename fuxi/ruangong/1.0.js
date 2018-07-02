@@ -129,14 +129,32 @@ function setDiv3(item) {
 
     return tutu;
 }
+/*localStorage.setItem("wdc","0");*/
+var iii = localStorage.getItem("aay");
+var poi = localStorage.getItem("zhifuchenggong");
+/*console.log("111"+JSON.parse(iii))*/
 function get() {
     var html = '';
     for(i = 0;i<medicine.length;i++){
         html += setDiv(medicine[i])
     }
+    console.log(localStorage.getItem("wdc"));
     look.innerHTML = html;
+    if(localStorage.getItem("wdc") == 1){
+        look.innerHTML = JSON.parse(iii);
+    }
+    else if(localStorage.getItem("ilu") == 2){
+        look.innerHTML = JSON.parse(poi);
+    }
+    else {
+        localStorage.setItem("wdc","0");
+        look.innerHTML = html;
+    }
+
 }
+
 var html2 = '';
+var html33 = "";
 var gai = [];
 function get2() {
     var html = '';
@@ -151,15 +169,25 @@ function get2() {
         }
     }
     look2.innerHTML = html;
+    html33 = html;
     console.log(gai );
+    var m = JSON.stringify(html33);
+    localStorage.setItem("queyao",m);
+    var c = JSON.stringify(html2);
+    localStorage.setItem("dingdan",c);
+    var z = JSON.stringify(gai);
+    localStorage.setItem("xiugai",z);
 }
 get();
+
 
 tui.onclick = function () {
     window.location.href="http://localhost:63342/text1/fuxi/ruangong/1.0.html?_ijt=9lke1q973sgghbob3ll3s2m8b9";
 }
 
+
 oli[2].onclick = function () {
+
     for(j=0;j<oli.length;j++)
     {
         oli1[j].style.display="none";
@@ -180,6 +208,7 @@ oli[2].onclick = function () {
             }
         };
     }
+
 };
 oli[0].onclick = function () {
     for(j=0;j<oli.length;j++)
@@ -194,6 +223,7 @@ oli[1].onclick = function () {
         oli1[j].style.display="none";
     }
     oli1[1].style.display="block";
+
 };
 oli[3].onclick = function () {
     for(j=0;j<oli.length;j++)
@@ -202,12 +232,6 @@ oli[3].onclick = function () {
     }
     oli1[3].style.display="block";
     get2();
-    var m = JSON.stringify(look2.innerHTML);
-    localStorage.setItem("queyao",m);
-    var c = JSON.stringify(html2);
-    localStorage.setItem("dingdan",c);
-    var z = JSON.stringify(gai);
-    localStorage.setItem("xiugai",z);
 };
 btn.onclick = function () {
     var html1 = '';
