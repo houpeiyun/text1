@@ -215,8 +215,8 @@ function get4() {
     look1.innerHTML = html5;
 }
 
-var gai = [];
-var gw = [];
+/*var gai = [];
+var gw = [];*/
 
 var ee = [];
 var vvv = [],uu = 0;
@@ -228,20 +228,27 @@ function get5() {
         look21[j].style.display="none";
     }
     console.log(look21);
-
+    var action = document.getElementsByClassName("action");
+    console.log(action)
+    for(i = 0 ; i < medicine.length ; i++) {
+        pp[i] = medicine[i].num;
+        gg[i] = medicine[i].unitprice;
+        console.log("pp1:"+medicine[i].num)
+    }
+    console.log("pp:"+pp)
     look20[0].onclick = function () {
         zhifu.style.display = "none";
         for(j=0;j<look21.length;j++)
         {
             look21[j].style.display="none";
         }
+        console.log(action);
         look21[0].style.display="block";
         get11();
-        var action = document.getElementsByClassName("action");
         for(i = 0 ; i < action.length ; i++){
             action[i].index = i;
-            pp[i] = medicine[i].num;
-            gg[i] = medicine[i].unitprice;
+            ewrt = localStorage.getItem("shuju");
+            medicine = JSON.parse(ewrt);
             action[i].onclick = function () {
                 bb = this.index;
                 if(pp[bb]>0){
@@ -266,7 +273,7 @@ function get5() {
                 else {
                     alert("加入失败");
                 }
-                console.log("ee:"+ee)
+
             };
         }
     }

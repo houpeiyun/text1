@@ -2,6 +2,36 @@
 var medicine = [
     {
         count:0,
+        name:"心脉通片",
+        efficacy:"活血化瘀，通脉养心",
+        usedate:2,
+        prodate:"2016-8-30",
+        profac:"广东邦民制药厂有限公司",
+        unitprice:22,
+        num:45
+    },
+    {
+        count:1,
+        name:"琥珀酸美托洛尔缓释片",
+        efficacy:"治疗高血压",
+        usedate:2,
+        prodate:"2016-9-22",
+        profac:"阿斯利康制药有限公司",
+        unitprice:18.5,
+        num:14
+    },
+    {
+        count:2,
+        name:"托拉塞米片",
+        efficacy:"控制血压的轻度-中度原发性高血压",
+        usedate:2,
+        prodate:"2017-1-30",
+        profac:"湖北百科亨迪药业有限公司",
+        unitprice:22,
+        num:25
+    },
+    {
+        count:3,
         name:"通宣理肺片",
         efficacy:"解表散寒，宣肺止咳",
         usedate:3,
@@ -11,7 +41,7 @@ var medicine = [
         num:20
     },
     {
-        count:1,
+        count:4,
         name:"氯雷他定片",
         efficacy:"用于缓解过敏性鼻炎有关的症状",
         usedate:5,
@@ -21,7 +51,7 @@ var medicine = [
         num:30
     },
     {
-        count:2,
+        count:5,
         name:"新雪片",
         efficacy:"清热解毒,用于各种热性病之发热",
         usedate:0,
@@ -31,7 +61,7 @@ var medicine = [
         num:10
     },
     {
-        count:3,
+        count:6,
         name:"一清颗粒",
         efficacy:"清热泻火解毒",
         usedate:6,
@@ -41,7 +71,7 @@ var medicine = [
         num:40
     },
     {
-        count:4,
+        count:7,
         name:"人工牛黄甲硝唑胶囊",
         efficacy:"人工牛黄甲硝唑胶囊",
         usedate:2,
@@ -52,7 +82,7 @@ var medicine = [
     }
     ,
     {
-        count:5,
+        count:8,
         name:"补益资生丸",
         efficacy:"用于脾胃虚弱引起的胸闷作呕，食欲不振",
         usedate:2,
@@ -63,7 +93,7 @@ var medicine = [
     }
     ,
     {
-        count:6,
+        count:9,
         name:"正露丸",
         efficacy:"用于饮食不洁或水土不服",
         usedate:2,
@@ -74,7 +104,7 @@ var medicine = [
     }
     ,
     {
-        count:7,
+        count:10,
         name:"恩替卡韦分散片",
         efficacy:"乙肝抗病毒一线用药",
         usedate:2,
@@ -84,7 +114,7 @@ var medicine = [
         num:0
     },
     {
-        count:8,
+        count:11,
         name:" 恩替卡韦胶囊",
         efficacy:"乙肝抗病毒一线用药",
         usedate:2,
@@ -94,7 +124,7 @@ var medicine = [
         num:60
     },
     {
-        count:9,
+        count:12,
         name:"羚羊清肺颗粒",
         efficacy:"用于肺胃热盛，身热头晕，四肢酸懒",
         usedate:2,
@@ -104,7 +134,7 @@ var medicine = [
         num:24
     },
     {
-        count:10,
+        count:13,
         name:"奥利司他胶囊",
         efficacy:"减肥药",
         usedate:2,
@@ -114,7 +144,7 @@ var medicine = [
         num:25
     },
     {
-        count:11,
+        count:14,
         name:"消痛贴膏",
         efficacy:"用于神经痛、风湿痛、肩痛，扭伤、",
         usedate:2,
@@ -122,36 +152,6 @@ var medicine = [
         profac:"西藏奇正藏药股份有限公司受托甘肃奇正藏药有限公司",
         unitprice:66,
         num:47
-    },
-    {
-        count:12,
-        name:"心脉通片",
-        efficacy:"活血化瘀，通脉养心",
-        usedate:2,
-        prodate:"2016-8-30",
-        profac:"广东邦民制药厂有限公司",
-        unitprice:22,
-        num:45
-    },
-    {
-        count:13,
-        name:"琥珀酸美托洛尔缓释片",
-        efficacy:"治疗高血压",
-        usedate:2,
-        prodate:"2016-9-22",
-        profac:"阿斯利康制药有限公司",
-        unitprice:18.5,
-        num:14
-    },
-    {
-        count:14,
-        name:"托拉塞米片",
-        efficacy:"控制血压的轻度-中度原发性高血压",
-        usedate:2,
-        prodate:"2017-1-30",
-        profac:"湖北百科亨迪药业有限公司",
-        unitprice:22,
-        num:25
     },
     {
         count:15,
