@@ -84,8 +84,8 @@
             var d = event || window.event;
             console.log("111")
             oBox.onmousemove = function() {
-                    oBox.style.top = /*oBox.offsetTop+*/d.clientY-i+"px";
-                    oBox.style.left = /*oBox.offsetLeft+*/d.clientX-j+"px";
+                    oBox.style.top = d.clientY-i+"px";
+                    oBox.style.left = d.clientX-j+"px";
                     if(0>oBox.offsetTop){
                         oBox.style.top = 0+"px";
                     }
