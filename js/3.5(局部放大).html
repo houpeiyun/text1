@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+        }
+        #box{
+            height: 100px;
+            width: 100px;
+            background: #999999;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            opacity: 0.6;
+        }
+        .imgs{
+            height: 400px;
+            width: 400px;
+        }
+        .imgsS{
+            height: 1600px;
+            width: 1600px;
+            position: absolute;
+            top:0px;
+            left: 410px;
+        }
+        #box2{
+            position: relative;
+            top:-400px;
+            left: 410px;
+            height: 400px;
+            width: 400px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="box0">
+    <div id="box1">
+        <img class="imgs" src="../tmall/images/f3.jpg" alt="">
+    </div>
+    <div id="box2">
+    <img class="imgsS" src="../tmall/images/f3.jpg" alt="">
+</div>
+</div>
+    <div id="box"></div>
+
+    <script>
+        var oBox = document.getElementById("box");
+        var oBox1 = document.getElementsByClassName("imgsS")[0];
+        var i,j;
+        oBox.onmousedown = function (event) {
+            console.log("mouse-move");
+            var c = event || window.event;
+            i = c.clientY-oBox.offsetTop;
+            j = c.clientX-oBox.offsetLeft;
+            oBox.onmousemove = function (event) {
+                console.log("mouse-move");
+                var e = event || window.event;
+                console.log("Y:"+(e.clientY-i));
+                console.log("X:"+(e.clientX-j));
+                    oBox.style.top = /*oBox.offsetTop+*/e.clientY-i+"px";
+                    oBox.style.left = /*oBox.offsetLeft+*/e.clientX-j+"px";
+                    if(0>oBox.offsetTop){
+                        oBox.style.top = 0+"px";
+                    }
+                    if(oBox.offsetTop>300){
+                        oBox.style.top = 300+"px";
+                    }
+                    if(0>oBox.offsetLeft){
+                        oBox.style.left = 0+"px";
+                    }
+                    if(oBox.offsetLeft>300){
+                        oBox.style.left = 300+"px";
+                    }
+                    oBox1.style.top = -oBox.offsetTop*4+"px"
+                    oBox1.style.left = -oBox.offsetLeft*4+"px"
+            }
+        }
+        oBox.onmouseup = function (event) {
+            var d = event || window.event;
+            console.log("111")
+            oBox.onmousemove = function() {
+                    oBox.style.top = /*oBox.offsetTop+*/d.clientY-i+"px";
+                    oBox.style.left = /*oBox.offsetLeft+*/d.clientX-j+"px";
+                    if(0>oBox.offsetTop){
+                        oBox.style.top = 0+"px";
+                    }
+                    if(oBox.offsetTop>300){
+                        oBox.style.top = 300+"px";
+                    }
+                    if(0>oBox.offsetLeft){
+                        oBox.style.left = 0+"px";
+                    }
+                    if(oBox.offsetLeft>300){
+                        oBox.style.left = 300+"px";
+                    }
+                oBox1.style.top = -oBox.offsetTop*4+"px"
+                oBox1.style.left = -oBox.offsetLeft*4+"px"
+            }
+        }
+    </script>
+</body>
+</html>

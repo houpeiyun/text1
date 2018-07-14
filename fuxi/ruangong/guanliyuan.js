@@ -7,7 +7,10 @@ var look4 = document.getElementsByClassName("look4")[0];
 var look5 = document.getElementsByClassName("look5")[0];
 var look200 = look2.getElementsByClassName("look2-0")[0];
 var look211 = look2.getElementsByClassName("look2-1")[0];
+/*var look0 = document.getElementsByClassName("look")[0];*/
 /*var look212 = look2.getElementsByClassName("look5-0")[0];*/
+/*var ss1 = look211.getElementsByClassName("ss-1")[0];*/
+/*var ss2 = document.getElementsByClassName("ss-2")[0];*/
 var look20 = look200.getElementsByTagName("div");
 var look21 = look211.getElementsByTagName("div");
 var zhifu = document.getElementsByClassName("allprice")[0];
@@ -153,6 +156,9 @@ function get11() {
         html += setDiv1(medicine[i])
     }
     look21[0].innerHTML = html;
+    /*ss2.style.display = "none";
+    look0.style.display="block";
+    console.log("html:"+look0.innerHTML)*/
 }
 
 function get2() {
@@ -162,8 +168,10 @@ function get2() {
 var kk = 0;
 function get22() {
     var html = '';
-    var tt = 12;
+    var tt =2;
+
     for(i = 0;i<medicine.length;i++){
+        console.log("ee:"+ee[i])
         //console.log(medicine[i].sym);
         if(medicine[i].sym == 1){
             html += setDiv2(medicine[i],tt);
@@ -242,8 +250,8 @@ function get5() {
         {
             look21[j].style.display="none";
         }
-        console.log(action);
-        look21[0].style.display="block";
+        /*console.log("look:"+look0);*/
+        look21[0].style.display = "block"
         get11();
         for(i = 0 ; i < action.length ; i++){
             action[i].index = i;
@@ -284,6 +292,8 @@ function get5() {
         {
             look21[j].style.display="none";
         }
+        /*look0.style.display = "none";*/
+        /*console.log(look0);*/
         look21[1].style.display="block";
         get22();
     }
@@ -293,7 +303,7 @@ function get5() {
         cccc = localStorage.getItem("shuju");
         medicine = JSON.parse(cccc);
         for(i = 0;i<vvv.length;i++){
-            medicine[vvv[i]].num = medicine[vvv[i]].num - ee[i+12];
+            medicine[vvv[i]].num = medicine[vvv[i]].num - ee[i+2];
             console.log("med"+ee[i+12]);
         }
         cccc = JSON.stringify(medicine);
