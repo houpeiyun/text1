@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>事件机制</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        div{
+            width:50%;
+            padding-bottom: 50%;
+            height: 0;
+            background-color: #ff0036;
+        }
+        .box2{
+            background-color: blue;
+        }
+        .box3{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+            <div class="box3"></div>
+        </div>
+    </div>
+    <script>
+        var box1 = document.getElementsByClassName("box1")[0];
+        var box2 = document.getElementsByClassName("box2")[0];
+        var box3 = document.getElementsByClassName("box3")[0];
+        /*box1.addEventListener("click",function () {
+            console.log("box1")
+        },false)
+        box2.addEventListener("click",function (e) {
+            console.log("box2")
+            e.stopPropagation();
+        },false)
+        box3.addEventListener("click",function (e) {
+            console.log("box3")
+            e.stopPropagation();/!*停止事件冒泡*!/
+        },false)/!*事件冒泡，由里向外,ie不支持事件冒泡*!/*/
+        /*box1.addEventListener("click",function () {
+            console.log("box1")
+        },true)
+        box2.addEventListener("click",function () {
+            console.log("box2")
+        },true)
+        box3.addEventListener("click",function () {
+            console.log("box3")
+        },true)/!*事件捕获，由外向里*!/*/
+        /*先捕获，后冒泡*/
+        /*box1.attachEvent("onclick",function () {
+            console.log("box1")
+            window.event.concelBubble = true;
+        })适用于ie6，7，8，只有事件冒泡，没有事件捕获*/
+        /*同级之间事件机制按先后顺序来，多级之间，事件捕获高于事件冒泡*/
+        box1.addEventListener("click",function () {
+            console.log("box1")
+        },false)
+        box1.addEventListener("click",function () {
+            console.log("box1-1")
+        },true)
+        box2.addEventListener("click",function () {
+            console.log("box2-2")
+        },true)
+        box2.addEventListener("click",function () {
+            console.log("box2")
+        },false)
+        box3.addEventListener("click",function () {
+            console.log("box3-3")
+        },true)
+        box3.addEventListener("click",function () {
+            console.log("box3")
+        },false)
+        /*function test() {
+            console.log("box1");
+        }
+        box1.addEventListener("click",test,false);
+        box1.removeEventListener("click",test,false);*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0;
+            background: #d5ecd8;
+        }
+        img{
+            width: 450px;
+            height: 300px;
+        }
+        .box1,.box2{
+            position: absolute;
+            top: 150px;
+            left: 400px;
+        }
+        .box1{
+            transform: rotate(18deg);
+            transform-origin:center;
+            box-shadow: 3px 2px 2px rgba(12, 5, 155, 1);
+            z-index: -1;
+            transition: transform 1s ease;
+            border: 3px solid #e5e5e5;
+        }
+        .box2{
+            transform: rotate(-18deg);
+            transform-origin:center;
+            box-shadow: 3px 3px 3px rgba(12, 5, 155, 1);
+            z-index: 0;
+            transition: transform 1s ease;
+            border: 5px solid #e5e5e5;
+        }
+        /*.box2:hover{
+            position: absolute;
+            top: 75px;
+            left: 295px;
+            transform: rotate(0deg);
+            transform-origin:375px 225px;
+            z-index: 1;
+            box-shadow: 8px 7px 2px rgba(12, 5, 59, 1);
+            width: 660px;
+            height: 450px;
+        }*/
+        .box1:hover,.box2:hover{
+            position: absolute;
+            top: 75px;
+            left: 275px;
+            transform: rotate(0deg);
+            transform-origin:375px 225px;
+            z-index: 1;
+            box-shadow: 8px 7px 2px rgba(12, 5, 59, 1);
+            width: 660px;
+            height: 450px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div><img class="box1" src="../fuxi/ruangong/img/a3.jpg" alt=""></div>
+        <div><img class="box2" src="../fuxi/ruangong/img/a4.jpg" alt=""></div>
+    </div>
+    <!--<script>
+        var oBox1 = document.getElementsByClassName("box1")[0];
+        var oBox2 = document.getElementsByClassName("box2")[0];
+        oBox1.onmouseover = function () {
+            oBox1.style.transform = "rotate(-30deg)";
+        }
+    </script>-->
+</body>
+</html>

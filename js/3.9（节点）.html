@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2">刘可新</div>
+        <div id="box3"></div>
+        <!--huscfh-->
+        <span id="span1"></span>
+    </div>
+    <script>
+        var oBox1 = document.getElementById("box1");
+        var oBox3 = document.getElementById("box3");
+        /*console.log(oBox1.childNodes);/!*获取所有子节点*!/*/
+       /* for(var i = 0;i<oBox1.childNodes.length;i++){
+            if(oBox1.childNodes.item(i).nodeType == 1){
+                console.log(oBox1.childNodes.item(i))
+            }
+        }*/
+        /*console.log("1:"+oBox3.nextSibling);/!*text*!/
+        console.log("2:"+oBox3.nextElementSibling);/!*文本*!/
+        console.log("3:"+oBox3.previousElementSibling);
+        console.log("4:"+oBox3.previousSibling);
+        console.log("5:"+oBox3.parentElement);
+        console.log("6:"+oBox3.parentNode);
+        console.log("7:"+oBox1.firstChild);
+        console.log("8:"+oBox1.lastElementChild);*/
+       /* console.log(oBox3.nextSibling)*/
+       function test() {
+           var cc = oBox3;
+           for(var i = 0;cc.nextSibling!=null;i++){
+               console.log("aa:"+cc.nextSibling);
+               if(cc.nextSibling.nodeType == 1){
+                   console.log("9:"+cc.nextSibling)
+               }
+               cc = cc.nextSibling;
+           }
+       }
+        test();
+    </script>
+</body>
+</html>

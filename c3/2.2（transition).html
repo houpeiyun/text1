@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        .con{
+            border: 1px dashed #999999;
+            width: 300px;
+            display: flex;
+        }
+        .content{
+            height: 300px;
+            width: 300px;
+            background: red;
+            text-align: center;
+            line-height: 300px;
+            transition: transform 1s ease 2s;
+        }
+        .content:hover{
+            transform:translateX(100px);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="content">
+            hello
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            text-shadow: 1px 1px 1px rgba(255, 12, 16, 0.78),1px 0.5px 1px rgba(11, 9, 133, 0.86)/*水平偏移（向右为正值） 垂直偏移（向下为正值）   阴影外延值（正值为扩展）*/;
+        }
+        .text{
+            width: 400px;
+            border: 1px solid #000000;
+            /*white-space: nowrap;!*使得不换行*!
+            overflow: hidden;
+            text-overflow:ellipsis;!*文本超出用...代替，必须配合上两行使用*!*/
+            word-wrap: break-word;/*一般用于英文不换行时强制换行*/
+        }
+    </style>
+</head>
+<body>
+    <div>唯创网讯</div>
+    <div class="text">bhjvbdlsvbaiufi;bncajdhfbafueifbhcjadbvaefiuabhdbuvduhvbuofieu</div>
+    <div class="text">今天，阳光明媚，晴空万里，非常适合户外活动，如踏青、远足之类的。长期坐在办公室的同学们要多注意运动。</div>
+</body>
+</html>

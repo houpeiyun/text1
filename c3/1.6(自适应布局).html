@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0;
+        }
+        div{
+            height: 500px;
+        }
+        .box1{
+            width: 200px;
+            background-color: #1da3ec;
+        }
+        .box2{
+            width: 100%;
+            margin-left: 200px;
+            margin-top: -500px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<!--  实现方法
+        1.margin
+        2.定位
+        3.浮动float
+        4.left:200px   right:0px
+        5.display:flex(弹性盒模型，在父级声明)
+          flex-grow:1(占比父级的剩余空间占比)-->
+    <div class="box0">
+        <div class="box1"></div>
+        <div class="box2">123</div>
+    </div>
+</body>
+</html>

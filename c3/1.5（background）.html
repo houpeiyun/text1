@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 5000px;
+        }
+        /*div{
+            width: 600px;
+            height: 300px;
+            border: 10px solid rgba(0,0,0,.5);
+            background-image: url("../fuxi/ruangong/img/a3.jpg"),url("../fuxi/ruangong/img/a3.jpg");
+            background-repeat: no-repeat;
+            !*background-size: 200px 200px;!*也可以用百分比*!*!
+            !*background-size: cover;*!!*覆盖满*!!*contain属性当一条边接触到边框即停止拉伸*!
+            padding: 30px;
+            !*background-origin: padding-box;*!
+            !*background-attachment: fixed;*!
+            background-clip: content-box;!*裁剪*!
+            background-position:0 0 ,100px 100px ;!*背景图片定位*!
+        }*/
+       /* h1{
+            font-size: 50px;
+            background-image: url("../fuxi/ruangong/img/a3.jpg");
+            color: transparent;
+            -webkit-background-clip: text;
+        }*/
+       /* 从一张图片显示不同的背景图片，用background-position定位
+       iconfont可以引入网上生成的css链接*/
+        .box{
+            width: 64px;
+            height: 64px;
+            background-image: url("../fuxi/ruangong/img/img-sprite.png");
+        }
+        .box1{
+            width: 64px;
+            height: 64px;
+            background-image: url("../fuxi/ruangong/img/img-sprite.png");
+            background-position: -192px 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>唯创网讯</h1>
+    </div>
+    <div class="box">
+
+    </div>
+    <div class="box box1">
+
+    </div>
+</body>
+</html>
