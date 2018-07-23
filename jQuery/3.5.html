@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .active{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="fadein">findin</button>
+    <button id="fadeout">findout</button>
+    <button id="fadetoffle">findtoggle</button>
+    <button id="slidedown">slidedown</button>
+    <button id="slideup">slideup</button>
+    <button id="slidetogg">slidetogg</button>
+    <button id="animate">animate</button>
+    <div class="box"></div>
+    <script src="jquery.js"></script>
+    <script>
+        $("#fadein").on("click",function () {
+            $(".box").fadeIn();/*隐藏*/
+        })
+        $("#fadeout").on("click",function () {
+            $(".box").fadeOut();/*隐藏*/
+        })
+        $("#fadetoffle").on("click",function () {
+            $(".box").fadeToggle();/*切换*/
+        })
+        $("#slidedown").on("click",function () {
+            $(".box").slideDown(3000);
+        })
+        $("#slideup").on("click",function () {
+            $(".box").slideUp("slow");
+        })
+        $("#slidetogg").on("click",function () {
+            $(".box").stop(true,false);
+            $(".box").slideToggle();
+        })
+        $("#animate").on("click",function () {
+            $(".box").delay(1000).animate({
+                width:400,
+                height:400
+            },1000,"swing",function () {
+                console.log("done")
+            });
+        })
+    </script>
+</body>
+</html>

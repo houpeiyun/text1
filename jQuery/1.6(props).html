@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="checkbox" name="test">1
+<input type="checkbox" name="test">2
+<input type="checkbox" name="test">3
+<input type="checkbox" name="test">4
+<script src="jquery.js"></script>
+<script>
+    /*$("[type = 'checkbox']").on("click",function () {
+        console.log($(this).prop("checked"))
+    })*/
+    $("[type = 'checkbox']:eq(2)").prop("checked",true);
+    $("[type = 'checkbox']:eq(1)").attr("checked",true);
+    console.log($("[type = 'checkbox']:eq(1)").attr("checked"));
+    console.log($("[type = 'checkbox']:eq(1)").prop("checked"));/*获取的是状态值*/
+</script>
+</body>
+</html>

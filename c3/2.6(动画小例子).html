@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 30px;
+            height: 30px;
+            background-color: #1da3ec;
+            position: absolute;
+            animation: test 3s ease infinite;
+        }
+        @keyframes test {
+            0%{
+                top: 0px;
+                left:0px;
+            }
+            25%{
+                top: 0px;
+                left: 300px;
+            }
+            50%{
+                top: 300px;
+                left: 300px;
+            }
+            75%{
+                top: 300px;
+                left: 0px;
+            }
+            100%{
+                top: 0px;
+                left: 0px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

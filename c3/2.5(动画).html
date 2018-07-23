@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #ff0036;
+        }
+        /*div:hover{
+            animation: test 1s ease 1s infinite;!*最后一个参数为动画次数，infinite一直动*!
+        }
+        @keyframes test {
+            0%{
+                width: 100px;
+            }
+            50%{
+                width: 600px;
+            }
+            100%{
+                width: 100px;
+            }
+        }*/
+        div:hover{
+            animation: test 1s ease forwards;/*forwards:动画停止  normal：正常方向  reverse: 反方向运行  alternate：动画先正常运行再反方向运行，并持续交替运行 alternate-reverse：  动画先反运行再正方向运行，并持续交替运行*/
+        }
+        @keyframes test {
+            /*0%{
+                width: 100px;
+            }
+            100%{
+                width: 600px;
+            }*/
+            from{
+                width: 100px;
+            }
+            to{
+                width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

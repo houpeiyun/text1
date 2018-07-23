@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background: #e54077;
+            padding: 10px;
+            border: 10px solid #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="div1"></div>
+    <script src="jquery.js"></script>
+    <script>
+        console.log($("#div1").width())/*不包括padding,不包括border,不包括margin*/
+        console.log($("#div1").innerWidth())/*包括padding,不包括border,不包括margin*/
+        console.log($("#div1").outerWidth())/*包括padding,包括border,不包括margin*/
+        console.log($("#div1").outerWidth(true));/*包括padding,包括border,包括margin*/
+    </script>
+</body>
+</html>

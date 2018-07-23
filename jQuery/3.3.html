@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+<button id="btn">添加</button>
+    <script>
+        var oBtn = document.getElementById("btn");
+        var oUl = document.getElementsByTagName("ul")[0];
+        var aLi = document.getElementsByTagName("li");
+
+
+        /*不能向新添加的li进行事件绑定*/
+        /*for(i = 0 ; i < aLi.length ; i++){
+            aLi[i].onclick = function () {
+                console.log(this.innerText);
+            }
+        }*/
+
+        /*能向新添加的li进行事件绑定*/
+        oUl.onclick = function (e) {
+            console.log(e.target.innerHTML);     /*指li*/
+            console.log(e.currentTarget.innerHTML);   /*指ul*/
+        };
+
+        oBtn.onclick = function (e) {
+            var newEle = document.createElement("li");   /*创建li节点*/
+            newEle.innerText = "222";
+            oUl.appendChild(newEle);   /*向对象最后面添加  相当于after  父子关系*/
+        }
+    </script>
+    <!--事件委托利用事件冒泡机制-->
+</body>
+</html>

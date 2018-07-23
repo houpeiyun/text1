@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1">151561654</div>
+    <div id="div2">njdkafnvjhb</div>
+    <script src="jquery.js"></script>
+    <script>
+       var ht = $("<p>abcd</p>")
+       $("#div1").append(ht);/*加在尾部*/
+       /*$("#div1").prepend(ht);*//*加在头部*/
+       /*ht.appendTo("#box");*/
+       $("#div1").text("<p>abcd</p>");
+       $("#div2").html("<p>abcd</p>");/*会解析标签*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购票选座</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_612724_dats459ym8s.css">
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            background: black;
+        }
+        #timer{
+            width: 550px;
+            height: 70px;
+            line-height: 70px;
+            background: white;
+            position: fixed;
+            left: 350px;
+            font-weight: bolder;
+            z-index: 2;
+        }
+        #btn1{
+            width: 550px;
+            height: 69px;
+            background: black;
+            position: fixed;
+            top: 70px;
+            left: 350px;
+            z-index: 2;
+        }
+        #btn1 div{
+            position: absolute;
+        }
+        #btn1-1{
+            width: 40px;
+            height: 30px;
+            background: white;
+            float: left;
+            left: 30px;
+            top: 20px;
+        }
+        #btn1-2{
+            width: 40px;
+            height: 30px;
+            background: red;
+            float: left;
+            left: 150px;
+            top: 20px;
+        }
+        #btn1-3{
+            width: 40px;
+            height: 30px;
+            background: blue;
+            float: left;
+            left: 270px;
+            top: 20px;
+        }
+        .btn1-2{
+            color: white;
+        }
+        .btn1-2-1{
+            float: left;
+            top: 25px;
+            left: 78px;
+        }
+        .btn1-2-2{
+            float: left;
+            top: 25px;
+            left: 200px;
+        }
+        .btn1-2-3{
+            float: left;
+            top: 25px;
+            left: 323px;
+        }
+        hr{
+            height: 2px;
+            border: 0;
+            width: 550px;
+            background-color: #333333;
+            position: absolute;
+            top: 140px;
+            left: 350px;
+        }
+        #xian2{
+            top: 825px;
+        }
+        #btn2{
+            width: 550px;
+            height: 600px;
+            /*background: white;*/
+            position: absolute;
+            top: 210px;
+            left: 350px;
+        }
+        #btn3{
+            color: white;
+            position: absolute;
+            left: 370px;
+            top: 840px;
+        }
+        #btn4{
+            width: 550px;
+            height: 200px;
+            position: absolute;
+            left: 350px;
+            top: 870px;
+            color: white;
+        }
+        #btn5{
+            background: #333333;
+            width: 550px;
+            height: 80px;
+            position: fixed;
+            bottom: 0px;
+            left: 350px;
+        }
+        #butt{
+            height: 80px;
+            width: 200px;
+            position: absolute;
+            right: 0px;
+            background: #ffd007;
+            border: 1px solid #ffd007;
+        }
+        #btn5 div{
+            background: #333333;
+            position: absolute;
+            left: 15px;
+            top: 35px;
+            color: white;
+            font-size: 26px;
+        }
+        #span1{
+            background: #333333;
+            color: red;
+            position: absolute;
+            left: 78px;
+            top: 0px;
+        }
+        #span2{
+            background: #333333;
+            font-size: 13px;
+            position: absolute;
+            left: 180px;
+            top: 12px;
+        }
+        #btn2 ul{
+            margin-bottom: 22px;
+        }
+        .btn22 li {
+            height: 30px;
+            width: 40px;
+            list-style: none;
+            display: inline-block;
+        }
+        li{
+            background: white;
+        }
+        .btn2-1-1{
+            margin-left:4px;
+        }
+        .btn2-1-2{
+            margin-left: 60px;
+        }
+        .btn2-1-3{
+            margin-left: 10px;
+        }
+        #btn4 li{
+            height: 50px;
+            line-height: 50px;
+            padding-left: 25px;
+            width: 120px;
+            background: black;
+            border: 1px solid #ffd007;
+            color: #ffd007;
+            list-style: none;
+            display: inline-block;
+            margin-bottom: 10px;
+            margin-left: 25px;
+            font-size: 17px;
+        }
+        .active{
+            background-color: blue;
+        }
+        .action{
+            background-color: red;
+        }
+        i{
+            color: white;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="timer">
+            今天1月6日&nbsp13:20
+        </div>
+        <div id="btn1">
+            <div id="btn1-1"></div><div class="btn1-2 btn1-2-1">可选</div>
+            <div id="btn1-2"></div><div class="btn1-2 btn1-2-2">已选</div>
+            <div id="btn1-3"></div><div class="btn1-2 btn1-2-3">已售</div>
+        </div>
+        <hr>
+        <div id="btn2" class="btn22">
+        </div>
+        <hr id="xian2">
+        <div id="btn3">
+            已选座位&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp最多可选择5个座位
+        </div>
+        <div id="btn4">
+            <ul id="btn-4-4">
+                <!--<li>9排8座</li>
+                <li>9排8座</li>
+                <li>9排8座</li>
+                <li>9排8座</li>
+                <li>9排8座</li>-->
+            </ul>
+        </div>
+    </div>
+    <div id="btn5">
+        <div>合计: <span id="span1">￥0</span> <span id="span2">￥99*0</span></div>
+        <button id="butt">确认选座</button>
+    </div>
+    <script src="../jQuery/jquery.js"></script>
+    <script>
+        var timer = new Date();
+        $("#timer").text("今天"+(timer.getMonth()+1)+"月"+timer.getDate()+"日  "+timer.getHours()+":"+timer.getMinutes());
+        var content = $("<div class='slider'></div>");
+        var sliderList ="<ul>\n" +
+            "                <li class=\"btn2-1-1 btn2-1-3\"></li>\n" +
+            "                <li class=\"btn2-1-1\"></li>\n" +
+            "                <li class=\"btn2-1-1\"></li>\n" +
+            "                <li class=\"btn2-1-1\"></li>\n" +
+            "                <li class=\"btn2-1-1\"></li>\n" +
+            "                <li class=\"btn2-1-1 btn2-1-2\"></li>\n" +
+            "                <li class=\"btn2-1-1\"></li>\n" +
+            "                <li class=\"btn2-1-1\"></li>\n" +
+            "                <li class=\"btn2-1-1\"></li>\n" +
+            "                <li class=\"btn2-1-1\"></li>\n" +
+            "            </ul>"
+        var htm = "";
+        for(var i = 0;i < 10;i++){
+            htm+=sliderList;
+        }
+        content.html(htm);
+        $("#btn2").append(content);
+        for(var i = 0;i < 100;i++){
+            var aa = Math.floor(Math.random()*10+1);
+            var bb = Math.floor(Math.random()*10+1);
+            $("#btn2").find("ul").eq(aa).find("li").eq(bb).addClass("active");
+        }
+        var ii = 0;
+        $("#btn2 li").on("click",function () {
+            var col = $(this).parent().index()-0+1;
+            var row = $(this).index()-0+1;
+            var zong = "btn4-4"+col+row;
+            if($(this).hasClass("active")){
+                alert("不可选取")
+            }
+            else if((ii<5)||($(this).hasClass("action"))){
+                $(this).toggleClass("action");
+                if($(this).hasClass("action")){
+                    ii++;
+                    var tianjia = "<li class="+zong+">"+col+"排"+row+"座 <i class='iconfont icon-close'></i></li>";
+                    $("#btn-4-4").append(tianjia);
+                }
+                else {
+                    ii--;
+                    $("."+zong).remove();
+                }
+                $("#span1").text("￥"+99*ii);
+                $("#span2").text("￥"+99+"*"+ii);
+            }
+        })
+        $("#butt").on("click",function () {
+            var gg = $("#btn2").find("ul").find(".action");
+            gg.removeClass("action");
+            gg.addClass("active");
+            ii=0;
+            $("#btn-4-4").empty();
+            $("#span1").text("￥0");
+            $("#span2").text("￥"+99+"*0");
+        })
+        $("#btn-4-4").on("click",".icon-close",function ()  {
+            ii--;
+            var ee = [];
+            var qq = "",pp = "";
+            ee = $(this).parent().text();
+            for(var i = 0;i<ee.length-2;i++){
+                ee[i] = ee[i]-0;
+                if((0<=ee[i])&&(ee[i]<11)){
+                    qq+=ee[i];
+                }
+                else {
+                    pp = qq;
+                    qq=""
+                }
+            }
+            pp = pp-1;
+            qq = qq-1;
+            $("#btn2").find("ul").eq(pp).find("li").eq(qq).removeClass("action");
+            $(this).parent().remove();
+            $("#span1").text("￥"+99*ii);
+            $("#span2").text("￥"+99+"*"+ii);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--<div class="container">
+        <div class="inner">Hello</div>
+        <div class="box">Hello</div>
+        <div class="inner">Goodbye</div>
+    </div>
+    <script src="jquery.js"></script>
+    <script>
+        /*$('.inner').wrap('<div class="new" />');*/
+        /*$('.inner').wrapAll('<div class="new" />');*/
+        /*$('.inner').wrapInner('<div class="new" />');*/
+        $('.container').after('<div class="new" />');
+        $('.container').before('<div class="new" />')
+    </script>-->
+    <div class="container">
+        <h2>Greetings</h2>
+        <div class="inner">Hello</div>
+        <div class="inner">Goodbye</div>
+    </div>
+    <script src="jquery.js"></script>
+    <script>
+        /*$('<p>Test</p>').insertAfter('.inner');*/
+        /*$(".inner").after("<p>Test</p>");*/
+        $(".inner").empty();/*dom结构还在，内容没了*/
+        $(".inner").remove();/*dom结构和内容都没了*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            padding-left: 100px;
+            padding-top: 150px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">放大</button>
+    <button id="btn2">缩小</button><br>
+        <textarea name="" id="tet" cols="30" rows="8">.attr()方法只获取第一个匹配元素的属性值。要获取每个单独的元素的属性值， 我们需要依靠jQuery的 .each()或者.map()方法循环。
+            使用 jQuery的 .attr() 方法得到了一个元素的属性值主要有两个好处：</textarea>
+    </body>
+    <script src="../jQuery/jquery.js"></script>
+    <script>
+        var h;
+        $("#btn1").on("click",function () {
+            h = $("#tet").height();
+            if(h<1000){
+                $("#tet").height(h+200);
+            }
+        })
+        $("#btn2").on("click",function () {
+            h = $("#tet").height();
+            if(h>200){
+                $("#tet").height(h-200);
+            }
+        })
+
+    </script>
+</html>

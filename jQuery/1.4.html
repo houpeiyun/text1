@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    td { text-align:center; }
+    </style>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+    </head>
+<body>
+    <table border="1">
+        <tr><td>TD #0</td><td></td></tr>
+        <tr><td>TD #2</td><td></td></tr>
+
+        <tr><td></td><td>TD#5</td></tr>
+    </table>
+    <script>
+        $("td:empty").text("Was empty!").css('background', 'rgb(255,220,200)');/*把空的里面内容设为Was empty!*/
+    </script>
+</body>
+</html>

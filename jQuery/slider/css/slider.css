@@ -1,0 +1,36 @@
+*{
+    margin:0;
+    padding:0;
+}
+.slider{
+    height: 500px;
+    position: relative;
+}
+.slider-panner{
+    height: 500px;
+    width: 100%;
+    position: absolute;
+    transition: all 1s ease;
+    opacity: 0;
+}
+.slider-panner div{
+    width: 1230px;
+    margin: 0 auto;
+}
+.sp-1{
+    background:  rgb(232, 232, 232);
+}
+.sp-2{
+    background: rgb(0,0,0);
+}
+.sp-3{
+    background: rgb(232, 232, 232);
+}
+img{
+    height: 500px;
+    width: 100%;
+}
+.active{
+    opacity: 1;
+    z-index: 2;
+}

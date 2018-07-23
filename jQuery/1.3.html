@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<button>123</button>-->
+<input type="text">
+<ul>
+    <li>heida</li>
+    <li>linda</li>
+    <li>ligong</li>
+    <li>yikeda</li>
+    <li>heikeji</li>
+</ul>
+<script src="jquery.js"></script>
+<script>
+    /*$("button").on("click",function () {
+        console.log("123");
+    })*/
+    $("input").on("keyup",function () {
+        console.log(this.value);
+        $("li").css("color","black");
+        if(this.value){
+            $("li:contains('"+this.value+"')").css("color","red");
+        }
+    })
+</script>
+</body>
+</html>

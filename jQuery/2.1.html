@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            height: 3000px;
+            background: #e54077;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script src="jquery.js"></script>
+    <script>
+        console.log($(".div").height());
+        $(window).on("scroll",function () {
+            console.log($(window).scrollTop());
+            if($("#div").height()-200<=$(window).scrollTop()){
+                alert("ok")
+            }
+        })
+    </script>
+</body>
+</html>

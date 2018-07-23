@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>你爱好的运动是？</h1>
+    <form action="xx.java">
+        <input type="checkbox" name="test" value="1">足球
+        <input type="checkbox" name="test" value="1">排球
+        <input type="checkbox" name="test" value="1">篮球
+        <input type="checkbox" name="test" value="1">羽毛球
+        <br>
+        <button id="btn1" type="button">全选</button><!--默认type为submit,会跳转-->
+        <button id="btn2" type="button">全不选</button>
+        <button id="btn3" type="button">反选</button>
+    </form>
+    <script src="jquery.js"></script>
+    <script>
+        $("#btn1").on("click",function () {
+            $("[type = 'checkbox']").prop("checked",true);
+        })
+        $("#btn2").on("click",function () {
+            $("[type = 'checkbox']").prop("checked",false);
+        })
+        /*$("#btn3").on("click",function () {
+            for(var i = 0;i<$("[type = 'checkbox']").length;i++){
+                if($("[type = 'checkbox']:eq("+i+")").prop("checked") == true){
+                    $("[type = 'checkbox']:eq("+i+")").prop("checked",false);
+                }
+                else {
+                    $("[type = 'checkbox']:eq("+i+")").prop("checked",true);
+                }
+            }
+        })*/
+        /*$("#btn3").on("click",function () {
+            var check = $("input:checkbox");
+            check.each(function (index,ele) {
+                /!*if($(ele).prop("checked")){
+                    $(ele).prop("checked",false);
+                }
+                else {
+                    $(ele).prop("checked",true);
+                }*!/
+                ele.checked = !ele.checked;/!*原生的方法*!/
+            })
+        })*/
+        $("#btn3").on("click",function () {
+            var ischeck = $("input:checkbox:checked");
+            var uncheck = $("input:checkbox:not(:checked)");
+            ischeck.prop("checked",false);
+            uncheck.prop("checked",true);
+        })
+        /*var arr = [a,b,c,d,e];
+        arr.forEach(function (value, index, array) {
+            console.log(value, index, array);
+        })
+        $(arr).each(function (index,ele) {
+            console.log(index,ele)
+        })*/
+    </script>
+</body>
+</html>

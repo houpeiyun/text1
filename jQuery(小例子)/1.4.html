@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div>筛选: <input type="text"></div>
+    <table cellpadding="10" width="1200">
+        <thead>
+        <tr class="action">
+            <th>姓名</th>
+            <th>性别</th>
+            <th>暂住地</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>张三</td><td>女</td><td>黑龙江大庆</td>
+        </tr>
+        <tr>
+            <td>李四</td><td>男</td><td>宁夏</td>
+        </tr>
+        <tr>
+            <td>赵武</td><td>女</td><td>吉林长春</td>
+        </tr>
+        <tr>
+            <td>王琦</td><td>男</td><td>辽宁沈阳</td>
+        </tr>
+        <tr>
+            <td>刘坝</td><td>女</td><td>山西太原</td>
+        </tr>
+        <tr>
+            <td>张无</td><td>男</td><td>河南郑州</td>
+        </tr>
+        <tr>
+            <td>张把</td><td>女</td><td>黑龙江大庆</td>
+        </tr>
+        <tr>
+            <td>李就</td><td>男</td><td>宁夏</td>
+        </tr>
+        <tr>
+            <td>赵钱</td><td>女</td><td>吉林长春</td>
+        </tr>
+        </tbody>
+    </table>
+    <script src="../jQuery/jquery.js"></script>
+    <script>
+        /*$("input").on("keyup",function () {
+            console.log(this.value);
+            /!*$("tr").css("display","block");*!/
+            $("tr").css("display","none");
+            if(this.value){
+                /!*$("tr").not("tr:contains('"+this.value+"')").css("display","none");*!/
+                $("tr").filter(":contains('"+this.value+"')").css("display","block");
+                $(".action").css("display","block");
+            }
+            else {
+                $("tr").css("display","block");
+            }
+        })*/
+        $("input").on("keyup",function () {
+            $("tr").css("display","block");
+            if(this.value){
+                $("tr").not("tr:contains('"+this.value+"')").css("display","none");
+                console.log($("tr:contains('"+this.value+"')").text());
+                $(".action").css("display","block");
+            }
+        })
+    </script>
+</body>
+</html>

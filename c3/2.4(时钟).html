@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /*background: #d0ece1;*/
+        }
+        li:nth-child(5n+1){
+            height: 13px;
+        }
+        #kuang{
+            width: 300px;
+            height: 300px;
+            /*border: 1px solid black;*/
+            position: absolute;
+            top: 200px;
+            left: 500px;
+            background-image: url("../fuxi/ruangong/img/timg (1).jpg");
+            background-size: 300px 300px;
+        }
+        ul{
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 1px solid black;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        li{
+            height: 5px;
+            width: 0;
+            border: 1px solid black;
+            float: left;
+            list-style: none;
+            position: absolute;
+            top: 0;
+            left: 150px;
+        }
+        #div1,#div2,#div3{
+            width: 0;
+            position: absolute;
+            top: 351px;
+            left: 651px;
+        }
+        #div1{
+            border: 1px solid black;
+            height: 120px;
+            z-index: 2;
+        }
+        #div2{
+            border: 2px solid black;
+            height: 105px;
+            z-index: 1;
+        }
+        #div3{
+            border: 3px solid black;
+            height: 70px;
+            z-index: 1;
+        }
+        #div2-2{
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 5px solid black;
+            position: absolute;
+            left: -6px;
+            top: 105px;
+            transform: rotate(180deg);
+        }
+        #div1-1{
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 4px solid black;
+            position: absolute;
+            left: -4px;
+            top: 120px;
+            transform: rotate(180deg);
+        }
+        #div13-3{
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 6px solid black;
+            position: absolute;
+            left: -8px;
+            top: 70px;
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="kuang">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div id="div0">
+        <div id="div1">
+            <p id="div1-1"></p>
+        </div>
+        <div id="div2">
+            <p id="div2-2"></p>
+        </div>
+        <div id="div3">
+            <p id="div13-3"></p>
+        </div>
+    </div>
+    <script>
+        var oKuang = document.getElementById("kuang");
+        var oLi = oKuang.getElementsByTagName("li");
+        var oDiv = document.getElementById("div0");
+        var oDiv1 = oDiv.getElementsByTagName("div");
+        var aa = 6;
+        for(var i = 0;i<oLi.length;i++){
+            oLi[i].style.transform = "rotate("+(i*aa)+"deg)";
+            oLi[i].style.transformOrigin = "0px 151px";
+        }
+        var today,miao,fen,shi;
+        /*var miao = today.getSeconds()-30;
+        var fen = today.getMinutes()-30;
+        console.log(fen);
+        var shi = today.getHours()-6;*/
+        /*var bb = */setInterval(function () {
+            today = new Date();
+            miao = today.getSeconds()-30;
+            fen = today.getMinutes()-30;
+            console.log(fen);
+            shi = today.getHours()-6;
+            oDiv1[0].style.transform = "rotate("+(miao*aa+1)+"deg)";
+            oDiv1[0].style.transformOrigin = "1px 1px";
+            oDiv1[1].style.transform = "rotate("+(fen*aa+2+(miao*aa)/60+1)+"deg)";
+            oDiv1[1].style.transformOrigin = "2px 2px";
+            /*if(fen>0){
+                oDiv1[2].style.transform = "rotate("+(shi*30+3+(fen*30)/60+15)+"deg)";
+            }*/
+            /*else {*/
+                oDiv1[2].style.transform = "rotate("+(shi*30+3+(fen*30)/60+15)+"deg)";
+            /*}*/
+            oDiv1[2].style.transformOrigin = "3px 3px";
+            console.log((fen*30)/60);
+        },10)
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box1">
+    <div class="box">123</div>
+</div>
+<script src="jquery.js"></script>
+<script>
+    $(".box").on("click",test);
+    function test() {
+        console.log("123")
+    }
+    $(".box1").on("click",function () {
+        console.log("box1")
+    })
+    /*$("div").off("click",test);*/
+    /*$("div").trigger("click");/!*直接触发方法*!/*/
+    $(".box1").triggerHandler("click");/*直接触发方法，但不触发冒泡*/
+</script>
+</body>
+</html>

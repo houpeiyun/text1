@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        th,td{
+            height: 100px;
+            width: 630px;
+            font-size: 32px;
+            border: 1px solid rgba(255,255,255,.5);
+           /* background: #feffdd;*/
+        }
+        tr{
+            text-align: center;
+            background: #fbffbc;
+        }
+        input{
+
+        }
+    </style>
+</head>
+<body>
+    <table cellpadding="10" width="1200">
+        <thead>
+        <tr>
+            <th colspan="2">鼠标点击表格就可以编辑</th>
+        </tr>
+        <tr class="action">
+            <th>学号</th>
+            <th>姓名</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td><td class="ttt">张三</td>
+        </tr>
+        <tr>
+            <td>2</td><td class="ttt">李四</td>
+        </tr>
+        <tr>
+            <td>3</td><td class="ttt">王五</td>
+        </tr>
+        <tr>
+            <td>4</td><td class="ttt">赵六</td>
+        </tr>
+        </tbody>
+    </table>
+    <script src="../jQuery/jquery.js"></script>
+    <script>
+        $("tr").not(":odd").css("background","#90e1ec")
+        $(".ttt").on("click",function () { /*300毫秒延迟*/
+            if($(this).children("input").length ==0){
+                var inpObj = $("<input type=\"text\">");
+                inpObj.val(this.innerText);
+                $(this).empty();
+                $(this).append(inpObj);
+                inpObj.focus();
+            }
+        })
+        /*$(".ttt").on("blur","input",function () {
+            if($(this).filter("input").val()){
+                this.parentElement.innerHTML = $(this).filter("input").val();
+            }
+            else {
+                this.parentElement.innerHTML = ""
+            }
+        })*/
+        $(".ttt").on("focusout",function () {
+            if($(this).children().filter("input").val()){
+                $(this).html($(this).children().filter("input").val())
+            }
+            else {
+                $(this).html("")
+            }
+        })
+        $(".ttt").on("keyup",function (e) {
+            if(e.which == 13){
+                $(this).trigger("focusout");  /* 触发已有事件*/
+            }
+        })
+    </script>
+</body>
+</html>

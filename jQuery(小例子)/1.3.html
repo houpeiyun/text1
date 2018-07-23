@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        th,td{
+            height: 100px;
+            width: 630px;
+            font-size: 32px;
+            border: 1px solid rgba(255,255,255,.5);
+            background:#ffffb6 ;
+        }
+        tr{
+            text-align: center;
+        }
+        .active{
+            display: none;
+        }
+        .action{
+            background: #ff0036;
+        }
+    </style>
+</head>
+<body>
+<table cellpadding="10">
+    <!--<thead>-->
+    <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>暂住地</th>
+    </tr>
+    <!--</thead>-->
+    <!--<tbody>-->
+    <tr class="tt">
+        <td colspan="3">前台设计组</td>
+    </tr>
+    <tr>
+        <td>张三</td>
+        <td>女</td>
+        <td>黑龙江大庆</td>
+    </tr>
+    <tr>
+        <td>李四</td>
+        <td>男</td>
+        <td>宁夏</td>
+    </tr>
+    <tr class="tt">
+        <td colspan="3">前台开发组</td>
+    </tr>
+    <tr>
+        <td>赵武</td>
+        <td>女</td>
+        <td>吉林长春</td>
+    </tr>
+    <tr>
+        <td>王琦</td>
+        <td>男</td>
+        <td>辽宁沈阳</td>
+    </tr>
+    <tr class="tt">
+        <td colspan="3">后台开发组</td>
+    </tr>
+    <tr>
+        <td>刘坝</td>
+        <td>女</td>
+        <td>山西太原</td>
+    </tr>
+    <tr>
+        <td>张三</td>
+        <td>男</td>
+        <td>河南郑州</td>
+    </tr>
+    <!--</tbody>-->
+</table>
+    <script src="../jQuery/jquery.js"></script>
+    <script>
+        $(".tt").find("td").css("background","yellow");
+        $("tr").on("click",function () {
+            $("tr").find("td").css("background","#ffffb6");
+            $(".tt").find("td").css("background","yellow");
+            $(this).find("td").css("background","red");
+        })
+        $(".tt").on("click",function () {
+            /*$(this).next().toggleClass("active");
+            $(this).next().next().toggleClass("active");*/
+            $(this).toggleClass("action");
+            $(this).nextUntil(".tt").toggleClass("active");
+        })
+    </script>
+</body>
+</html>

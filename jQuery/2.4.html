@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--<div class="container">
+        <div class="inner first">Hello</div>
+        <div class="inner second">And</div>
+        <div class="inner third">Goodbye</div>
+    </div>
+    <script src="jquery.js"></script>
+    <script>
+        /*$('<h2>New heading</h2>').replaceAll('.inner');*/
+        $('div.second').replaceWith('<h2>New heading</h2>');
+    </script>-->
+    <div class="container">
+        <div class="hello">Hello</div>
+        <div class="goodbye">Goodbye</div>
+    </div>
+    <script src="jquery.js"></script>
+    <script>
+        $('.hello').appendTo('.goodbye');/*移除后再克隆*/
+        $('.hello').clone().appendTo('.goodbye');
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*#ipt1{
+            height: 150px;
+        }*/
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>个人基本信息</legend>
+        <div>名称: <input type="text" value="姓名"></div>
+        <div>密码: <input type="password" value="密码"></div>
+        <div>详细信息: <!--<input type="text" id="ipt1" value="详细信息">-->
+            <textarea name="" id="" cols="30" rows="5">详细信息</textarea></div>
+    </fieldset>
+    <script src="../jQuery/jquery.js"></script>
+    <script>
+        $(":input").focus(function () {
+            $(this).css("background","yellow");
+            $(this).val("");
+            $(this).val(this.value);
+        })/*获取焦点*/
+        $(":input").blur(function () {
+            $(this).css("background","none");
+            if(!this.value){
+                $(this).val(this.defaultValue);
+               /* $(this).val($(this).attr("value"));*/
+            }
+        })/*失去焦点*/
+    </script>
+</body>
+</html>

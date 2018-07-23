@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 500px;
+        }
+        #box1{
+            background: #1da3ec;
+        }
+        #box2{
+            background: #e54077;
+        }
+        #box3{
+            background: yellow;
+        }
+        /*#box3:target{
+            background: green;
+        }*/
+    </style>
+</head>
+<body>
+<p>
+    <a href="#box1">box1</a>
+    <a href="#box2">box2</a>
+    <a href="#box3">box3</a><!--锚点选择-->
+</p>
+<div id="box1"></div>
+<div id="box2"></div>
+<div id="box3"></div>
+<script src="jquery.js"></script>
+<script>
+    setInterval(function () {
+       $("div:target").css("background","green")
+    },2000)
+</script>
+</body>
+</html>

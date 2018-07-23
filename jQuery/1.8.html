@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .test{
+            font-size: 30px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">hello</div>
+    <script src="jquery.js"></script>
+    <script>
+        /*$("#box").css("color","red");*/
+        /*$("#box").addClass("test");*/
+        /*$("#box").removeClass("test");*/
+        /*console.log($("#box").hasClass("test"))*/
+        $("#box").on("click",function () {
+            $(this).toggleClass("test");
+        })
+    </script>
+</body>
+</html>

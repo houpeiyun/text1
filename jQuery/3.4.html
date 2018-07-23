@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .active{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button id="btn">隐藏</button>
+    <button id="show">显示</button>
+    <button id="togg">切换</button>
+    <script src="jquery.js"></script>
+    <script>
+        $("#btn").on("click",function () {
+            /*$(".box").css("display","none")*/
+            /*$(".box").addClass("active");*/
+            $(".box").hide();/*隐藏*/
+        })
+        $("#show").on("click",function () {
+            $(".box").show();/*显示*/
+        })
+        $("#togg").on("click",function () {
+            /*$(".box").toggleClass("active");*/
+            $(".box").toggle();/*切换，只能控制显示和隐藏*/
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="http://www.css88.com/jqapi-1.9/">http://www.css88.com/jqapi-1.9/     &nbsp &nbsp &nbsp &nbsp  jquery用法网址</a>
+    <div id="box">1</div>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li class="aa">4</li>
+    <li>5cjhsbldb</li>
+    <li>6</li>
+</ul>
+    <script src="jquery.js"></script>
+    <script>
+        var box = document.getElementById("box");
+        console.log($(box));/*$可以转为jquery*/
+        var $box = $("#box");
+        console.log($box.get(0))/*.get(0)可以转为正常*/
+        /*$(".aa+li").css("color","red");/!*后一个*!/
+        $(".aa~li").css("color","red");/!*后面所有*!/
+        $("li:eq(2)").css("color","red");/!*从第0个开始*!/
+        $("li:odd").css("color","red");
+        $("li:even").css("color","red");
+        $("li:not(.aa)").css("color","red");/!*选中除aa外的所有Li*!/*/
+        $("li:contains('b')").css("color","red");/*选择包含b的那个li*/
+    </script>
+</body>
+</html>

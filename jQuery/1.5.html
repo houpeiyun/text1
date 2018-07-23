@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*[type=text]{
+            background: red;
+        }*/
+        /*[name=test]{
+            background: red;
+        }*/
+        [name*=t]{
+            background: red;
+        }
+        /*[class~=tt]{
+            background: red;
+        }*/
+        /*[class~=tt][type=text]{
+            background: red;
+        }*/
+    </style>
+</head>
+<body>
+<input type="text" name="test" class="bb tt">
+<script src="jquery.js"></script>
+<script>
+    var tt = document.getElementsByClassName("bb")[0];
+    tt.setAttribute("ss","abc");
+    console.log(tt.getAttribute("ss"));
+    tt.getAttribute("ss");
+    $(".tt").attr("ss","abc");
+    console.log($(".tt").attr("ss"));/*自定义属性*/
+    tt.removeAttribute("ss");
+    $(".tt").attr("ss","abc");
+</script>
+</body>
+</html>
