@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        @media (min-width: 960px) {
+            .contier{
+                width: 960px;
+                margin: auto;
+            }
+        }
+        @media (max-width: 960px) {
+            .contier{
+                width: 100%;
+            }
+        }
+        .box1,.box2,.box6{
+            width: 100%;
+            height: 100px;
+            background: #8c8c8c;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 100px;
+        }
+        .box3{
+            width: 100%;
+            padding-top: 56%;
+            margin-top: 20px;
+            background-image: url("../fuxi/ruangong/img/a3.jpg");
+            background-size: 100% 100%;
+        }/**/
+        img{
+            width: 100%;
+        }
+        .box4,.box5{
+            text-align: center;
+            vertical-align: middle;
+        }
+        @media (min-width: 600px){
+            .box4{
+                width: 60%;
+                height: 200px;
+                background: #1da3ec;
+                display: table-cell;
+            }
+            .box5{
+                width: 38%;
+                height: 200px;
+                background: #e54077;
+                display: table-cell;
+                margin-left: 2%;
+            }
+            .box8{
+                width: 2%;
+                display: table-cell;
+            }
+            .box7 div{
+               /* float: left;*/
+            }
+            /*.box7::after{
+                content:"";
+                display: block;
+                clear: both;
+            }*/
+        }
+        @media (max-width: 600px){
+            .box4{
+                width: 100%;
+                background: #1da3ec;
+            }
+            .box5{
+                width: 100%;
+                background: #e54077;
+            }
+        }
+    </style>
+</head>
+<body><!--768,992,1200-->
+    <div class="contier">
+        <div class="box1">页头</div>
+        <div class="box2">导航</div>
+        <div class="box3"><img src="../fuxi/ruangong/img/a3.jpg" alt=""></div>
+        <div class="box7">
+            <div class="box4">在第1-3部分基础上扩展；支持FCFS、短作业优先以及时间片调度算法。能够较方便地查看调度过程及平均周转时间、平均带权周转时间；支持优先权调度算法与其它算法相结合的调度模式。</div>
+            <div class="box8"></div>
+            <div class="box5">在1、2、3阶段实验基础上实现按先来先服务FCFS、短作业优先SJF以及时间片轮转算法调度进程的模拟过程。在1、2、3阶段实验基础上实现按先来先服务FCFS、短作业优先SJF以及时间片轮转算法调度进程的模拟过程。在1、2、3阶段实验基础上实现按先来先服务FCFS、短作业优先SJF以及时间片轮转算法调度进程的模拟过程。在1、2、3阶段实验基础上实现按先来先服务FCFS、短作业优先SJF以及时间片轮转算法调度进程的模拟过程。</div>
+        </div>
+        <div class="box6">页尾</div>
+    </div>
+</body>
+</html>

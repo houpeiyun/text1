@@ -1,0 +1,11 @@
+.right .first img{
+    width: 100%;
+    height: 47%;
+}
+.right .first-one div{
+    position: absolute;
+}
+.right .first-two{
+    width: 48px;
+    height: 48px;
+}
