@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../jQuery/jquery.js"></script>
+<script>
+    /*document.cookie = "school=heida;expires="+timer.toUTCString();*/
+    /*console.log(document.cookie.split("="));*/
+    function setCookie(key,value,expires){
+        var timer = new Date();
+        timer.setDate(timer.getDate()+expires);
+        document.cookie = key+"="+value+";expires="+timer.toUTCString();
+        console.log(document.cookie);
+    }
+    function getCookie(key){
+        var cc = document.cookie.split(";");
+        console.log(cc)
+        for(var i = 0;i<cc.length;i++){
+            var bb = cc[i].trim().split("=");
+            if(bb[0] == key){
+                console.log(bb[1])
+            }
+        }
+    }
+    function delCookie(key){
+        var timers = new Date();
+        timers.setDate(timers.getDate()-1);
+        document.cookie = key+"=;expires="+timers.toUTCString();
+    }
+    setCookie("age","20",2);
+    setCookie("name","xiaoming",2);
+    getCookie("age");
+    delCookie("name");
+   /* var str = "a = b = c";
+    console.log(str.trim().split("="));*/
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #cav{
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="cav" width="400" height="400"></canvas>
+    <script>
+        var oCan = document.getElementById("cav");
+        var can = oCan.getContext("2d");
+        can.beginPath();/*开始*/
+        can.moveTo(100,150);
+        can.lineTo(300,50);
+        can.strokeStyle = "red";
+        can.lineWidth = "10";
+        can.stroke();/*结束*/
+
+        can.beginPath();
+        can.moveTo(150,100);
+        can.lineTo(50,300);
+        can.strokeStyle = "blue";
+        can.lineWidth = "10";
+        can.stroke();
+    </script>
+</body>
+</html>

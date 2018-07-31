@@ -30,7 +30,7 @@
 <div id="box1"></div>
 <div id="box2"></div>
 <div id="box3"></div>
-<script src="jquery.js"></script>
+<script src="../jQuery/jquery.js"></script>
 <script>
     /*setInterval(function () {
        $("div:target").css("background","green")
@@ -43,7 +43,6 @@
         history.pushState(arr,"")
     })
     window.onpopstate = function (e) {
-        console.log(e.state);
         var topp = $("#box3").offset().top -e.state;
         $(".content").animate({
             scrolltop:topp

@@ -2,15 +2,17 @@
     margin: 0px;
     padding: 0px;
 }
+html{
+    font-size: 62.5%;!important;
+}
 a{
     text-decoration: none;
 }
 .right{
     float: left;
     width: 70%;
-    height: 1500px;
-    /*background: #7A45E5;*/
     margin-left: 30%;
+    background: #f7f7f7;
 }
 .left{
     float: left;
@@ -33,7 +35,7 @@ li{
 }
 .header ul{
     float: left;
-    font-size: 1.1rem;
+    font-size: 1.6rem;
     font-weight: 700;
     /*margin: 0 10px 0 10px;*/
     width: 75%;
@@ -58,7 +60,7 @@ li{
 }
 .display-1 span{
     font-weight: 700;
-    font-size: 1.6rem;
+    font-size: 2.6rem;
 }
 .date-reactroot{
     height: 135px;
@@ -120,12 +122,13 @@ li{
     float: left;
 }
 .middle-mid ul li a{
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: black;
     display: block;
     height: 21px;
     padding: 8px 0;
+    line-height: 120%;
 }
 .middle-mid ul li{
     width: 100%;
@@ -149,7 +152,7 @@ li{
     line-height: 27px;
     text-align: center;
     position: absolute;
-    top:503px;
+    top:494px;
     margin-left: 90px
 }
 .middle-last a{
@@ -179,7 +182,21 @@ li{
     .display-2 .login-2-1{
         position: absolute;
         left: 90px;
-        top: 506px;
+        top: 491px;
+    }
+}
+@media (max-width: 640px) {
+    .header,.display-2{
+        display: none;
+    }
+    .display-1{
+        padding: 16px 16px 0 16px;
+        position: absolute;
+        top: -80px;
+    }
+    .right{
+        position: absolute;
+        top: -104px;
     }
 }
 
@@ -249,20 +266,21 @@ li{
         opacity: 1;
     }
 }
-.active-ac{
-    animation: testt 0.5s ease;
-}
-@keyframes testt{
-    0%{
-        transform: scale(1.0);
-        opacity: 1;
+@media (min-width: 640px) {
+    .active-ac{
+        transition: all 0.5s ease;
+        transform:translateY(-7px);
     }
-    50%{
-        transform: scale(1.2);
-        opacity: 0.5;
+    .active-acti{
+        transition: all 0.5s ease;
+        transform:translateX(8px);
     }
-    100%{
-        transform: scale(1.0);
-        opacity: 0;
+    .active-ac-a{
+        transition: all 0.5s ease;
+        transform:translateY(0px);
+    }
+    .active-acti-a{
+        transition: all 0.5s ease;
+        transform:translateX(0px);
     }
 }
