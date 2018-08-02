@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id = "box">box</div>
+<div id = "box1">box1</div>
+<script>
+    /*function foo(a,b) {
+        console.log(a+b)
+        return a+b;
+    }
+    foo(1,2)
+
+    let fun = (a,b) =>{
+        console.log(a+b);
+    }
+    fun(2,3);
+
+    let fun1 = (a,b) =>{ return a+b }
+    console.log(fun1(5,4))
+
+    var obox = document.getElementById("box");
+    obox.onclick = function () {
+        console.log(this);  /!*输出div*!/
+        setTimeout(function () {
+            console.log(this);  /!*输出window*!/
+        },1000)
+        setTimeout( () =>{
+            console.log(this);  /!*输出box*!/
+        },1000)
+    }
+    var obox1 = document.getElementById("box1");
+    obox1.onclick =  () =>{
+        console.log(this)  /!*指向window，箭头函数五作用区域，无this,所以this指向window*!/
+    }*/
+
+
+    /*let foo = () =>{
+        console.log(arguments);  arguments不能使用
+    }
+    foo();*/
+    /*let foo = (...arg) =>{
+        console.log(arg);  /!*arguments不能使用*!/
+    }
+    foo("a","b","c");*/
+
+
+    /*let fun1 = (a,b) =>a+b    /!*箭头函数会自动返回return,加void写成let fun1 = (a,b) =>void a+b 则不会自动返回,会输出NaN*!/
+    console.log(fun1(5,4))*/
+
+
+
+</script>
+</body>
+</html>

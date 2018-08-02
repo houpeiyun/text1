@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<div>可以实现数组去重</div>
+<script>
+    /*let arr = new Set([1,2,3,4,5,6]); /!*里面内容不能重复，重复的内容不会显示*!/
+    console.log(arr);*/
+
+
+    /*let arr1 = [1,2,3,4,5,6,5];
+    /!*let arr2 = new Set(arr1);*!/
+    let arr3 = [];
+    console.log(new Set(arr1));
+    for(items of arr1){
+        if(!arr3.includes(items)){
+            arr3.push(items);
+        }
+    }
+    console.log(arr3);
+
+    console.log(Array.from(new Set(arr1)));*/
+
+
+
+    //let arr = new Set(["a",2,3,4,5,6]);
+    /*arr.add(7);/!*只能添加没有的元素*!/
+    arr.delete(2);
+    arr.clear();
+    console.log(arr.has(3));
+    console.log(arr);*/
+
+
+    /*console.log(arr.size)
+    for(let[items,key] of arr.entries()){
+        console.log(items,key);
+    }*/
+
+
+    let ws = new    WeakSet();  /*只能传入对象*/
+    let obj = {
+        name:"xiaoming",
+        age:"18",
+    }
+    let arr = [1,2]
+    var obj2 = obj;
+    console.log(ws);
+    ws.add(obj);
+    ws.add(obj2);
+    /*ws.add(arr);  不能传入*/
+    console.log(ws);
+
+</script>
+</body>
+</html>

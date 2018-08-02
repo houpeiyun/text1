@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /*let maps = new Map();
+    let obj = {
+        name:"xiaoming",
+        age:"18",
+    }
+    let obj2 = {
+        age:"18",
+    }
+    maps.set("name","xiaoming")
+    maps.set(0,obj);   /!*key值不允许重复，value值可以重复*!/
+    maps.set(obj2,"person");
+    maps.set(0,"word");
+    console.log(maps)*/
+
+
+
+    let mo = new  WeakMap();   /*key值只能接受对象类型*/
+    let obj = {
+        name:"xiaoming",
+        age:"18",
+    }
+    mo.set(obj,"fellow");
+    mo.set(null,"fellow");  /*虽然null为对象类型，但他不能传给key值，是例外*/
+    console.log(mo);
+</script>
+</body>
+</html>

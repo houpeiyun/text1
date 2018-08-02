@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str = "hello word cook end";
+    console.log(str.length)
+    function end(str,pipei) {
+        if((str.indexOf(pipei)+pipei.length) == str.length){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    function start(str,pipei) {
+        if(str.indexOf(pipei) == 0){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    console.log(start(str,"ello"));
+    console.log(end(str,"nd"));
+
+
+    var str1 = "hello word cook end";
+    var str2 = "hello";
+    String.prototype.sw = function(str2){
+        if(this.indexOf(str2) == 0){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    console.log(str1.sw(str2));
+    console.log(String.prototype)
+</script>
+</body>
+</html>

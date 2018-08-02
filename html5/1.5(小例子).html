@@ -35,20 +35,39 @@
     /*setInterval(function () {
        $("div:target").css("background","green")
     },2000)*/
-    var arr = [];
+   /* var arr = [];
     $("p a").on("click",function () {
         var content = $("#"+$(this).text())
-        arr.push(content.offset().top-content.scrollTop())
-        /*console.log(arr)*/
+        arr.push(content.offset().top)
+        /!*console.log(arr)*!/
         history.pushState(arr,"")
     })
     window.onpopstate = function (e) {
-        var topp = $("#box3").offset().top -e.state;
+        var topp = e.state;
         $(".content").animate({
             scrolltop:topp
         },500)
-    }
+    }*/
+    $(function () {
+        $('p a').on('click', function () {
+            var id = $(this).attr('href');
+            $('body, html').animate({
+                scrollTop: $(id).offset().top
+            }, 500);
 
+            history.pushState($(id).offset().top, '');
+            console.log(history.state);
+            return false; // 阻止默认行为(默认可以直接点返回箭头返回)
+        });
+    });
+
+    window.onpopstate = function (e) {
+        console.log(history.state);
+        $('body, html').animate({
+            scrollTop: e.state
+        }, 500);
+    };
+    // document.body.scrollTop || document.documentElement.scrollTop
 </script>
 </body>
 </html>

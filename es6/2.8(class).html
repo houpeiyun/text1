@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*function Person(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.showname = function () {
+        console.log(this.name);
+        console.log(this);
+    }
+    let person1 = new Person("liangliang","12");
+    person1.showname();*/
+
+
+    //基于原型的继承
+    /*function Student(name,age) {
+        Person.call(this,name,age);
+    }
+    Student.prototype = Person.prototype;
+    let person2 = new Student("liu","18");
+    console.log(person2.__proto__)
+    person2.showname();*/
+
+
+    /*function Student(school) {
+        Person.call(this,name,age);
+        this.school = school;
+    }
+    Student.prototype = Person.prototype;
+    let person2 = new Student("linda");
+    person2.showname();*/
+
+
+
+
+
+    class Person{
+        constructor(name,age){
+            this.age = age;
+            this.name = name;
+        }
+        show(){
+            console.log(this.name)
+        }
+    }
+    let person1 = new Person("liangliang","12");
+    person1.show();
+
+    class Student extends Person{
+        constructor(name,age){
+            super(name,age);
+        }
+        work(){
+            console.log("work");
+        }
+    }
+    let person3 = new Person("lisi","12");
+    person3.show();
+</script>
+</body>
+</html>

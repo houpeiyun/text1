@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [];
+    var arr1 = new Array();/*构造函数*/
+
+   /* function Person(name,age) {  /!*方法名首字母大写默认其为类*!/
+        this.name = name;
+        this.age = age;
+        this.show = function () {
+
+        }
+    }
+    Person.prototype.showName = function () {
+        console.log(this.name);
+    }
+    var person1 = new Person("lisi","20");
+    person1.showName();*/
+
+
+    let Person=(name,age) =>{ /*箭头函数不能当构造函数用*/
+        this.name = name;
+        this.age = age;
+        this.show = function () {
+
+        }
+    }
+    Person.prototype.showName = function () {
+        console.log(this.name);
+    }
+    var person1 = new Person("lisi","20");
+    person1.showName();
+</script>
+</body>
+</html>

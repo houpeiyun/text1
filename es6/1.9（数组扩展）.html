@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<script>
+    /*var aLi = document.querySelectorAll("li");
+    console.log(Array.from(aLi));  /!*将其他格式（类数组）转换成数组*!/*/
+    /*let test = {
+        "0":"xiaoming",
+        "1":"18",
+        length:2
+    }
+    console.log(Array.from(test))*//*将其他格式（对象）转换成数组*/
+
+    /*var test = "abc"
+    let arr = Array.of("2",3,[5,6],{name:"lisi"},NaN,test);  /!*将各种格式返回成数组*!/
+    console.log(arr);*/
+
+
+    /*var arr = [1,2,3,4,5,6,7,8];
+    console.log(arr.copyWithin(1,4,8))*/
+
+
+    /*let arr = [1,2,3,4,5,6,7,8];
+    var vaul =  arr.find(function (val, key, arr) {   查找
+        console.log(val,key,arr);
+        return val>6;
+    })
+    console.log(vaul);*/
+
+   /* let arr = [1,2,3,4,5,6,7,8];
+    var keys =  arr.findIndex(function (val, key, arr) {    /!*查找索引*!/
+        console.log(val,key,arr);
+        return val>6;
+    })
+    console.log(keys);*/
+
+
+    /*let arr = [1,2,3,4,5,6,7,8];
+    arr.fill("ss",1,3);  /!*插入指定内容*!/
+    console.log(arr);*/
+
+
+    /*let arr = new Array(3);
+    let arr1 = new Array(2,3,4);
+    let arr2 = new Array(3).fill("abs",1,2);
+    console.log(arr,arr1,arr2);*/
+
+
+
+    /*let arr = [1,2,3,4,5,6,7,8];
+    console.log(arr.includes(5));  /!*判断数组里面是否有指定内容，返回布尔型*!/
+    console.log(arr.includes("5"));
+    console.log(arr.indexOf("5"));/!*判断数组里面是否有指定内容，返回-1*!/*/
+
+
+
+    let arr = ["a","b","c","d","f"];
+   /* for(items of arr){  /!*只能遍历数组这种规范的*!/
+        console.log(items);
+    }
+    for(let[items,key] of arr.entries()){  /!*只能遍历数组这种规范的*!/
+        console.log(items,key);
+    }
+
+
+    arr.forEach(function (value, index, array) {
+        console.log(value,index,array);
+    })*/
+
+    /*var arr1 = arr.map(function (value, index, array) {  /!* 过滤，返回你要找的给一个新数组，输出[c,underfing,underfing,underfing,underfing]*!/
+        if(value == "a"){
+            return value
+        }
+        /!*return value == "b";*!/
+    })
+    console.log(arr1);*/
+
+    /*var arr1 = arr.filter(function (value, index, array) {   /!* 过滤，返回你要找的给一个新数组，输出[c]*!/
+        if(value == "c"){
+            return value
+        }
+        /!*return value == "b";*!/
+    })
+    console.log(arr1);*/
+
+    /*var arr1 = arr.every(function (value, index, array) { /!* 判断里面内容是否全为"a",返回布尔型*!/
+        if(value == "a"){
+            return value
+        }
+    })
+    console.log(arr1);*/
+
+
+    var arr1 = arr.some(function (value, index, array) { /* 判断里面内容是否有"a",返回布尔型*/
+        if(value == "a"){
+            return value
+        }
+    })
+    console.log(arr1);
+
+</script>
+</body>
+</html>

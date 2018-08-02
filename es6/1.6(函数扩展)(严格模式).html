@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*function foo(name,age="20") {
+        console.log(name,age)
+    }
+    foo("name","18");*/
+
+    /*function foo(name,age="14",school="heida") {
+
+    }
+    function foo1(name="xiao",age,school) {
+
+    }
+    console.log(foo.length)  /!*返回未赋值的参数个数*!/
+    console.log(foo1.length) /!*从前往后找，若第一个参数已经赋值，则返回0*!/
+    console.log(foo.name);*/
+
+
+    //'use strict'/*严格模式，只能用于函数外部*/
+    /*a = "13"
+    console.log(a)/!*会报错，必须声明a*!/*/
+    /*禁止this指向全局，构造函数必须用new*/
+
+    /*function a() {
+       console.log(this);  /!*非严格模式下指向window，严格模式输出underfind*!/
+    }
+    a();*/
+
+
+    /*setTimeout(function () {
+        console.log(this)  /!*例外，输出window*!/
+    },1000)*/
+
+    /*var name = "xiaohong"
+    var obj = {
+        name:"ncksnc",
+        showName:function () {
+            console.log(this.name);
+            var that = this;
+            function foo() {
+                console.log(that.name);
+                console.log(this.name);
+            }
+            foo();
+        }
+    }
+    obj.showName();*/
+
+
+    /*function foo(a,a,c) {
+        console.log(a,a,c)  /!*严格模式参数名不能重复，非严格模式输出b,b,c*!/
+    }
+    foo("a","b","c")*/
+
+    /*name = "zhangsan"
+    var obj =
+        {
+            name:"xiaili"
+        }
+    with (obj){   /!* 严格模式下禁止使用with*!/
+        console.log(name);
+    }*/
+
+    /*function foo(key) {
+        if(key == 1){
+            return 1;
+        }else{
+           /!*return key*foo(key-1);*!/
+            return key*arguments.callee(key-1);  /!*严格模式下不能用arguments.callee*!/
+        }
+    }
+    console.log(foo(5));*/
+</script>
+</body>
+</html>

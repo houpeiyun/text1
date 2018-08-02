@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../jQuery/jquery.js"></script>
+<script>
+    /*function* hello () {
+        yield 'hello';
+        yield 'word';
+        return 'ending';
+    }
+    var hw = hello();
+    console.log(hw.next());
+    console.log(hw.next());
+    console.log(hw.next());*/
+
+
+    /*function* foo(x) {
+        var y = 2 * (yield (x + 1));
+        var z = yield (y / 3);
+        return (x+y+z);
+    }
+    var a = foo(5);
+    console.log(a.next());
+    console.log(a.next(12));
+    console.log(a.next(13));
+*/
+
+    function run(url) {
+        $.get(url,function (res) {
+            console.log(res.name)
+        })
+    }
+
+    function* foo(x) {
+        yield run("a.json");
+        yield run("b.json");
+        return run("c.json");
+    }
+    var a = foo(5);
+    a.next();
+    a.next();
+    a.next();
+
+    /*let prom = function* foo(x){
+        return new Promise(function* (resolved,rejected) {
+            var y = 2 * (yield (x + 1));
+            var z = yield (y / 3);
+            return (x+y+z);
+            resolved();
+        })
+    };
+    var a = prom(5)
+    console.log(a.next(function () {
+        return prom(this.next(12));
+    }))*/
+</script>
+</body>
+</html>

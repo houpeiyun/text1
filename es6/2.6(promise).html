@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../jQuery/jquery.js"></script>
+<script>
+   /* $.get('musicdata.json', function(data) { /!* function 为回调函数*!/
+        console.log(data)
+    });*/
+
+
+   /*$.get('a.json', function(data) {
+       console.log(data);
+       $.get('b.json', function(data) {
+           console.log(data);
+           $.get('c.json', function(data) {
+               console.log(data);
+           })
+       })
+   })*/
+
+
+
+/*let prom = new Promise(function (resolved,rejected) {
+    $.get('a.json', function(data) {
+        console.log(data);
+        /!*resolved();*!/  //成功进入then中
+        rejected();     //失败进入catch中
+    })
+}).then(function () {
+    $.get('b.json', function(data) {
+        console.log(data);
+    })
+}).catch(function () {
+    $.get('c.json', function(data) {
+        console.log(data);
+    })
+})*/
+
+
+
+
+/*let prom = function (url,callback) {
+    console.log(callback)
+    return new Promise(function (resolved,rejected) {
+        $.get(url, function(data) {
+            if(callback){
+                callback();
+            }
+           resolved(data);
+        });
+    })
+};
+
+prom("a.json").then(function (res) {
+    console.log(res);
+    return prom("b.json",function () {
+        console.log("aaaa");
+    });
+}).then(function (res) {
+    console.log(res);
+    return prom("c.json");
+}).then(function (res) {
+    console.log(res);
+});*/
+
+
+
+   let prom1 = new Promise(function (resolved,rejected){
+           $.get("a.json", function(data) {
+               console.log(data);
+               resolved()
+           });
+   });
+   let prom2 = new Promise(function (resolved,rejected){
+       $.get("b.json", function(data) {
+           console.log(data);
+           /*resolved();*/
+           rejected();
+       });
+   });
+   let prom3 = new Promise(function (resolved,rejected){
+       $.get("c.json", function(data) {
+           console.log(data);
+           /*resolved();*/
+           rejected();
+       });
+   });
+    Promise.all([prom1,prom2,prom3]).then(function () {
+        console.log("done")
+    },function () {
+        console.log("erro")
+    })  //全部执行完
+   Promise.race([prom1,prom2,prom3]).then(function () {
+       console.log("done")
+   },function () {
+       console.log("erro")
+   })   /*捕获第一个进入回调的，赛跑*/
+</script>
+</body>
+</html>

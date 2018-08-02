@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let name = Symbol();  //唯一的值，新的数据类型，在你不知道是否已有该属性时可以使用,私有的，for in不能遍历出来
+    let obj = {
+        name:"xiaoming",
+        age:"18",
+    }
+    obj[name] = "xiaohong";
+   /* console.log(obj[name])*/
+
+    for (items in obj){
+        console.log(items);
+    }
+</script>
+</body>
+</html>

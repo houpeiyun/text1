@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box" data-xx-yy="test"></div>
+    <script>
+        /*var a = 8;
+        console.log(a.toString(2))*/
+        /*var a = 0B101;
+        console.log(a);*/
+
+        var a = 3;
+        console.log(Number.isFinite(3)) /*是否是数字*/
+        console.log(Number.isFinite("a"))
+        console.log(isNaN("3"))
+        console.log(isNaN("a"))
+        console.log(Number.isNaN(NaN));
+        console.log(Number.isInteger(5.3));   /*是否是整数*/
+
+        console.log(Math.pow(2,53)); /*最大数值*/
+        console.log(Math.pow(2,53)+1);
+        console.log(Number.isSafeInteger(Math.pow(2,53))); /*判断是否为安全数值*/
+        console.log(Number.isSafeInteger(Math.pow(2,53)-1));
+
+        console.log(Number.MAX_SAFE_INTEGER); /*最大安全数值*/
+        console.log(Number.MIN_SAFE_INTEGER); /*最小安全数值*/
+
+        console.log(Math.trunc(4.3)); /* 同向下取整*/
+        console.log(Math.sign(3)); /*判断是正数返回1*/
+        console.log(Math.sign(0)); /*判断是0返回0*/
+        console.log(Math.sign(-3)); /*判断是负数返回-1*/
+    </script>
+</body>
+</html>

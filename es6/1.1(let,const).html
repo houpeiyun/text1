@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>a</li>
+    <li>b</li>
+    <li>c</li>
+    <li>d</li>
+    <li>e</li>
+</ul>
+<script>
+    /*var a = 123;
+    var a = "ab";*/
+    //console.log(a);
+    //var a = 10;/*变量提升*/
+
+    /*console.log(a);
+    var a = 10;
+    console.log(a)
+    function a() {
+        console.log("abc");
+    }
+    a = "123";
+    a();*/
+
+    /*for(var i =0;i<5;i++){
+
+    }
+    console.log(i);*/
+
+
+    /*var oLi = document.querySelectorAll("ul li");
+
+    for(var i = 0;i<oLi.length;i++){
+        /!*oLi[i].index = i;
+        oLi[i].onclick = function () {
+            console.log(this.index)
+        }*!/
+        (function (key) {  /!*立即执行函数,闭包*!/
+            oLi[i].onclick = function () {
+                console.log(key)
+            }
+        })(i)
+    }*/
+
+
+    /*闭包,容易出现内存溢出*/
+    /*function aa() {
+        var n = 999;
+        function bb() {
+            alert(n);
+        }
+        return bb;
+    }
+    var result = aa();
+    result();*/
+
+
+    /*let a = 10;/!*不能重复定义，不存在变量提升*!/
+    /!*let a = "1";*!/
+    console.log(a);*/
+
+
+    /*function a() {
+        console.log(a);  /!*暂时性死区*!/
+        let a = 10;
+    }
+    /!*console.log(a);
+    a = 11;*!/
+    a();*/
+
+
+
+    /*let oLi = document.querySelectorAll("ul li");
+    for(let i = 0;i<oLi.length;i++){
+            oLi[i].onclick = function () {
+                console.log(i)
+            }
+    }*/
+
+
+
+    /*if(true){
+        let a = 10;
+    }
+    console.log(a);*/
+
+
+    /*const a = "123";
+    a = "abc";*/
+
+    /*const  obj = {
+        name:"xiaomnh"
+    }
+    obj.name = "njnks";
+    console.log(obj);*/
+
+
+    /*const  obj = {
+        name:"xiaomnh"
+    }
+    Object.freeze(obj);/!*冻结*!/
+    obj.name = "njnks";
+    console.log(obj);*/
+
+    let a = "10"; /* let a并不是放在window下面*/
+    console.log(window.a);
+    setTimeout(function () {
+        console.log(a)
+    },1000)
+</script>
+</body>
+</html>
