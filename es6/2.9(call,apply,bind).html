@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">box</div>
+    <div id="box1">box1</div>
+    <script>
+        /*var obox = document.getElementById("box");
+        var obox1 = document.getElementById("box1");
+        box.onclick = function () {
+            box.call(obox1)
+            console.log(this);
+        }*/
+
+
+        /*var aa = "123"
+        function foo(name,age) {
+            console.log(this.aa);
+            console.log(name);
+            console.log(age);
+        }*/
+        //foo("lisi","18");
+
+       /* var obj = {
+            aa:"abcd",
+        }*/
+        //foo.call(obj,"zhangsan","30")         直接执行
+       //foo.apply(obj,["kaixin","25"]);   直接执行
+
+
+        /*var foo2 = foo.bind(obj,"wanyu");  /!*调用才执行*!/
+        foo2("26")*/
+
+
+
+        /*function foo() {
+            console.log(Array.from(arguments));
+        }
+        var obj = {
+            name:"zhangsan"
+        }
+        foo(obj,"lisi","20","heida")*/
+
+
+        Function.prototype.bind2 = function () {
+            let obj = Array.from(arguments)[0];
+            let args = Array.from(arguments).slice(1);
+            let _this = this;
+            return function () {
+                let bindArgus = args.concat(Array.from(arguments));
+                /*_this.apply(obj,bindArgus)*/
+                _this.call(obj,...bindArgus)
+            }
+        }
+        function foo(name,age) {
+            console.log(this.school);
+            console.log(name);
+            console.log(age);
+        }
+        var obj = {
+            school:"linda"
+        }
+        var foo2 =  foo.bind2(obj,"zhangsan");
+        foo2("20");
+    </script>
+</body>
+</html>

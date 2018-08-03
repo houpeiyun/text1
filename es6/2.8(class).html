@@ -6,41 +6,35 @@
 </head>
 <body>
 <script>
-    /*function Person(name,age) {
+    function Person(name,age) {
         this.name = name;
         this.age = age;
     }
     Person.prototype.showname = function () {
-        console.log(this.name);
-        console.log(this);
+        console.log(this.name,this.age);
+        /*console.log(this);*/
     }
     let person1 = new Person("liangliang","12");
-    person1.showname();*/
+    person1.showname();
 
 
     //基于原型的继承
-    /*function Student(name,age) {
+    function Student(name,age) {
+        /*Person.call(this,name,age);*/
         Person.call(this,name,age);
     }
-    Student.prototype = Person.prototype;
-    let person2 = new Student("liu","18");
-    console.log(person2.__proto__)
-    person2.showname();*/
-
-
-    /*function Student(school) {
-        Person.call(this,name,age);
-        this.school = school;
-    }
-    Student.prototype = Person.prototype;
-    let person2 = new Student("linda");
-    person2.showname();*/
+    Student.prototype = new Person();
+    Student.prototype.constructor = Student;
+    let student1 = new Student("liu","18");
+    student1.showname();
+    console.log(Student.prototype.constructor)
+    console.log(student1.__proto__);
 
 
 
 
 
-    class Person{
+    /*class Person{
         constructor(name,age){
             this.age = age;
             this.name = name;
@@ -61,7 +55,7 @@
         }
     }
     let person3 = new Person("lisi","12");
-    person3.show();
+    person3.show();*/
 </script>
 </body>
 </html>

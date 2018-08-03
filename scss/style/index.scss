@@ -1,0 +1,59 @@
+
+$color:#ff0;
+$name:width;
+/*.div{
+  color:$color
+}*/
+.div2{
+  background:{
+    color:#ff0;
+    //repeat:no-repeat;
+    image:url("../../fuxi/ruangong/img/a1.jpg");
+  }
+  border:{
+    left:{
+      color:#ff0;
+      #{$name}:2px;
+    }
+  }
+  .box{
+    color: #00A862;
+    &:hover{
+      width: 500px;
+    }
+  }
+}
+
+
+@mixin mx($w,$h:300px){
+  width:$w;
+  height: $h;
+}
+.div5{
+  @include mx(100px);
+}
+.div6{
+  @include mx(200px,200px);
+}
+
+@import "base";
+
+.div7{
+  @extend .div2;
+  color: #00A862;
+}
+
+.div9{
+  width: 200 - 100px;
+}
+
+.div10{
+  height: 100px + 100px;
+}
+
+.div11{
+  height: 100px * 10;
+}
+.div12{
+  width: (100px) / 2;
+}
