@@ -1,3 +1,12 @@
+@charset "UTF-8";
+
+
+$user:'lisi';
+/*#{$user}*/
+$xze:div20;
+.#{$xze}{
+  color: #00A862;
+}
 
 $color:#ff0;
 $name:width;
@@ -56,4 +65,74 @@ $name:width;
 }
 .div12{
   width: (100px) / 2;
+}
+
+
+$num:'../../fuxi/ruangong/img/a1';
+.div13{
+  background-image: url($num +'.jpg' );
+}
+
+.div14{
+  color: lighten(rgb(0,0,255),20%);
+}
+
+.div15{
+  color: darken(rgb(0,0,255),20%);
+}
+
+.div16{
+  color: opacify(rgba(0,0,0,0.8),0.1);
+}
+.div17{
+  color: transparentize(rgba(0,0,0,0.8),0.3);
+}
+
+
+$m:(light:#000,dark:#fff);
+
+.div18{
+  color: map-get($m,light);
+}
+
+@function foo($key){
+  @if($key == 1){
+    @return red;
+  }@else {
+    /*@warn "没有参数";*/
+    /*@error "没有参数"*/
+    @return blue;
+  }
+}
+.div19{
+  color: foo("1");
+}
+
+
+@for $var from 1 to 5{   //不包括5
+  .div-contetn-#{$var}{
+    width: $var+px;
+  }
+}
+
+
+@for $var from 1 through 5{   //包括5
+  .div-con-#{$var}{
+    width: $var+px;
+  }
+}
+
+
+$lista: a b c d;
+@each $var in $lista{
+  .div-#{$var}{
+    background:black;
+  }
+}
+$i:0;
+@while($i<10){
+  .div-footer-#{$i}{
+    background: #00A862;
+  }
+  $i:$i+1
 }
