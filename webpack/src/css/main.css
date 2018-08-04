@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box2{
+    height: 200px;
+    width: 200px;
+    background-image: url("../img/a1.jpg") ;
+    background-size: 100% 100%;
+}
+::placeholder{
+    color: green;
+}
+
+.aa{
+    background: #333333;
+}
