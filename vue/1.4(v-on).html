@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1{
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+        .div2{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" v-on:click="test(2,$event)" value="add">
+        <input type="button" @click="tes(2)" value="move">
+        <div>{{num}}</div>
+        <div class="div1" @click.once="div1($event)">
+            <div class="div2" @click.stop="div2($event)"></div>
+        </div>
+        <a href="http://www.baidu.com" @click.prevent="defaul($event)">baidu</a>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                num:0
+            },
+            methods:{
+                test(key,e){
+                    console.log(e)
+                    this.num+=key;
+                },
+                tes(keys){
+                    this.num-=keys;
+                },
+                div1(){
+                    console.log("div1")
+                },
+                div2(e){
+                    console.log("div2")
+                    //e.stopPropagation()  阻止冒泡
+                },
+                defaul(){
+                    //e.preventDefault()   组织默认行为
+                }
+            }
+        })
+    </script>
+</body>
+</html>

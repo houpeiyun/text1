@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div v-pre>{{num}}</div>
+    <div v-cloak>{{num}}</div>   <!--编译结束后会消失，防抖-->
+    <div>{{num}}</div>
+    <div v-once>{{num}}</div>
+</div>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+           num:"hello"
+        },
+    })
+</script>
+</body>
+</html>

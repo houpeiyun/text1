@@ -3,9 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const glob = require('glob');
 const PurifyCSSPlugin = require('purifycss-webpack');
+const webpack = require('webpack');
+const entry = require('./webpack_config/entry_webpack.js')
+const CopyPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
-    entry: './src/index.js',
+    entry: entry,
     output:{
         filename: 'bundle.js',
         path: path.resolve(__dirname,'dist')
@@ -59,7 +63,15 @@ module.exports = {
         }),
         new PurifyCSSPlugin({
             paths:glob.sync(path.join(__dirname,'src/*.html')),
-        })
+        }),
+        new webpack.BannerPlugin('唯创所有'),
+        new webpack.ProvidePlugin({
+            $:'jQuery'
+        }),
+        new CopyPlugin([{
+            from:__dirname + '/src/public',
+            to:'./public'
+        }])
     ],
     devServer:{
         contentBase: path.resolve(__dirname, 'dist'),

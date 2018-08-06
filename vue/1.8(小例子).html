@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_612724_roqpkpdd2cb.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        hr{
+            height: 1px;
+            border: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0.3);
+        }
+        h1{
+            text-align: center;
+            padding: 12px;
+        }
+        input{
+            height: 24px;
+        }
+        .btn{
+            width: 45px;
+            height: 28px;
+            background: #3941ff;
+            color: white;
+            border: 0 solid #3941ff;
+        }
+        #box1{
+            text-align: center;
+            margin: 30px;
+        }
+        #box2{
+            text-align: center;
+        }
+        th,td{
+            height: 30px;
+            width: 630px;
+            font-size: 16px;
+            border: 1px solid rgba(255,255,255,.5);
+            background:#ffffb6 ;
+        }
+        tr{
+            text-align: center;
+        }
+        #box3 button{
+            background: #ffd007;
+            border: #ffd007;
+        }
+        #box3 .icon-cuo{
+            font-weight: bolder;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>todolist</h1>
+    <hr>
+    <div id="box1">
+        <input type="text">
+        <input type="button" value="搜索" class="btn">
+    </div>
+    <div id="box2">
+        商品名称：<input type="text">商品价格：<input type="text">
+        <input type="button" value="添加" class="btn">
+    </div>
+    <div id="box3">
+        <table cellpadding="5">
+            <tr>
+                <th>选择</th>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>删除</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td><td>衣服</td><td>123</td><td><button class="iconfont icon-cuo"></button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td><td>裤子</td><td>456</td><td><button class="iconfont icon-cuo"></button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td><td>鞋</td><td>444</td><td><button class="iconfont icon-cuo"></button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td><td>帽子</td><td>666</td><td><button  class="iconfont icon-cuo"></button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td><td>手套</td><td>88</td><td><button  class="iconfont icon-cuo"></button></td>
+            </tr>
+            <tr><td><button>删除选中</button></td><td colspan="3">总计:0元</td></tr>
+        </table>
+    </div>
+</body>
+</html>
