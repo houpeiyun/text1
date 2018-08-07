@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="//at.alicdn.com/t/font_612724_roqpkpdd2cb.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         *{
             margin: 0;
@@ -23,11 +24,13 @@
             height: 24px;
         }
         .btn{
-            width: 45px;
-            height: 28px;
             background: #3941ff;
             color: white;
             border: 0 solid #3941ff;
+        }
+        #box3 .btn1{
+            background: #e54077;
+            border: #e54077;
         }
         #box1{
             text-align: center;
@@ -41,9 +44,9 @@
             width: 630px;
             font-size: 16px;
             border: 1px solid rgba(255,255,255,.5);
-            background:#ffffb6 ;
         }
         tr{
+            background: #fff3ee;
             text-align: center;
         }
         #box3 button{
@@ -54,18 +57,24 @@
             font-weight: bolder;
             color: white;
         }
+        .active{
+            background-color: red;
+        }
     </style>
 </head>
 <body>
+<div id="app">
     <h1>todolist</h1>
     <hr>
     <div id="box1">
-        <input type="text">
-        <input type="button" value="搜索" class="btn">
+        <input type="text" v-model.trim="search" placeholder="请输入关键字">
+        <!--<input type="button" value="搜索" class="btn" v-on:click="test()">-->
+        <button class="btn" v-on:click="test()">搜索</button>
     </div>
     <div id="box2">
-        商品名称：<input type="text">商品价格：<input type="text">
-        <input type="button" value="添加" class="btn">
+        商品名称：<input type="text" placeholder="请输入名称" v-model.trim="add.name">商品价格：<input type="text" v-model.number="add.price">
+       <!-- <input type="button" value="添加" class="btn" v-on:click="adds()">-->
+        <button class="btn" v-on:click="adds()">添加</button>
     </div>
     <div id="box3">
         <table cellpadding="5">
@@ -75,23 +84,123 @@
                 <th>商品价格</th>
                 <th>删除</th>
             </tr>
-            <tr>
-                <td><input type="checkbox"></td><td>衣服</td><td>123</td><td><button class="iconfont icon-cuo"></button></td>
+            <tr v-for="(items,index) in objArr" v-on:click="istrues(items,index)" v-bind:class="{active:items.istrue}" v-show="objArr[index].isshow">
+                <td><input type="checkbox" v-model="delt" v-bind:value=items.name></td><td>{{items.name}}</td><td>{{items.price}}</td><td><button class="iconfont icon-cuo" v-on:click="del(items,index)"></button></td>
             </tr>
-            <tr>
-                <td><input type="checkbox"></td><td>裤子</td><td>456</td><td><button class="iconfont icon-cuo"></button></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td><td>鞋</td><td>444</td><td><button class="iconfont icon-cuo"></button></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td><td>帽子</td><td>666</td><td><button  class="iconfont icon-cuo"></button></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td><td>手套</td><td>88</td><td><button  class="iconfont icon-cuo"></button></td>
-            </tr>
-            <tr><td><button>删除选中</button></td><td colspan="3">总计:0元</td></tr>
+            <tr><td><button class="btn1" v-on:click="dels()">删除选中</button></td><td colspan="3">总计:{{numprice}}元</td></tr>
         </table>
     </div>
+</div>
+    <script src="vue.js"></script>
+    <script>
+        var cc =  new Vue({
+            el:"#app",
+            data:{
+                objArr:[
+                    {
+                        name:"衣服",
+                        price:"123",
+                        istrue:false,
+                        isshow:true
+                    },
+                    {
+                        name:"裤子",
+                        price:"444",
+                        istrue:false,
+                        isshow:true
+                    },
+                    {
+                        name:"鞋",
+                        price:"456",
+                        istrue:false,
+                        isshow:true
+                    },
+                    {
+                        name:"帽子",
+                        price:"87",
+                        istrue:false,
+                        isshow:true
+                    },
+                    {
+                        name:"手套",
+                        price:"105",
+                        istrue:false,
+                        isshow:true
+                    },
+                ],
+                search:"",
+                add:{
+                    name:"",
+                    price:""
+                },
+                numprice:0,
+                delt:[],
+            },
+            methods: {
+                test(){
+                    console.log(this.search);
+                    var arr1 = this.objArr.filter(function (value,index, array) {
+                        if((!cc.objArr[index].name.includes(cc.search))&&(cc.objArr[index].price!=cc.search)){
+                            cc.objArr[index].isshow = false;
+                        }
+                        console.log(cc.objArr[index])
+                        console.log(cc.objArr[index].name.includes(cc.search))
+                    })
+                },
+                adds(){
+                    var obj = {
+                        name:this.add.name,
+                        price:this.add.price,
+                        istrue:false,
+                        isshow:true
+                    }
+                    this.objArr.push(obj);
+                    this.add.name = null;
+                    this.add.price = null;
+                },
+                istrues(item,key){
+                    if(item.istrue){
+                        item.istrue = false;
+                        for(var i = 0;i< this.delt.length;i++){
+                            if(this.delt[i] == item.name){
+                                //console.log(item.name);
+                                this.delt.splice(this.delt[i])
+                            }
+                        }
+                        this.numprice-=(item.price-0)
+                    }else{
+                        item.istrue = true;
+                        this.numprice+=(item.price-0);
+                    }
+                    for(var i = 0;i< this.objArr.length;i++){
+                        if(this.objArr[i].istrue == true){
+                            if(!this.delt.includes(this.objArr[i].name)){
+                                this.delt.push(this.objArr[i].name)
+                            }
+                        }
+                    }
+                    console.log(this.delt)
+                },
+                del(item,key){
+                    //console.log(this.objArr[key])
+                    this.objArr.splice(key,1);
+                    console.log(this.numprice)
+                    this.numprice-=(item.price-0);
+                    console.log(this.numprice)
+                },
+                dels(){
+                    for(var i = 0;i<this.delt.length;i++){
+                        for(var j = 0;j< this.objArr.length;j++){
+                            if(this.objArr[j].name == this.delt[i]){
+                                this.del(j);
+                            }
+                        }
+                    }
+                    this.delt = [];
+                    this.numprice = 0;
+                }
+            }
+        })
+    </script>
 </body>
 </html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_612724_roqpkpdd2cb.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        button{
+            background: #ffd007;
+            border: #ffd007;
+        }
+        .icon-cuo{
+            font-weight: bolder;
+            color: white;
+        }
+        .juzhong{
+            text-align: center;
+        }
+        hr{
+            height: 1px;
+            border: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0.3);
+        }
+        .h1{
+            text-align: center;
+            padding: 12px;
+        }
+        #box1,#box2{
+            text-align: center;
+        }
+        .active{
+            background: #e54077;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div><p class="h1">todolist</p><hr></div>
+    <div id="box1">
+        <input type="text" v-model.trim="search" placeholder="请输入关键字">
+        <button type="button" class="btn btn-primary mb-2" v-on:click="test()">搜索</button>
+    </div>
+    <div id="box2">
+        商品名称：<input type="text" placeholder="请输入名称" v-model.trim="add.name">商品价格：<input type="text" v-model.number="add.price">
+        <button type="button" class="btn btn-primary mb-2" v-on:click="adds()">添加</button>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">选择</th>
+            <th scope="col">商品名称</th>
+            <th scope="col">商品价格</th>
+            <th scope="col">删除</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(items,index) in objArr" v-on:click="istrues(items,index)" v-bind:class="{active:items.istrue}" v-show="objArr[index].isshow">
+            <th scope="row"><input type="checkbox" v-model="delt" v-bind:value=items.name></th>
+            <td>{{items.name}}</td>
+            <td>{{items.price}}</td>
+            <td><button class="iconfont icon-cuo" v-on:click="del(items,index)"></button></td>
+        </tr>
+        <tr>
+            <th class="juzhong" scope="row"><button type="button" class="btn btn-danger" v-on:click="dels()">删除选中</button></th><td class="juzhong" colspan="3">总计:{{numprice}}元</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="vue.js"></script>
+<script>
+    var cc =  new Vue({
+        el:"#app",
+        data:{
+            objArr:[
+                {name:"衣服", price:"123", istrue:false, isshow:true},
+                {name:"裤子", price:"444", istrue:false, isshow:true},
+                {name:"鞋", price:"456", istrue:false, isshow:true},
+                {name:"帽子", price:"87", istrue:false, isshow:true},
+                {name:"手套", price:"105", istrue:false, isshow:true},
+            ],
+            search:"",
+            add:{
+                name:"",
+                price:""
+            },
+            numprice:0,
+            delt:[],
+        },
+        methods: {
+            test(){
+                console.log(this.search);
+                var arr1 = this.objArr.filter(function (value,index, array) {
+                    if((!cc.objArr[index].name.includes(cc.search))&&(cc.objArr[index].price!=cc.search)){
+                        cc.objArr[index].isshow = false;
+                    }
+                    console.log(cc.objArr[index])
+                    console.log(cc.objArr[index].name.includes(cc.search))
+                })
+            },
+            adds(){
+                var obj = {
+                    name:this.add.name,
+                    price:this.add.price,
+                    istrue:false,
+                    isshow:true
+                }
+                this.objArr.push(obj);
+                this.add.name = null;
+                this.add.price = null;
+            },
+            istrues(item,key){
+                if(item.istrue){
+                    item.istrue = false;
+                    for(var i = 0;i< this.delt.length;i++){
+                        if(this.delt[i] == item.name){
+                            console.log(item.name);
+                            this.delt.splice(this.delt[i])
+                        }
+                    }
+                    this.numprice-=(item.price-0)
+                }else{
+                    item.istrue = true;
+                    this.numprice+=(item.price-0);
+                }
+                for(var i = 0;i< this.objArr.length;i++){
+                    if(this.objArr[i].istrue == true){
+                        if(!this.delt.includes(this.objArr[i].name)){
+                            this.delt.push(this.objArr[i].name)
+                        }
+                    }
+                }
+                console.log(this.delt)
+            },
+            del(item,key){
+                console.log(this.objArr[key])
+                this.objArr.splice(key,1);
+                console.log(item.price)
+                this.numprice-=(item.price-0);
+            },
+            dels(){
+                    for(var i = 0;i<this.delt.length;i++){
+                        for(var j = 0;j< this.objArr.length;j++){
+                            if(this.objArr[j].name == this.delt[i]){
+                                this.del(j);
+                            }
+                        }
+                    }
+                    this.delt = [];
+                this.numprice = 0;
+            }
+        }
+    })
+</script>
+</body>
+</html>
