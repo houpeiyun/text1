@@ -64,7 +64,7 @@
             <th scope="row"><input type="checkbox" v-model="delt" v-bind:value=items.name></th>
             <td>{{items.name}}</td>
             <td>{{items.price}}</td>
-            <td><button class="iconfont icon-cuo" v-on:click="del(items,index)"></button></td>
+            <td><button type="button" class="iconfont icon-cuo" v-on:click="del(items,index)"></button></td>
         </tr>
         <tr>
             <th class="juzhong" scope="row"><button type="button" class="btn btn-danger" v-on:click="dels()">删除选中</button></th><td class="juzhong" colspan="3">总计:{{numprice}}元</td>
@@ -138,16 +138,15 @@
                 console.log(this.delt)
             },
             del(item,key){
-                console.log(this.objArr[key])
                 this.objArr.splice(key,1);
-                console.log(item.price)
                 this.numprice-=(item.price-0);
             },
             dels(){
                     for(var i = 0;i<this.delt.length;i++){
                         for(var j = 0;j< this.objArr.length;j++){
                             if(this.objArr[j].name == this.delt[i]){
-                                this.del(j);
+                                console.log(this.objArr[j].name);
+                                this.objArr.splice(j,1);
                             }
                         }
                     }

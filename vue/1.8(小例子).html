@@ -182,17 +182,14 @@
                     console.log(this.delt)
                 },
                 del(item,key){
-                    //console.log(this.objArr[key])
                     this.objArr.splice(key,1);
-                    console.log(this.numprice)
                     this.numprice-=(item.price-0);
-                    console.log(this.numprice)
                 },
                 dels(){
                     for(var i = 0;i<this.delt.length;i++){
                         for(var j = 0;j< this.objArr.length;j++){
                             if(this.objArr[j].name == this.delt[i]){
-                                this.del(j);
+                                this.objArr.splice(j,1);
                             }
                         }
                     }
