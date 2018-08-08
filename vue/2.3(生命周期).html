@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button @click="add()">add</button>
+    <button @click="destroy()">add</button>
+    {{num}}
+</div>
+<script src="vue.js"></script>
+<script>
+
+    new Vue({
+        el:"#app",
+        data:{
+            num:0
+        },
+        methods:{
+            add(){
+                this.num++
+            },
+            destroy(){
+                this.$destroy();
+            }
+        },
+        beforeCreate(){
+            console.log('beforeCreate')
+        },
+        created(){
+            console.log('created')
+        },
+        beforeMount(){
+            console.log('beforeMount')
+        },
+        mounted(){
+            console.log('mounted')
+        },
+        updated(){
+            console.log('updated')
+        },
+        beforeDestroy(){
+            console.log('beforeDestroy')
+        },
+        beforeUpdate(){
+            console.log('beforeUpdate')
+        },
+        destroyed(){
+            console.log('destroyed')
+        }
+    });
+</script>
+</body>
+</html>

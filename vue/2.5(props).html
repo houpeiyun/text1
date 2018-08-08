@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <weichuang :wmsg="msg"></weichuang>
+        <test :tmsg="msg2"></test>
+    </div>
+    <hr>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component("weichuang",{   //全局组件
+            template:'<div><h1>hello world!</h1> <h1>hello {{wmsg}}!</h1></div>' , //模板,只能有一个根元素，不能并列写，最外面要用一个大的div包起来
+            props:['wmsg']
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"fellow23",
+                msg2:"vue"
+            },
+            components:{
+                "test":{
+                    template:'<h1>aaaaaa{{tmsg}}!</h1>',
+                    props:['tmsg']
+                }
+            }
+        });
+    </script>
+</body>
+</html>

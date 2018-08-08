@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <weichuang></weichuang>
+        <test></test>
+    </div>
+    <hr>
+    <div id="app2">
+        <weichuang></weichuang>
+        <test></test>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component("weichuang",{   //全局组件
+            template:'<h1>hello world!</h1>'   //模板,只能有一个根元素，不能并列写，最外面要用一个大的div包起来
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"hello world"
+            },
+        components:{     //局部组件，只能在对应的绑定的dom中使用
+                "test":{
+                    template:'<h1>aaaaaa!</h1>'
+                }
+        }
+        });
+        new Vue({
+            el:"#app2",
+            data:{
+                msg:"hello world"
+            },
+        });
+    </script>
+</body>
+</html>

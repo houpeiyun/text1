@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <div v-test="'red'">hello word</div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+
+        //自定义指令
+        Vue.directive("test",function(el,bind,vnode){
+            console.log(el)    //绑定的对象
+            console.log(bind)   //指令集
+            console.log(vnode)   //vue虚拟dom
+            el.style.backgroundColor = bind.value;
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"hello world"
+            }
+        });
+    </script>
+</body>
+</html>

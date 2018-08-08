@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <!--<com1 :co1="msg" @click.native="add"></com1>-->
+        <com1 :co1="msg" @adds="add"></com1>
+        {{num}}
+        <!--<com2></com2>-->
+    </div>
+    <template id="com1">
+        <div>
+            <button @click="$emit('adds')">add</button>     <!--$emit发射到父级-->
+            <h1>com1  {{co1}}</h1>
+            <com2 :co2="co1"></com2>
+        </div>
+    </template>
+    <template id="com2">
+        <h1>com2    {{co2}}</h1>
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component("com1",{   //全局组件
+            template:'#com1' ,
+            props:['co1']
+        })
+        Vue.component("com2",{   //全局组件
+            template:'#com2' ,
+            props:['co2']
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                num:0,
+                msg:"fellow23",
+                msg2:"vue"
+            },
+            methods:{
+                add(){
+                    this.num++;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
