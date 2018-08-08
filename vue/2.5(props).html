@@ -6,21 +6,28 @@
 </head>
 <body>
     <div id="app">
-        <weichuang :wmsg="msg"></weichuang>
+        <weichuang :wmsg="msg" :wnum="num"></weichuang>
         <test :tmsg="msg2"></test>
     </div>
     <hr>
+    <template id="com1">
+        <div>
+            <h1>hello world{{wnum}}!</h1>
+            <h1>hello {{wmsg}}!</h1>
+        </div>
+    </template>
     <script src="vue.js"></script>
     <script>
         Vue.component("weichuang",{   //全局组件
-            template:'<div><h1>hello world!</h1> <h1>hello {{wmsg}}!</h1></div>' , //模板,只能有一个根元素，不能并列写，最外面要用一个大的div包起来
-            props:['wmsg']
+            template:'#com1' , //模板,只能有一个根元素，不能并列写，最外面要用一个大的div包起来
+            props:['wmsg', 'wnum']
         })
         new Vue({
             el:"#app",
             data:{
                 msg:"fellow23",
-                msg2:"vue"
+                msg2:"vue",
+                num:"cc"
             },
             components:{
                 "test":{

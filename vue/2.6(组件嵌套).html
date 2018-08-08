@@ -7,19 +7,19 @@
 <body>
     <div id="app">
         <!--<com1 :co1="msg" @click.native="add"></com1>-->
-        <com1 :co1="msg" @adds="add"></com1>
+        <com1 :co1="msg" @adds="add"></com1>     <!--接受自己发送来的名字adds，给他绑定方法-->
         {{num}}
         <!--<com2></com2>-->
     </div>
     <template id="com1">
         <div>
-            <button @click="$emit('adds')">add</button>     <!--$emit发射到父级-->
+            <button @click="$emit('adds')">add</button>     <!--$emit发射到父级,adds是自己取得名字-->
             <h1>com1  {{co1}}</h1>
             <com2 :co2="co1"></com2>
         </div>
     </template>
     <template id="com2">
-        <h1>com2    {{co2}}</h1>
+        <h1>com2 {{co2}}</h1>
     </template>
     <script src="vue.js"></script>
     <script>

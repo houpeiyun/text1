@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <weichuang>
+            <span>default</span>
+            <h1>hello</h1>
+            <div>abc</div>
+            <!--<span slot="usename">lisi</span>-->
+            <!--<span slot="age">23</span>-->
+        </weichuang>
+    </div>
+    <template id="temp">
+        <div>
+            <slot></slot>  <!--//默认插巢-->
+           <!-- <div>名称:
+                <slot name="usename"></slot>
+            </div>
+            <div>年龄:
+                <slot name="age">默认年龄</slot>
+            </div>-->
+        </div>
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component("weichuang",{
+            template:'#temp'
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"hello world"
+            },
+        });
+    </script>
+</body>
+</html>

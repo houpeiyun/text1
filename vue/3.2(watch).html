@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <div id="demo">{{first}}+{{last}}={{full}}</div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'#demo',
+            data: {
+               first:'foo',
+                last:'bar',
+                full:'foo bar'
+            },
+            watch: {   //一个变量影响多个值
+                first(val){
+                    this.full = val+''+this.last
+                },
+                /*last(val){
+                    this.full = this.first+''+val
+                }*/
+            }
+           /* computed:{   //多个变量影响一个值
+                full(){
+                    return this.first+this.last
+                }
+            }*/
+        })
+    </script>
+</body>
+</html>
