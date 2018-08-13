@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 500px;
+            height: 300px;
+            position: absolute;
+        }
+        #app{
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            /*bottom: 50%;*/
+            left: 50%;
+            /*right: 50%;*/
+            transform: translate(-50%,-50%);
+            overflow: hidden;
+        }
+        li{
+            list-style: none;
+        }
+        .img-three li,.img-two li{
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            margin: 3px;
+            background-color: olivedrab;
+            float: left;
+            border-radius: 70%;
+            opacity: 0.7;
+        }
+        .img-three li:hover {
+            background: -moz-linear-gradient(top, deeppink 0%, #ffffff 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,deeppink), color-stop(100%,#ffffff));
+            background: -webkit-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: -o-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: -ms-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: linear-gradient(to bottom, deeppink 0%,#ffffff 100%);
+            color: #f2f2f2;
+        }
+        .img-two li:hover{
+            background: -moz-linear-gradient(top, deeppink 0%, #ffffff 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,deeppink), color-stop(100%,#ffffff));
+            background: -webkit-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: -o-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: -ms-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: linear-gradient(to bottom, deeppink 0%,#ffffff 100%);
+            color: #f2f2f2;
+        }
+        .active{
+            background: -moz-linear-gradient(top, deeppink 0%, #ffffff 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,deeppink), color-stop(100%,#ffffff));
+            background: -webkit-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: -o-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: -ms-linear-gradient(top, deeppink 0%,#ffffff 100%);
+            background: linear-gradient(to bottom, deeppink 0%,#ffffff 100%);
+            color: #f2f2f2;
+        }
+        .img-two{
+            background-color: transparent;
+            position: fixed;
+            top: 260px;
+            left: 20px;
+        }
+        .img-three{
+            background-color: transparent;
+            position: fixed;
+            top: 260px;
+            right: 20px;
+        }
+        .list-enter-active, .list-leave-active {
+            transition: all 1s;
+        }
+        .list-enter{
+            transform: translateX(100%);
+        }
+        .list-enter-to,.list-leave{
+            transform: translateX(0px);
+        }
+        .list-leave-to{
+            transform: translateX(-100%);
+        }
+    </style>
+</head>
+<body>
+<div id="app" @mouseover="stop" @mouseout="dataGet">
+    <div class="img-one" >
+        <transition-group name="list" tag="ul">
+            <li v-for="(items,index) in msg" v-bind:key=index+"li"  v-show="index==num">
+               <!-- <com :tmsg="items"  v-show="index==num"></com>-->
+                <img :src=items>
+            </li>
+        </transition-group>
+       <!-- <ul class="content-ul" >
+            <transition-group name="list">
+                <li v-for="(items,index) in msg"  v-show="num == index" :key="index">
+                    <img :src="items" alt="">
+                </li>
+            </transition-group>
+        </ul>-->
+
+    </div>
+    <div class="img-two">
+        <ul>
+            <li @click="dianjib()">&lt</li>
+            <li @click="dianjia()">&gt</li>
+        </ul>
+    </div>
+    <div class="img-three">
+        <ul>
+            <li v-for="(items,index) in msga" :class="{'active':index==num}" @click="dianji(index)">{{items}}</li>
+        </ul>
+    </div>
+</div>
+<template id="tem">
+    <div><img :src=tmsg alt=""></div>
+</template>
+<script src="vue.js"></script>
+<script>
+    var cc= new Vue({
+        el:"#app",
+        data:{
+            msg:["../fuxi/ruangong/img/a1.jpg","../fuxi/ruangong/img/a2.jpg","../fuxi/ruangong/img/a3.jpg","../fuxi/ruangong/img/a4.jpg","../fuxi/ruangong/img/a5.jpg"],
+            //msga:"../fuxi/ruangong/img/a2.jpg",
+            //msgb:"../fuxi/ruangong/img/a3.jpg"
+            show:false,
+            msga:[1,2,3,4,5],
+            num:0,
+            timer:null
+        },
+        components:{
+            com:{
+                template:"#tem",
+                //props:["tmsg"]
+            }
+        },
+        created(){
+          this.dataGet();
+        },
+        methods:{
+            dataGet(){
+                this.timer= setInterval(function () {
+                    console.log(cc.num)
+                    cc.num++;
+                    if(cc.num==5){
+                        cc.num=0;
+                    }
+                },2000)
+            },
+            stop(){
+                clearInterval(this.timer)
+            },
+            dianji(key){
+                this.num=key;
+            },
+            dianjia(){
+                console.log(this.num)
+                if(this.num==4){
+                    this.num = -1;
+                    console.log("cc"+this.num)
+                }
+                this.num++;
+                console.log(this.num)
+            },
+            dianjib(){
+                if(this.num==0){
+                    this.num = 5;
+                }
+                this.num--;
+            }
+        }
+    })
+</script>
+</body>
+</html>

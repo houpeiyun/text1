@@ -1,7 +1,9 @@
 <template>
     <div class="header-1">
-        <h1>电影名称：{{$route.params.movieId}}</h1>
-        <div>{{dataList.title}}</div>
+        <!--<h1>电影名称：{{$route.params.movieId}}</h1>-->
+        <h2>{{dataList.title}}</h2>
+        <div>年份：{{dataList.year}}</div>
+        <img :src=dataList.images.large alt="">
     </div>
 </template>
 <script>
@@ -34,8 +36,18 @@
 
     }
 </script>
-<style>
+<style scoped>
     .header-1{
         margin-top: 1rem;
+    }
+    h2{
+        padding: .2rem .3rem;
+    }
+    img{
+        width: 3rem;
+        height: 4rem;
+        position: absolute;
+        right: .3rem;
+        top: 1.2rem;
     }
 </style>

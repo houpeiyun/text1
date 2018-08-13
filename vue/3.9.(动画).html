@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+   
+
+  </style>
+</head>
+<body>
+  <div id="app">
+      <div id="demo">
+          <button v-on:click="show = !show">
+            Toggle
+          </button>
+          <transition
+                  v-on:before-enter="beforeEnter"
+                  v-on:enter="enter"
+                  v-on:after-enter="afterEnter"
+                  v-on:enter-cancelled="enterCancelled"
+
+                  v-on:before-leave="beforeLeave"
+                  v-on:leave="leave"
+                  v-on:after-leave="afterLeave"
+                  v-on:leave-cancelled="leaveCancelled"
+          >
+              <!-- ... -->
+          </transition>
+        </div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        show:true
+      },
+        methods:{
+            beforeEnter: function (el) {
+                // ...
+            },
+            // 此回调函数是可选项的设置
+            // 与 CSS 结合时使用
+            enter: function (el, done) {
+                // ...
+                done()
+            },
+            afterEnter: function (el) {
+                // ...
+            },
+            enterCancelled: function (el) {
+                // ...
+            },
+
+            // --------
+            // 离开时
+            // --------
+
+            beforeLeave: function (el) {
+                // ...
+            },
+            // 此回调函数是可选项的设置
+            // 与 CSS 结合时使用
+            leave: function (el, done) {
+                // ...
+                done()
+            },
+            afterLeave: function (el) {
+                // ...
+            },
+            // leaveCancelled 只用于 v-show 中
+            leaveCancelled: function (el) {
+                // ...
+            }
+        }
+    })
+  </script>
+</body>
+</html>
