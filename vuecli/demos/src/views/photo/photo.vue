@@ -2,7 +2,7 @@
     <div class="container">
         <div>
             照片
-            <v-touch v-on:swipeleft="onSwipeLeft">Swipe me!</v-touch>
+            <v-touch v-on:swipeleft="onSwipeLeft" v-on:tap="onTap" v-on:swiperight="onSwipeRight">Swipe me!</v-touch>
         </div>
     </div>
 </template>
@@ -16,7 +16,13 @@
         },
         methods:{
             onSwipeLeft(){
-
+                console.log("left")
+            },
+            onTap(){
+                console.log("top")
+            },
+            onSwipeRight(){
+                console.log("right")
             }
         }
     }
