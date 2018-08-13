@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .fade-enter-active,.fade-leave-active{
+            transition: opacity 3s ease;
+        }
+        .fade-enter,.fade-leave-to{
+            opacity:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="demo">
+            <button v-on:click="show = !show">
+                toggle
+            </button>
+            <transition name="fade">
+                <!--<p v-if="show">hello</p>-->
+                <p v-show="show">hello</p>
+            </transition>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var cc= new Vue({
+            el:"#app",
+            data:{
+                show:false
+            },
+            components:{
+                com:{
+
+                }
+            },
+            created(){
+
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

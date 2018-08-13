@@ -1,18 +1,26 @@
 <template>
-    <div class="container">
-        <!--<h1>电影</h1>-->
-        <ul class="container-nav">
-            <li v-for="(items,index) in dataList" :key='index+"dl"'>
-                <img :src="items.images.large" alt="">
-                <div class="con-cc">
-                {{items.title}}
-                <div>导演: <span v-for="(item,index) in items.directors" :key='index+"cl"'>{{item.name}}&nbsp</span></div>
-                <div>主演: <span v-for="(itemss,index) in items.casts" :key='index+"ql"'>{{itemss.name}}&nbsp</span></div>
-                <div>类型: <span v-for="(itemss,index) in items.genres" :key='index+"dl"'>{{itemss}}&nbsp</span></div>
-                <div>评分: {{items.rating.average}}</div>
-                </div>
-            </li>
-        </ul>
+    <div>
+        <div class="container">
+            <!--<h1>电影</h1>-->
+            <ul class="container-nav">
+                <li v-for="(items,index) in dataList" :key='index+"dl"' @click="dianji(items.id)">
+                    <img :src="items.images.large" alt="">
+                    <div class="con-cc">
+                        <h5>{{items.title}}</h5>
+                        <div>导演: <span v-for="(item,index) in items.directors" :key='index+"cl"'>{{item.name}}/</span></div>
+                        <div>主演: <span v-for="(itemss,index) in items.casts" :key='index+"ql"'>{{itemss.name}}/</span></div>
+                        <div>类型: <span v-for="(itemss,index) in items.genres" :key='index+"dl"'>{{itemss}}/</span></div>
+                        <div>评分: {{items.rating.average}}</div>
+                        <!--<span><a href="#">详情</a></span>-->
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="loading" v-show="isshow">
+            <div class="image">
+                <img src="../../assets/img/loading.gif" alt="">
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -20,6 +28,9 @@
         data(){
           return{
               dataList:[],
+              isshow:false,
+              isEnd:false,
+              isfinsh:true
           }
         },
         created(){
@@ -28,43 +39,50 @@
         },
         methods:{
             getData(){
-                axios.get(API_PROXY+'https://api.douban.com/v2/movie/in_theaters')
+                axios.get(API_PROXY+'https://api.douban.com/v2/movie/in_theaters?start='+this.dataList.length+'&count=10')
                     .then((response) => {
-                        this.dataList = response.data.subjects;
-                        console.log(response.data)
-                        //console.log(this.dataLists.length)
+                        this.dataList = this.dataList.concat(response.data.subjects);
+                        //console.log(this.dataList);
+                        this.isshow = false;
+                        this.isfinsh = true;
+                        console.log("length:"+response.data.subjects.length)
+                        if(response.data.subjects.length == 0){
+                            this.isEnd = true;
+                        }
+                        //API_PROXY+'https://api.douban.com/v2/movie/in_theaters?start='+this.dataList.length+'&count=10'
+                        //'https://api.myjson.com/bins/nsb9g'
                     })
                     .catch((error) => {
                         console.log(error);
                     })
-                /*axios.get('http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.radio.getArtistChannelSong&format=json')
-                    .then((response) => {
-                        this.dataList = response.data
-                        console.log(response.data)
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                        //http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.radio.getArtistChannelSong&format=json
-                    })*/
             },
-            xiaLa(){
-                let scrollTop = document.documentElement.scrollTop;
-                let scrollHeigth = document.documentElement.scrollHeight;
-                let clientHeight = document.documentElement.clientHeight;
-                let cc = scrollTop+scrollHeigth-clientHeight
-                if(cc<=10){
-                    this.getData();
+            dianji(key){
+                this.$router.push("/moviedetail/"+key)
+            }
+        },
+        mounted() {
+            window.onscroll = () => {
+                let scrollTop = document.documentElement.scrollTop;   //滚动高度
+                let scrollHeigth = document.documentElement.scrollHeight;   //可滚动高度
+                let clientHeight = document.documentElement.clientHeight;    //可视高度
+                let cc = scrollTop - scrollHeigth + clientHeight;
+                //console.log(cc);
+                //console.log(this.isLoading)
+                if (cc == 0) {
+                    if(this.isfinsh) {
+                        if (!this.isEnd) {
+                            this.isshow = true;
+                            this.isfinsh = false;
+                            this.getData();
+                        }
+                    }
                 }
             }
         }
     }
 </script>
 <style scoped>
-    img{
-        width: 2rem;
-        height: 3.3rem;
-    }
-    .con-cc{
+   /* .con-cc{
         width: 5rem;
         position: relative;
         left: 2.3rem;
@@ -74,5 +92,48 @@
     }
     .container-nav li{
         margin: 0.2rem 0.3rem -2.5rem 0.3rem;
-    }
+    }*/
+   h5{
+       font-weight: bolder;
+       font-size: 0.35rem;
+   }
+   .container {
+       padding: 1rem 0.2rem;
+   }
+   .container li {
+       border-bottom: 1px solid #333;
+       padding: 0.3rem 0.2rem;
+       display: flex;
+   }
+   .container li:last-child {
+       border-bottom: none;
+   }
+   .container li img {
+       flex-grow: 1;
+       width: 0;
+       height: 2.8rem;
+   }
+   .container li .con-cc {
+       flex-grow: 2;
+       width: 0;
+       margin-left: 0.3rem;
+   }
+   .loading {
+       position: fixed;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       background: rgba(0, 0, 0, 0.2);
+   }
+   .loading .image {
+       position: absolute;
+       padding: .6rem;
+       text-align: center;
+       background: rgba(255, 255, 255, 0.8);
+       border-radius: 0.2rem;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+   }
 </style>

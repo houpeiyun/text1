@@ -32,7 +32,7 @@
                     this.isifs=true;
                     console.log(this.dataLists[0].lrc);
                     this.dataLists.forEach((val,index)=>{
-                        this.dataLists[index].lrc = "http://192.168.43.5:8080/"+this.dataLists[index].lrc
+                        this.dataLists[index].lrc = location.origin+"/"+this.dataLists[index].lrc
                     })
 
                 }).catch(()=>{
