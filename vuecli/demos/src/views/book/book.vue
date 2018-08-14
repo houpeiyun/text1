@@ -5,6 +5,8 @@
                 <swipe-item class="slide1"></swipe-item>
                 <swipe-item class="slide2"></swipe-item>
                 <swipe-item class="slide3"></swipe-item>
+                <swipe-item class="slide4"></swipe-item>
+                <swipe-item class="slide5"></swipe-item>
             </swipe>
         </div>
     </div>
@@ -52,6 +54,14 @@
     }
     .slide3 {
         background: url("../../assets/img/a3.jpg") no-repeat center/cover;
+        color: #fff;
+    }
+    .slide4 {
+        background: url("../../assets/img/4.jpg") no-repeat center/cover;
+        color: #000;
+    }
+    .slide5 {
+        background: url("../../assets/img/6.jpg") no-repeat center/cover;
         color: #fff;
     }
 </style>

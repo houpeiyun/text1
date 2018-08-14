@@ -2,8 +2,14 @@
     <div class="header-1">
         <!--<h1>电影名称：{{$route.params.movieId}}</h1>-->
         <h2>{{dataList.title}}</h2>
-        <div>年份：{{dataList.year}}</div>
-        <img :src=dataList.images.large alt="">
+        <div id="zhuyan" v-if="isif">
+            <div class="cc"><span v-for="items in dataList.genres">{{items}}</span></div>
+            <div>年份：{{dataList.year}}</div>
+            <div>主演：<span v-for="items in dataList.casts">{{items.name}}/</span></div>
+            <div>评分: {{dataList.rating.average}}</div>
+        </div>
+        <div class="aa">故事简介：{{dataList.summary}}</div>
+        <img :src=dataList.images.large alt="" v-if="isif">
     </div>
 </template>
 <script>
@@ -11,7 +17,8 @@
         data(){
             return{
                 dataList:[],
-                id:""
+                id:"",
+                isif:false
             }
         },
         created(){
@@ -25,7 +32,7 @@
                     .then((response) => {
                         this.dataList = response.data;
                         console.log(response)
-
+                        this.isif=true
                     })
                     .catch((error) => {
                         console.log(error);
@@ -44,10 +51,24 @@
         padding: .2rem .3rem;
     }
     img{
-        width: 3rem;
+        width: 2.5rem;
         height: 4rem;
         position: absolute;
         right: .3rem;
         top: 1.2rem;
+    }
+    #zhuyan{
+        width: 3.5rem;
+        margin-left: .2rem;
+    }
+    .cc span{
+        border: 1px solid #61b77a;
+        border-radius: 20%;
+        background-color: #61b77a;
+        color: white;
+        margin-right: .2rem;
+    }
+    .aa{
+        margin: .5rem .2rem 0.2rem .2rem;
     }
 </style>

@@ -23,7 +23,7 @@
         },
         methods:{
             getData(){
-                axios.get('./data/musicList.json').then((res)=>{
+                axios.get('./data/musiclist.json').then((res)=>{
                     this.dataList = res.data.albums;
                     //console.log(res)
                 }).catch(()=>{

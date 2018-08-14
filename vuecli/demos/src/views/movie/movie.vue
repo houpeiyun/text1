@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container">
+        <div class="container" v-if="isif">
             <!--<h1>电影</h1>-->
             <ul class="container-nav">
                 <li v-for="(items,index) in dataList" :key='index+"dl"' @click="dianji(items.id)">
@@ -13,9 +13,11 @@
                         <div>评分: {{items.rating.average}}</div>
                         <!--<span><a href="#">详情</a></span>-->
                     </div>
+                    <div class="foot"><a :href=items.alt>详情</a></div>
                 </li>
             </ul>
         </div>
+        <h1 v-if="isnot" class="acd">页面丢失!!!</h1>
         <div class="loading" v-show="isshow">
             <div class="image">
                 <img src="../../assets/img/loading.gif" alt="">
@@ -30,7 +32,9 @@
               dataList:[],
               isshow:false,
               isEnd:false,
-              isfinsh:true
+              isfinsh:true,
+              isif:true,
+              isnot:false
           }
         },
         created(){
@@ -42,6 +46,12 @@
                 axios.get(API_PROXY+'https://api.douban.com/v2/movie/in_theaters?start='+this.dataList.length+'&count=10')
                     .then((response) => {
                         this.dataList = this.dataList.concat(response.data.subjects);
+
+                        if(this.dataList){
+                            console.log(this.dataList)
+                            this.isif=false;
+                            this.isnot = true
+                        }
                         //console.log(this.dataList);
                         this.isshow = false;
                         this.isfinsh = true;
@@ -136,4 +146,11 @@
        left: 50%;
        transform: translate(-50%, -50%);
    }
+    .foot{
+        margin-top: 2.3rem;
+    }
+    .acd{
+        margin-top: 1rem;
+        text-align: center;
+    }
 </style>
