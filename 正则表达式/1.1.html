@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*let regs=/\w/;   //匹配字符
+        let reg=/c/;   //匹配字符c
+        let reg1 = new RegExp('c')
+        let str="cba"
+        console.log(str.includes("c"));
+        console.log(reg.test(str));   //匹配str中有没有c
+        console.log(reg.exec(str));*/
+
+        /*let regs = /test/;
+        let regss = /s{2,3}/;
+        let reg = /as{2}/;
+        let regsss = /s{1,}/
+        let str = 'assstestabc';
+        console.log(reg.exec(str));
+        console.log(regs.exec(str));
+        console.log(regss.exec(str));
+        console.log(regsss.exec(str));*/
+
+
+       /* let reg = /s{1,}?/;   //变为非贪心模式，返回一个s
+        let regs = /s*!/;   //第一个未匹配到则返回null  0次或多次
+        let regss = /s+/;   //只返回第一次成功的（所有的都是）1次或多次
+        let regsss = /s?/   //第一个未匹配到则返回null   0次或1次
+        let str = 'fssssesd';
+        console.log(reg.exec(str));
+        console.log(regs.exec(str));
+        console.log(regss.exec(str));
+        console.log(regsss.exec(str));*/
+
+
+        /*let reg = /^s/;   //匹配以s开头
+        let regs = /d$/;   //匹配以d结尾
+        let regss = /^sd$/;   //匹配字符串sd
+        let regsss = /./   //匹配除\n即换行外的所有字符，（只匹配一个）
+        let str = 'ssssesd';
+        console.log(reg.exec(str));
+        console.log(regs.exec(str));
+        console.log(regss.exec(str));
+        console.log(regsss.exec(str));*/
+
+
+        /*let reg = /.+/;   //匹配除/n即换行外的所有字符，（匹配全部,返回sss）
+        let regs = /^.+/;   //匹配除/n即换行外的所有字符，（匹配全部,返回sss）若\n在开头，则返回null
+        let regss = /s|e/;   //匹配b或者c
+        let regsss = /^s|e.+/   //以s开头或者除\n之外的e开始的所有字符
+        let regssss = /^[bc].+/   //以bc开头的所有字符
+        let str = 'css\nsesd';
+        console.log(reg.exec(str));
+        console.log(regs.exec(str));
+        console.log(regss.exec(str));
+        console.log(regsss.exec(str));
+        console.log(regssss.exec(str));*/
+
+
+
+       /* let reg = /^[a-z][A-Z0-9]+/;   //以小写字母开头，后面为大写A-Z或者0-9
+        let regs = /^[a-z]b.+/;   //以小写字母开头，第二位为b的所有非换行字符
+        let regss = /^[^a-z]/;   //不是以小写字母开头的
+        let regsss = /\bd/   //以d为边界   \b为边界，前边界\b写前面，后边界\b写后面 空格，换行也算边界
+        let regssss = /\bc/   //中文会跳过
+        let str = 'aBCD15334';
+        let strs = '维生素c'
+        console.log(reg.exec(str));
+        console.log(regs.exec(str));
+        console.log(regss.exec(str));
+        console.log(regsss.exec(str));
+        console.log(regssss.exec(strs));
+*/
+
+
+        /*let reg = /\Bc/;   //匹配非边界的c
+        let regs = /\d/;   //匹配数字
+        let regss = /\D/;   //匹配非数值
+        let regsss = /\s/   //匹配单个空格
+        let regssss = /\S/   //匹配非空格
+        let str = 'abc1 dss';
+        let strs = '维生素c'
+        console.log(reg.exec(str));
+        console.log(regs.exec(str));
+        console.log(regss.exec(str));
+        console.log(regsss.exec(str));
+        console.log(regssss.exec(str));*/
+
+
+        /*let reg = /\n/;   //匹配换行
+        let regs = /\f/;   //匹配分页
+        let regss = /\w/;   //匹配单词字符,字母数字下划线，同[a-zA-Z0-9]
+        let regsss = /\w+/   //返回abc1
+        let regssss = /\w\w/   //返回ab
+        let str = 'abc1 \nds\fs';
+        let strs = '维生素c'
+        console.log(reg.exec(str));
+        console.log(regs.exec(str));
+        console.log(regss.exec(str));
+        console.log(regsss.exec(str));
+        console.log(regssss.exec(str));*/
+
+
+
+        /*let reg = /(\w)(\w)b/;   //返回"abb",保存"a","b"
+        let regs = /(\w)(\w)\2/;   //返回"abb",保存"a","b"
+        let regss = /(\w)(\w)\1\2/;   //匹配""abab
+        let regsss = /^(b|c).+/   //以b或c开头的字符,保存"b"
+        let regssss = /^(?:b|c).+/   //返回全部，不保存"b"
+        let str = 'abb1 \nds\fs';
+        let strs = 'bbs.buleidea.com'
+        console.log(reg.exec(str));
+        console.log(regs.exec(str));
+        console.log(regss.exec(str));
+        console.log(regsss.exec(strs));
+        console.log(regssss.exec(strs));*/
+
+
+
+        /*let reg = /cainiao(?=8)/;   //cainiao后面紧跟8,但是不返回8
+        let regs = /cainiao(?!8)/;   //cainiao后面不能紧跟8，返回cainiao
+        let regss = /\*!/;   //匹配*
+        let regsss = /\+/   //匹配+
+        let regssss = /\?/   //匹配?
+        let str = 'cainiao9';
+        let strs = 'abc*d'
+        console.log(reg.exec(str));
+        console.log(regs.exec(str));
+        console.log(regss.exec(strs));
+        console.log(regsss.exec(strs));
+        console.log(regssss.exec(strs));*/
+
+
+
+
+        /*let reg = /b/i;   //大小写
+        let regs = /^C/m;   //换行后，后面当成单独的一行
+        let regss = /C/g;   //将所有C替换成replace中要替换的数,g相当于检索到所有C
+        let regsss = /(\w+).(\w+).(\w+)/   //匹配+
+        let regssss = /\?/   //匹配到strss
+        let str = 'AB\nCD';
+        let strs = 'ABCDC';
+        let strss = 'bbs.buleidea.com';
+        console.log(reg.exec(str));
+        console.log(regs.exec(str));
+        console.log(regss.exec(strs));
+        console.log(strs.replace('B',9));
+        console.log(strs.replace(regss,9));
+        console.log(strs.match(regss))
+        console.log(regsss.exec(strss));
+        var newStr = strss.replace(regsss,'$1-$2-$3');
+        console.log(newStr)
+        console.log(regssss.exec(strs));*/
+
+        /*let regsss = /(?<fir>\w+).(?<cai>\w+).(?<niao>\w+)/
+        let strss = 'bbs.buleidea.com';
+        console.log(regsss.exec(strss));*/
+
+        /*let reg = /\W/;
+        let strss = 'bbs.buleidea com';
+        var arr = strss.split(reg);
+        console.log(arr)*/
+
+
+
+        //30CAC0049 取0049
+        //3SFASDF92 取92
+
+
+        /*let reg = /\d{2}$/
+        let str = '30CAC0049'
+        console.log(reg.exec(str));*/
+
+
+        //蓝     色  理 想
+        //蓝 色 理 想
+
+        /*let reg = /\s+/g
+        let str = '蓝     色  理 想';
+        console.log(str.replace(reg,' '))*/
+    </script>
+</body>
+</html>
