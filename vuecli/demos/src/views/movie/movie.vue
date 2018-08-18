@@ -46,8 +46,7 @@
                 axios.get(API_PROXY+'https://api.douban.com/v2/movie/in_theaters?start='+this.dataList.length+'&count=10')
                     .then((response) => {
                         this.dataList = this.dataList.concat(response.data.subjects);
-
-                        if(this.dataList){
+                        if(!this.dataList){
                             console.log(this.dataList)
                             this.isif=false;
                             this.isnot = true

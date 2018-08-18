@@ -1,8 +1,8 @@
 <template>
-    <div class="header-1">
+    <div class="header-1" v-if="isif">
         <!--<h1>电影名称：{{$route.params.movieId}}</h1>-->
         <h2>{{dataList.title}}</h2>
-        <div id="zhuyan" v-if="isif">
+        <div id="zhuyan" >
             <div class="cc"><span v-for="items in dataList.genres">{{items}}</span></div>
             <div>年份：{{dataList.year}}</div>
             <div>主演：<span v-for="items in dataList.casts">{{items.name}}/</span></div>
@@ -49,6 +49,7 @@
     }
     h2{
         padding: .2rem .3rem;
+        width: 3.5rem;
     }
     img{
         width: 2.5rem;

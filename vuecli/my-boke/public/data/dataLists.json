@@ -1,6 +1,5 @@
 {
-  "datalist":{
-    "message": [{
+  "datalist": [{
       "year": "2018年",
       "titles": ["公司大事件"],
       "src": "aa"
@@ -69,7 +68,5 @@
         "year": "2004年",
         "titles": ["公司大事件"],
         "src": ""
-      }],
-    "title":""
-  }
+      }]
 }
