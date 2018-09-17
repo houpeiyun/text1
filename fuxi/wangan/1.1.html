@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            text-align: center;
+            height: 100px;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    请输入密钥：<input type="text" id="kk"> <br>
+    请输入密文：<input type="text" id="pp"> <br>
+    <input type="button" id="dd" value="提交">
+</div>
+<script src="../../jQuery/jquery.js"></script>
+<script>
+    $("#dd").on("click",function () {
+        var key = $("#kk").val();
+        var pc = $("#pp").val();
+        let reg=/[^a-z ]/g;
+        if(reg.exec(key) || reg.exec(pc)){
+            alert("请重新输入密钥和密文");
+            $("#kk").val(null);
+            $("#pp").val(null);
+        }
+        let regs = /\s+/g
+        key=key.replace(regs,'');
+        pc=pc.replace(regs,'');
+        var keys=[];
+        for(var i = 0;i<key.length;i++){
+            keys[i] = key[i].charCodeAt()-96;
+        }
+        var pcs=[];
+        for(var i = 0;i<pc.length;i++){
+            pcs[i] = pc[i].charCodeAt()-96;
+        }
+        var keyss=keys;
+        while(keyss.length<pcs.length){
+            var keyss=[...keyss,...keys];
+        }
+        var pcss=[];
+        for(var i = 0;i<pcs.length;i++){
+            pcss[i] = (pcs[i]-keyss[i]+27)%26;
+        }
+        console.log(pcss);
+        for(var i = 0;i<pcs.length;i++){
+            pcss[i] = pcss[i]+96;
+            pcss[i]=String.fromCharCode(pcss[i]);
+        }
+        console.log(pcss);
+//eelttiunsmlr
+    })
+</script>
+</body>
+</html>
