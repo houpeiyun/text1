@@ -23,38 +23,36 @@
     $("#dd").on("click",function () {
         var key = $("#kk").val();
         var pc = $("#pp").val();
-        let reg=/[^a-z ]/g;
+        var arr=[];
+        var arr1=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+        let reg=/[^a-z]/g;
         if(reg.exec(key) || reg.exec(pc)){
             alert("请重新输入密钥和明文");
             $("#kk").val(null);
             $("#pp").val(null);
         }
-        let regs = /\s+/g
-        key=key.replace(regs,'');
-        pc=pc.replace(regs,'');
-        var keys=[];
-        for(var i = 0;i<key.length;i++){
-            keys[i] = key[i].charCodeAt()-96;
+        for(var i=0;i<key.length;i++){
+            arr[i] = key[i];
+        }
+        var arr2=[...arr,...arr1];
+        for(var i=0;i<arr2.length;i++){
+            for(var j=i+1;j<arr2.length;j++){
+                if(arr2[i]===arr2[j]){
+                    arr2.splice(j,1);
+                    j--;
+                }
+            }
         }
         var pcs=[];
         for(var i = 0;i<pc.length;i++){
             pcs[i] = pc[i].charCodeAt()-96;
         }
-        var keyss=keys;
-        while(keyss.length<pcs.length){
-            var keyss=[...keyss,...keys];
-        }
         var pcss=[];
-        for(var i = 0;i<pcs.length;i++){
-            pcss[i] = (pcs[i]+keyss[i]-1)%26;
+        for(var i = 0;i<pc.length;i++){
+            pcss[i] = arr2[pcs[i]-1];
         }
-        //console.log(pcss);
-        for(var i = 0;i<pcs.length;i++){
-            pcss[i] = pcss[i]+96;
-            pcss[i]=String.fromCharCode(pcss[i]);
-        }
-        console.log(pcss);
-//eelttiunsmlr
+        //console.log(arr2)
+        console.log(pcss)
     })
 </script>
 </body>

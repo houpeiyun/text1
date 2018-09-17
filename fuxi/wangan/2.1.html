@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            text-align: center;
+            height: 100px;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    请输入密钥：<input type="text" id="kk"> <br>
+    请输入密文：<input type="text" id="pp"> <br>
+    <input type="button" id="dd" value="提交">
+</div>
+<script src="../../jQuery/jquery.js"></script>
+<script>
+    $("#dd").on("click",function () {
+        var key = $("#kk").val();
+        var pc = $("#pp").val();
+        var arr=[];
+        var arr1=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+        let reg=/[^a-z]/g;
+        if(reg.exec(key) || reg.exec(pc)){
+            alert("请重新输入密钥和密文");
+            $("#kk").val(null);
+            $("#pp").val(null);
+        }
+        for(var i=0;i<key.length;i++){
+            arr[i] = key[i];
+        }
+        var arr2=[...arr,...arr1];
+        for(var i=0;i<arr2.length;i++){
+            for(var j=i+1;j<arr2.length;j++){
+                if(arr2[i]===arr2[j]){
+                    arr2.splice(j,1);
+                    j--;
+                }
+            }
+        }
+        /*var pcs=[];
+        for(var i = 0;i<pc.length;i++){
+            pcs[i] = pc[i].charCodeAt()-96;
+        }*/
+        var pcss=[];
+        for(var i = 0;i<pc.length;i++){
+            for(var j=0;j<arr2.length;j++){
+                if(pc[i]==arr2[j]){
+                    pcss=[...pcss,...[arr1[j]]]
+                }
+            }
+        }
+        console.log(arr2)
+        console.log(pcss)
+    })
+</script>
+</body>
+</html>
