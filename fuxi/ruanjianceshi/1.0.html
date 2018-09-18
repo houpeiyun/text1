@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="kk">
+        <input type="button" id="dd" value="提交"> <br>
+        <span id="ss"></span>
+    </div>
+    <script src="../../jQuery/jquery.js"></script>
+    <script>
+        $("#dd").on("click",function () {
+            var key = $("#kk").val();
+            var data=[31,28,31,30,31,30,31,31,30,31,30,31];
+            var datas=[31,29,31,30,31,30,31,31,30,31,30,31];
+            var sign=0;
+            let reg=/[^0-9-]/g;
+            if(reg.exec(key)){
+                alert("请重新输入日期");
+                $("#kk").val(null);
+            }
+            var keys=key.split("-");
+            if(keys.length!=3){
+                alert("请重新输入日期");
+                $("#kk").val(null);
+            }
+            var keyss=[];
+            if((1000<=keys[0])&&(keys[0]<=2018)){
+                if((1<=keys[1])&&(keys[1]<=12)){
+                    if((keys[0]%400==0)||(keys[0]%4==0&&keys[0]%100!=0)){
+                        sign=1;
+                        if((keys[2]<=datas[keys[1]-1])&&(keys[2]>0)){
+                            keyss=keys;
+                        }
+                        else {
+                            alert("请重新输入日期");
+                            $("#kk").val(null);
+                        }
+                    }else{
+                        sign=2;
+                        if((keys[2]<=data[keys[1]-1])&&(keys[2]>0)){
+                            keyss=keys;
+                        }
+                        else {
+                            alert("请重新输入日期");
+                            $("#kk").val(null);
+                        }
+                    }
+                }else{
+                    alert("请重新输入日期");
+                    $("#kk").val(null);
+                }
+            }else{
+                alert("请重新输入日期");
+                $("#kk").val(null);
+            }
+            if(sign==1){
+                if(keyss[2]==1){
+                    if(keyss[1]==1){
+                        keyss[0]=keyss[0]-1;
+                        keyss[1]=12;
+                        keyss[2]=31;
+                    }else{
+                        keyss[1]=keyss[1]-1;
+                        keyss[2]=datas[keyss[1]-1];
+                    }
+                }
+                else{
+                    keyss[2]=keyss[2]-1;
+                }
+            }else if(sign==2){
+                if(keyss[2]==1){
+                    if(keyss[1]==1){
+                        keyss[0]=keyss[0]-1;
+                        keyss[1]=12;
+                        keyss[2]=31;
+                    }else{
+                        keyss[1]=keyss[1]-1;
+                        keyss[2]=data[keyss[1]-1];
+                    }
+                }
+                else{
+                    keyss[2]=keyss[2]-1;
+                }
+            }
+            var cc=keyss[0]+"-"+keyss[1]+"-"+keyss[2];
+
+            let regss = /(\d+)-(\d+)-(\d+)/
+            var newStr = cc.replace(regss,'$1年$2月$3日');
+            if(keyss==[]){
+                $("#ss").text(newStr)
+            }
+
+            //console.log(newStr)
+        })
+    </script>
+</body>
+</html>

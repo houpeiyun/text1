@@ -8,6 +8,7 @@
             text-align: center;
             height: 100px;
             line-height: 100px;
+            margin-left: -800px;
         }
     </style>
 </head>
@@ -47,7 +48,7 @@
         for(var i = 0;i<pcs.length;i++){
             pcss[i] = (pcs[i]-keyss[i]+27)%26;
         }
-        console.log(pcss);
+        //console.log(pcss);
         for(var i = 0;i<pcs.length;i++){
             pcss[i] = pcss[i]+96;
             pcss[i]=String.fromCharCode(pcss[i]);
