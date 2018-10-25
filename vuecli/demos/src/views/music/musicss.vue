@@ -25,9 +25,9 @@
         },
         methods:{
             getData(){
-                axios.get('./data/musicdata.json').then((res)=>{
-                    this.dataLists = res.data.musicData;
-                    console.log(res.data.musicData);
+                axios.get('http://localhost/demo2/Music/add').then((res)=>{
+                    this.dataLists = res.data;
+                    console.log(res.data);
                     this.isif=true;
                     this.isifs=true;
                     console.log(this.dataLists[0].lrc);

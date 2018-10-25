@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <input type="text" id="kk" placeholder="请输入电话号码">
+    <input type="button" id="dd" value="提交"> <br>
+    <span id="ss"></span>
+</div>
+<script src="../../jQuery/jquery.js"></script>
+<script>
+    $("#dd").on("click",function () {
+        var key = $("#kk").val();
+        function shuchu() {
+            //alert("请重新输入电话号码");
+            $("#kk").val(null);
+        }
+        let reg=/[^0-9-]/g;
+        if(reg.exec(key)){
+            alert("不是由数字和-构成");
+            shuchu();
+        }
+        var keys=key.split("-");
+        if(keys.length==3){
+             if(keys[0].length==3){
+                 if((199<keys[1])&&(keys[1]<1000)){
+                     if(keys[2].length==4){
+                        alert("电话号码合法");
+                     }else{
+                         alert("后缀码非法");
+                         shuchu();
+                     }
+                 }else{
+                     alert("前缀码非法");
+                     shuchu();
+                 }
+             }else{
+                 alert("地区码非法");
+                 shuchu();
+             }
+        }else if(keys.length==2){
+            if((199<keys[0])&&(keys[0]<1000)){
+                if(keys[1].length==4){
+                    alert("电话号码合法");
+                }else{
+                    alert("后缀码非法");
+                    shuchu();
+                }
+            }else{
+                alert("前缀码非法");
+                shuchu();
+            }
+        }else{
+            alert("电话号码不是由三部分构成");
+            shuchu();
+        }
+    })
+</script>
+</body>
+</html>

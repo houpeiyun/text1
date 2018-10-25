@@ -1,15 +1,16 @@
 <template>
     <div class="header-1" v-if="isif">
         <!--<h1>电影名称：{{$route.params.movieId}}</h1>-->
-        <h2>{{dataList.title}}</h2>
+        <h2>{{dataList.uname}}</h2>
         <div id="zhuyan" >
-            <div class="cc"><span v-for="items in dataList.genres">{{items}}</span></div>
-            <div>年份：{{dataList.year}}</div>
-            <div>主演：<span v-for="items in dataList.casts">{{items.name}}/</span></div>
-            <div>评分: {{dataList.rating.average}}</div>
+            <div class="cc"><span>{{dataList.c_name}}</span></div>
+            <div>年份：{{dataList.u_year}}</div>
+            <div>主演：<span>{{dataList.u_act}}/</span></div>
+            <div>评分: {{dataList.u_grade}}</div>
+            <button class="xuanzuo" @click="dianji(dataList.uid,dataList.c_id)">购票选座</button>
         </div>
-        <div class="aa">故事简介：{{dataList.summary}}</div>
-        <img :src=dataList.images.large alt="" v-if="isif">
+        <div class="aa">故事简介：{{dataList.u_store}}</div>
+        <img :src=dataList.u_image alt="" v-if="isif">
     </div>
 </template>
 <script>
@@ -28,16 +29,22 @@
         },
         methods:{
             getData(){
-                axios.get(API_PROXY+'https://api.douban.com/v2/movie/subject/'+this.id)
+                //axios.get(API_PROXY+'https://api.douban.com/v2/movie/subject/'+this.id)
+                axios.get('http://localhost/demo2/Music/movie')
                     .then((response) => {
-                        this.dataList = response.data;
-                        console.log(response)
+                        this.dataList = response.data[this.id-1];
+                        console.log(response.data)
+                        console.log(this.id)
                         this.isif=true
                     })
                     .catch((error) => {
                         console.log(error);
                     })
             },
+            dianji(key,keys){
+                console.log(keys)
+                this.$router.push("/moviedel/"+key+"/"+keys)
+            }
         },
 
 
@@ -61,6 +68,13 @@
     #zhuyan{
         width: 3.5rem;
         margin-left: .2rem;
+    }
+    #zhuyan .xuanzuo{
+        background-color: cornflowerblue;
+        color: white;
+        border: 1px solid cornflowerblue;
+        float: left;
+        margin-left: 1.6rem;
     }
     .cc span{
         border: 1px solid #61b77a;

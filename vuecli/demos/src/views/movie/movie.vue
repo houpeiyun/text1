@@ -2,18 +2,23 @@
     <div>
         <div class="container" v-if="isif">
             <!--<h1>电影</h1>-->
+            <div class="header">
+                <div class="text">电影类型: <input type="text" v-model="val"><button @click="sousuo">搜索</button></div>
+                <div class="text">电影院: <input type="text" v-model="vals"><button @click="sousuos">搜索</button></div>
+                <div class="text">电影名: <input type="text" v-model="valss"><button @click="sousuoss">搜索</button></div>
+            </div>
             <ul class="container-nav">
-                <li v-for="(items,index) in dataList" :key='index+"dl"' @click="dianji(items.id)">
-                    <img :src="items.images.large" alt="">
+                <li v-for="(items,index) in dataList" :key='index+"dl"' @click="dianji(items.uid)">
+                    <img :src="items.u_image" alt="">
                     <div class="con-cc">
-                        <h5>{{items.title}}</h5>
-                        <div>导演: <span v-for="(item,index) in items.directors" :key='index+"cl"'>{{item.name}}/</span></div>
-                        <div>主演: <span v-for="(itemss,index) in items.casts" :key='index+"ql"'>{{itemss.name}}/</span></div>
-                        <div>类型: <span v-for="(itemss,index) in items.genres" :key='index+"dl"'>{{itemss}}/</span></div>
-                        <div>评分: {{items.rating.average}}</div>
+                        <h5>{{items.uname}}</h5>
+                        <div>导演: <span>{{items.u_direct}}/</span></div>
+                        <div>主演: <span>{{items.u_act}}/</span></div>
+                        <div>类型: <span>{{items.u_type}}/</span></div>
+                        <div>评分: {{items.u_grade}}</div>
                         <!--<span><a href="#">详情</a></span>-->
                     </div>
-                    <div class="foot"><a :href=items.alt>详情</a></div>
+                    <!--<div class="foot"><a :href=items.alt>详情</a></div>-->
                 </li>
             </ul>
         </div>
@@ -34,7 +39,10 @@
               isEnd:false,
               isfinsh:true,
               isif:true,
-              isnot:false
+              isnot:false,
+              val:"",
+              vals:"",
+              valss:"",
           }
         },
         created(){
@@ -43,9 +51,12 @@
         },
         methods:{
             getData(){
-                axios.get(API_PROXY+'https://api.douban.com/v2/movie/in_theaters?start='+this.dataList.length+'&count=10')
+                //axios.get('http://localhost/demo2/Music/movie'+this.dataList.length+'&count=10')
+                axios.get('http://localhost/demo2/Music/movie')
                     .then((response) => {
-                        this.dataList = this.dataList.concat(response.data.subjects);
+                        //this.dataList = this.dataList.concat(response.data.subjects);
+                        this.dataList = response.data;
+                        console.log(this.dataList)
                         if(!this.dataList){
                             console.log(this.dataList)
                             this.isif=false;
@@ -54,10 +65,10 @@
                         //console.log(this.dataList);
                         this.isshow = false;
                         this.isfinsh = true;
-                        console.log("length:"+response.data.subjects.length)
+                        /*console.log("length:"+response.data.subjects.length)
                         if(response.data.subjects.length == 0){
                             this.isEnd = true;
-                        }
+                        }*/
                         //API_PROXY+'https://api.douban.com/v2/movie/in_theaters?start='+this.dataList.length+'&count=10'
                         //'https://api.myjson.com/bins/nsb9g'
                     })
@@ -67,10 +78,29 @@
             },
             dianji(key){
                 this.$router.push("/moviedetail/"+key)
+            },
+            sousuo(){
+                console.log(this.val.toUpperCase())
+                axios.get('http://localhost/demo2/Music/select',{
+                    params: {
+                        lastName: this.val.toUpperCase()
+                    }
+                }).then(function (response) {
+                        console.log((response.data));
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            sousuos(){
+                console.log(this.vals.toUpperCase())
+            },
+            sousuoss(){
+                console.log(this.valss.toUpperCase())
             }
         },
         mounted() {
-            window.onscroll = () => {
+            /*window.onscroll = () => {
                 let scrollTop = document.documentElement.scrollTop;   //滚动高度
                 let scrollHeigth = document.documentElement.scrollHeight;   //可滚动高度
                 let clientHeight = document.documentElement.clientHeight;    //可视高度
@@ -86,7 +116,7 @@
                         }
                     }
                 }
-            }
+            }*/
         }
     }
 </script>
@@ -102,12 +132,32 @@
     .container-nav li{
         margin: 0.2rem 0.3rem -2.5rem 0.3rem;
     }*/
+   .header button{
+       height: .4rem;
+       margin-left: .3rem;
+       position: relative;
+       top:.03rem;
+       text-align: center;
+       background-color: #1da3ec;
+       color: white;
+       border: 0.01rem solid #1da3ec;
+   }
    h5{
        font-weight: bolder;
        font-size: 0.35rem;
    }
    .container {
        padding: 1rem 0.2rem;
+   }
+   .header{
+       padding-top: 0.2rem;
+   }
+   .header .text{
+       float: left;
+       color: #fed5d5;
+   }
+   .container-nav{
+       margin-top: 1.6rem;
    }
    .container li {
        border-bottom: 1px solid #333;
