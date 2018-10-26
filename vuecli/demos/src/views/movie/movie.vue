@@ -49,17 +49,17 @@
             this.$emit('routerChange','movie');
             this.getData();
         },
-        methods:{
-            getData(){
+        methods: {
+            getData() {
                 //axios.get('http://localhost/demo2/Music/movie'+this.dataList.length+'&count=10')
                 axios.get('http://localhost/demo2/Music/movie')
                     .then((response) => {
                         //this.dataList = this.dataList.concat(response.data.subjects);
                         this.dataList = response.data;
                         console.log(this.dataList)
-                        if(!this.dataList){
+                        if (!this.dataList) {
                             console.log(this.dataList)
-                            this.isif=false;
+                            this.isif = false;
                             this.isnot = true
                         }
                         //console.log(this.dataList);
@@ -76,29 +76,62 @@
                         console.log(error);
                     })
             },
-            dianji(key){
-                this.$router.push("/moviedetail/"+key)
+            dianji(key) {
+                this.$router.push("/moviedetail/" + key)
             },
-            sousuo(){
-                console.log(this.val.toUpperCase())
-                axios.get('http://localhost/demo2/Music/select',{
+            sousuo() {
+                var that = this;
+                //console.log(this.val.toUpperCase())
+                axios.get('http://localhost/demo2/Music/select', {
                     params: {
                         lastName: this.val.toUpperCase()
                     }
                 }).then(function (response) {
-                        console.log((response.data));
-                    })
+                    /*this.dataList = response.data;
+                        console.log(this.dataList);*/
+                    that.dataList = response.data;
+                    console.log(that.dataList)
+                })
                     .catch(function (error) {
                         console.log(error);
                     });
             },
-            sousuos(){
+            sousuos() {
+                var that = this;
                 console.log(this.vals.toUpperCase())
+                axios.get('http://localhost/demo2/Music/selects', {
+                    params: {
+                        lastNames: this.vals.toUpperCase()
+                    }
+                }).then(function (response) {
+                    /*this.dataList = response.data;
+                    console.log(this.dataList);*/
+                    that.dataList = response.data;
+                    console.log(that.dataList)
+                })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             },
             sousuoss(){
+                var that = this;
                 console.log(this.valss.toUpperCase())
-            }
+                axios.get('http://localhost/demo2/Music/selectss',{
+                    params: {
+                        lastNamess: this.valss.toUpperCase()
+                    }
+                }).then(function (response) {
+                    /*this.dataList = response.data;
+                    console.log(this.dataList);*/
+                    that.dataList = response.data;
+                    console.log(that.dataList)
+                })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
         },
+
         mounted() {
             /*window.onscroll = () => {
                 let scrollTop = document.documentElement.scrollTop;   //滚动高度
