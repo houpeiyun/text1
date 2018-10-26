@@ -165,9 +165,10 @@
             </div>
         </div>
         <div id="btn4"><ul id="tianjia" ></ul></div>
+        <div class="text">用户名: <input type="text" v-model="val"><button @click="sousuo">搜索</button></div>
         <div id="btn5">
             <div>合计: <span id="span1">￥0</span> <span id="span2">￥99*0</span></div>
-            <button id="butt">确认选座</button>
+            <button id="butt" @click="tijiao">提交订单</button>
         </div>
         <img :src=dataList.u_image alt="" v-if="isif" class="img">
     </div>
@@ -182,6 +183,8 @@
                 num:0,
                 ids:"",
                 isif:false,
+                zuos:[],
+                zong:""
             }
         },
         created(){
@@ -206,7 +209,7 @@
                 var cols = col+1;
                 var rows = row+1;
                 var cc = ""+cols+rows;
-                var zong = "btn4-4"+cols+rows;
+                this.zong = "btn4-4"+cols+rows;
                 console.log(cc);
                 var dom = document.getElementById(cc);
                 var tianjia = document.getElementById("tianjia");
@@ -221,28 +224,62 @@
                     }
                     if(dom.className.indexOf("active")>-1){
                         this.num++;
-                        var tianji = "<li class="+zong+">"+cols+"排"+rows+"座</li>";
+                        var tianji = "<li class="+this.zong+">"+cols+"排"+rows+"座</li>";
                         console.log(tianjia.innerHTML)
                         tianjia.innerHTML+=tianji;
-                        var shanchus = document.getElementsByClassName(zong)[0];
+                        var shanchus = document.getElementsByClassName(this.zong)[0];
                         shanchus.classList.add("shanchu")
-                        console.log(tianjia.innerHTML)
+                        console.log(tianjia.innerHTML);
+                        this.zuos[cols] = rows;
                     }
                     else {
                         this.num--;
-                        var shanchu = document.getElementsByClassName(zong)[0];
+                        this.zuos[cols]=null;
+                        var shanchu = document.getElementsByClassName(this.zong)[0];
                         shanchu.remove();
                     }
-                    /*$("#span1").text("￥"+99*ii);
-                    $("#span2").text("￥"+99+"*"+ii);*/
+                    console.log(this.zuos)
+                    var sp = document.getElementById("span1");
+                    var sps = document.getElementById("span2");
+                    console.log(sp.innerText)
+                    sp.innerText = "￥"+39*this.num;
+                    sps.innerText = "￥"+39+"*"+this.num;
                 }
-                /*if(!this.isActive[col][row]){
-                    this.isActive[col][row] = true;
-                    console.log(this.isActive[col][row]);
-                }else{
-                    this.isActive[col][row] = false;
-                }*/
             },
+            tijiao(){
+                var sp = document.getElementById("span1");
+                var sps = document.getElementById("span2");
+                var spss = document.getElementById("tianjia");
+                /*var zuoa = document.getElementsByClassName("zuowei")[0];
+                if(zuoa.className.indexOf("active")>-1){
+                    zuoa.classList.remove("active");
+                }*/
+                spss.innerHTML = "";
+                console.log(sp.innerText)
+                sp.innerText = "￥"+39*0;
+                sps.innerText = "￥"+39+"*"+0;
+                for(var i=0;i<this.zuos.length;i++){
+                    if(this.zuos[i]!=null){
+                        axios.get('http://localhost/demo2/Music/tijiao', {
+                            params: {
+                                aa:i,
+                                bb:this.zuos[i],
+                            }
+                        }).then(function (response) {
+                            /*this.dataList = response.data;
+                            console.log(this.dataList);*/
+                            that.dataList = response.data;
+                            console.log(that.dataList)
+                        })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                    }
+                }
+                if(this.num>0){
+                    this.$router.push("/moviesuccess")
+                }
+            }
         }
 
     }
@@ -282,14 +319,14 @@
         background: #333333;
         color: red;
         position: absolute;
-        left: 1.4rem;
+        left: 1.3rem;
         top: 0px;
     }
     #span2{
         background: #333333;
         font-size: 13px;
         position: absolute;
-        left: 2.8rem;
+        left: 3rem;
         top: 0.3rem;
     }
     #tianjia{
