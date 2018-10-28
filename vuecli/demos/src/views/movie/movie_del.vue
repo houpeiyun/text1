@@ -165,9 +165,10 @@
             </div>
         </div>
         <div id="btn4"><ul id="tianjia" ></ul></div>
-        <div class="text">用户名: <input type="text" v-model="val"><button @click="sousuo">搜索</button></div>
+        <div class="text">用户名: <input type="text" v-model="val"></div>
+        <div class="text">手机号: <input type="text" v-model="vals"></div>
         <div id="btn5">
-            <div>合计: <span id="span1">￥0</span> <span id="span2">￥99*0</span></div>
+            <div>合计: <span id="span1">￥0</span> <span id="span2">￥39*0</span></div>
             <button id="butt" @click="tijiao">提交订单</button>
         </div>
         <img :src=dataList.u_image alt="" v-if="isif" class="img">
@@ -183,8 +184,15 @@
                 num:0,
                 ids:"",
                 isif:false,
-                zuos:[],
-                zong:""
+                zuos:[[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null]],
+                zong:"",
+                val:"",
+                user:[],
+                isuser:false,
+                isusers:false,
+                isare:false,
+                vals:"",
+                jiancha:[]
             }
         },
         created(){
@@ -200,6 +208,23 @@
                         this.dataList = response.data[this.id - 1];
                         console.log(this.dataList)
                         this.isif = true
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
+                axios.get('http://localhost/demo2/Music/jiancha',{
+                    params: {
+                        id: this.id
+                    }
+                })
+                    .then((response) => {
+                        this.jiancha = response.data;
+                        console.log(this.jiancha);
+                        for(var e = 0;e<this.jiancha.length;e++){
+                            var ccs = ""+this.jiancha[e].m_num+this.jiancha[e].m_nums;
+                            var acd = document.getElementById(ccs);
+                            acd.classList.add("action");
+                        }
                     })
                     .catch((error) => {
                         console.log(error);
@@ -230,11 +255,11 @@
                         var shanchus = document.getElementsByClassName(this.zong)[0];
                         shanchus.classList.add("shanchu")
                         console.log(tianjia.innerHTML);
-                        this.zuos[cols] = rows;
+                        this.zuos[col][row] = "cc";
                     }
                     else {
                         this.num--;
-                        this.zuos[cols]=null;
+                        this.zuos[col][row]=null;
                         var shanchu = document.getElementsByClassName(this.zong)[0];
                         shanchu.remove();
                     }
@@ -246,38 +271,130 @@
                     sps.innerText = "￥"+39+"*"+this.num;
                 }
             },
-            tijiao(){
-                var sp = document.getElementById("span1");
-                var sps = document.getElementById("span2");
-                var spss = document.getElementById("tianjia");
-                /*var zuoa = document.getElementsByClassName("zuowei")[0];
-                if(zuoa.className.indexOf("active")>-1){
-                    zuoa.classList.remove("active");
-                }*/
-                spss.innerHTML = "";
-                console.log(sp.innerText)
-                sp.innerText = "￥"+39*0;
-                sps.innerText = "￥"+39+"*"+0;
-                for(var i=0;i<this.zuos.length;i++){
-                    if(this.zuos[i]!=null){
-                        axios.get('http://localhost/demo2/Music/tijiao', {
-                            params: {
-                                aa:i,
-                                bb:this.zuos[i],
-                            }
-                        }).then(function (response) {
-                            /*this.dataList = response.data;
-                            console.log(this.dataList);*/
-                            that.dataList = response.data;
-                            console.log(that.dataList)
-                        })
-                            .catch(function (error) {
-                                console.log(error);
-                            });
-                    }
-                }
+            tijiao() {
+                var that = this;
                 if(this.num>0){
-                    this.$router.push("/moviesuccess")
+                    var sp = document.getElementById("span1");
+                    var sps = document.getElementById("span2");
+                    var spss = document.getElementById("tianjia");
+                    axios.get('http://localhost/demo2/Music/chaxun', {
+                        params: {
+                            lastNamea: this.val.toUpperCase()
+                        }
+                    }).then(function (response) {
+                        that.user = response.data;
+                        console.log(that.user)
+                        if(that.user.length>0){
+                            that.isuser = true;
+                            axios.get('http://localhost/demo2/Music/chaxuns', {
+                                params: {
+                                    lastNamea: that.val.toUpperCase(),
+                                    lastNameb: that.vals.toUpperCase(),
+                                }
+                            }).then(function (response) {
+                                that.user = response.data;
+                                console.log(that.user)
+                                if(that.user.length>0){
+                                    that.isusers = true;
+                                    that.isare = true;
+                                    for(var j = 0;j<that.zuos.length;j++){
+                                        for(var i=0;i<that.zuos[j].length;i++){
+                                            if(that.zuos[j][i]!=null){
+                                                axios.get('http://localhost/demo2/Music/tijiao', {
+                                                    params: {
+                                                        aa:j+1,
+                                                        bb:i+1,
+                                                        cc:that.id,
+                                                        dd:that.user[0].aid
+                                                    }
+                                                }).then(function (response) {
+                                                    that.isare = true;
+                                                    console.log(response.data)
+                                                })
+                                                    .catch(function (error) {
+                                                        console.log(error);
+                                                    });
+                                            }
+                                        }
+                                    }
+                                    spss.innerHTML = "";
+                                    that.$router.push("/moviesuccess")
+                                }
+                                else{
+                                    that.isusers = false;
+                                    alert("手机号不正确")
+                                }
+                                console.log(that.isuser)
+                            })
+                                .catch(function (error) {
+                                    console.log(error);
+                                });
+                        }else{
+                            that.isuser = false;
+                            if(that.vals.toUpperCase().length!=11){
+                                alert("手机号不正确")
+                            }else{
+                                axios.get('http://localhost/demo2/Music/inser', {
+                                    params: {
+                                        lastNameas: that.val.toUpperCase(),
+                                        lastNamebs: that.vals.toUpperCase(),
+                                    }
+                                }).then(function (response) {
+                                    axios.get('http://localhost/demo2/Music/chaxuns', {
+                                        params: {
+                                            lastNamea: that.val.toUpperCase(),
+                                            lastNameb: that.vals.toUpperCase(),
+                                        }
+                                    }).then(function (response) {
+                                        that.user = response.data;
+                                        console.log(that.user[0].aid);
+                                        for(var j = 0;j<that.zuos.length;j++){
+                                            for(var i=0;i<that.zuos[j].length;i++){
+                                                if(that.zuos[j][i]!=null){
+                                                    axios.get('http://localhost/demo2/Music/tijiao', {
+                                                        params: {
+                                                            aa:j+1,
+                                                            bb:i+1,
+                                                            cc:that.id,
+                                                            dd:that.user[0].aid
+                                                        }
+                                                    }).then(function (response) {
+                                                        that.isare = true;
+                                                        console.log(response.data)
+                                                    })
+                                                        .catch(function (error) {
+                                                            console.log(error);
+                                                        });
+                                                }
+                                            }
+                                        }
+                                        spss.innerHTML = "";
+                                        that.$router.push("/moviesuccess")
+                                    })
+                                        .catch(function (error) {
+                                            console.log(error);
+                                        });
+                                })
+                                    .catch(function (error) {
+                                        console.log(error);
+                                    });
+
+                            }
+                        }
+                        console.log(that.isare)
+                    })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+
+                    console.log(sp.innerText)
+                    that.num = 0;
+                    sp.innerText = "￥"+39*that.num;
+                    sps.innerText = "￥"+39+"*"+0;
+
+                    /*if(this.num>0){
+
+                    }*/
                 }
             }
         }
@@ -334,6 +451,8 @@
         border: 1px solid grey;
         margin-bottom: 0.2rem;
         padding-left: 2.7rem ;
+        background-image: url("http://p99.pstatp.com/origin/pgc-image/153952816355715266d239d");
+        background-size: cover;
     }
     #btn4 li {
         height: 50px;

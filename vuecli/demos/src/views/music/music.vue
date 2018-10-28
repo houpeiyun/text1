@@ -15,6 +15,9 @@
         data(){
             return{
                 dataList:[],
+                dataLists:[],
+                dataListss:[],
+                id:0
             }
         },
         created(){
@@ -28,7 +31,24 @@
                     //console.log(res)
                 }).catch(()=>{
 
-                })
+                }),
+                    axios.get(API_PROXY+'https://api.douban.com/v2/movie/in_theaters?start='+this.dataList.length+'&count=10')
+                        .then((response) => {
+                            this.dataLists = response.data;
+                            console.log(this.dataLists)
+
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        })
+                axios.get(API_PROXY+'https://api.douban.com/v2/movie/subject/'+this.id)
+                    .then((response) => {
+                        this.dataListss = response.data;
+                        console.log(this.dataListss)
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
             },
             routerPush(){
                 this.$router.push("/musicss");
